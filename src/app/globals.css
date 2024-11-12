@@ -1,21 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* globals.css */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Keyframes for flying animation */
+@keyframes flyAround {
+  0% {
+    transform: translate(-100px, -100px) rotate(0deg);
+  }
+  25% {
+    transform: translate(50vw, 30vh) rotate(45deg);
+  }
+  50% {
+    transform: translate(-30vw, -40vh) rotate(90deg);
+  }
+  75% {
+    transform: translate(20vw, -50vh) rotate(135deg);
+  }
+  100% {
+    transform: translate(-100px, -100px) rotate(180deg);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Flying object class */
+.flying-object {
+  @apply absolute w-8 h-8 bg-neonGreen rounded-full;
+  animation: flyAround 8s ease-in-out infinite;
 }
+
+
+
+    .blink {
+      display: inline-block;
+      width: 10px;
+      animation: blink 1s steps(2, start) infinite;
+      color: neonGreen;
+    }
+
+    @keyframes blink {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
