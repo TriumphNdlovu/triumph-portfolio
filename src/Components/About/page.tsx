@@ -18,10 +18,11 @@ export default function About() {
                   {/* Text and Name Section */}
                   <div className="flex flex-col items-center md:items-start text-center md:text-left">
                     <h1 className="text-3xl font-pixel text-retroPink mb-4">Triumph Ndlovu</h1>
+                    <h2 className="text-lg font-pixel text-retroPink mb-4">Bsc Computer Science</h2>
 
-                    <div className="bg-black text-neonGreen font-pixel text-sm p-6 rounded-lg shadow-lg max-w-3xl mx-auto">
+                    <div className=" text-white font-vt323 text-xs p-6 rounded-lg shadow-lg max-w-6xl mx-auto w-full">
                       <p className="text-lg mb-4 leading-relaxed">
-                        I'm a BSc Computer Science graduate from the University of Pretoria, passionate about solving complex problems through technology. With experience in web development, software engineering, and a focus on creating impactful solutions, I strive to build things that make a difference.
+                        I'm a Bsc Computer Science graduate from the University of Pretoria, passionate about solving complex problems through technology. With experience in web development, software engineering, and a focus on creating impactful solutions, I strive to build things that make a difference.
                       </p>
                       <p className="text-lg mb-4 leading-relaxed">
                         I specialize in <span className="text-blue-400">JavaScript</span>, <span className="text-blue-400">TypeScript</span>, <span className="text-blue-400">React</span>, and <span className="text-blue-400">Node.js</span>, and I enjoy working on projects that challenge my creativity and technical skills.

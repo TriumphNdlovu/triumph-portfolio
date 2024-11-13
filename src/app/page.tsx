@@ -99,7 +99,7 @@ export default function Home() {
 
   return (
     
-<div className="bg-black text-white h-screen flex justify-center items-center overflow-y-clip">
+<div className="bg-[#121212] text-white h-screen flex justify-center items-center overflow-y-clip">
   {/* Desktop Icons */}
   <div className="fixed top-0 left-0 h-full font-pixel grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 p-4 z-50 overflow-y-auto">
     <div
@@ -187,7 +187,7 @@ export default function Home() {
         {openWindows.map((window, index) => (
           <div
             key={index}
-            className="bg-black rounded-lg border-2 border-neonGreen absolute w-96 min-h-[70vh] transition-all duration-200"
+            className="bg-forG rounded-lg border-2 border-neonGreen absolute w-96 min-h-[70vh] transition-all duration-200"
             style={{
               top: `${positions[window]?.top}px`,
               left: `${positions[window]?.left}px`,
@@ -199,7 +199,7 @@ export default function Home() {
             
 
             <div
-              className="bg-black text-white p-2 rounded-t-lg flex justify-between items-center shadow-md border-b-2 border-neonGreen"
+              className="bg-[#121212] text-white p-2 rounded-t-lg flex justify-between items-center shadow-md border-b-2 border-neonGreen"
               onMouseDown={(e) => handleDrag(e, window)} 
             >
               <div className="flex gap-2">
@@ -222,44 +222,44 @@ export default function Home() {
 
          
             {window === 'about' && (
-              <section id = 'about' className="p-6 bg-black text-white">
+              <section id = 'about' className="p-6 text-white">
                 <About />
               </section>
             )}
 
             {window === 'projects' && (
-              <section id="projects" className="p-6 bg-black text-white max-h-[90vh] overflow-y-auto">
+              <section id="projects" className="p-6 text-white max-h-[90vh] overflow-y-auto">
                 <Projects />
               </section>
             )}
 
 
             {window === 'skills' && (
-                  <section id="skills" className="p-6 bg-black text-white">
+                  <section id="skills" className="p-6 text-white">
                     <Skills />
                   </section>
             )}
 
 
             {window === 'contact' && (
-                <section id="contact" className="p-6 bg-gray-900 text-white">
+                <section id="contact" className="p-6 text-white">
                     <Contact />
                   </section> 
             )}
 
             {window === 'resume' && (
-                <section id="resume" className="p-6 bg-black text-white">
+                <section id="resume" className="p-6 text-white">
                   <Resume />                  
                 </section>
             )}
             {window === 'blog' && (
-              <section id="blog" className="p-6 bg-black text-white">
+              <section id="blog" className="p-6 text-white">
                       <Blog />
               </section>
             )}
             
             {window === 'Trash' && (
-              <section id="Trash" className="p-6 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-lg shadow-lg">
+              <section id="Trash" className="p-6 text-white rounded-lg shadow-lg">
                 <Trash />
               </section>
             )}

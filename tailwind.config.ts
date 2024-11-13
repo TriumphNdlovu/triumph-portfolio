@@ -9,12 +9,15 @@ export default {
   theme: {
     extend: {
       colors: { 
-        neonGreen: '#00FF00',
-        retroPink: '#FF1493',
+        // neonGreen: '#00FF00',387654
+        neonGreen: '#38ff11',
+        // retroPink: '#FF1493',F6733A
+        retroPink: '#BFBFBF',
         darkCharcoal: '#444444', // Lighter charcoal
         mediumGray: '#555555', // Medium gray for some sections
         borderGray: '#333333',
         neonBlue: '#00FFFF', // Retro blue
+        forG: '#212B30',
       },
       animation: {
         glitch: 'glitch 1s infinite',
