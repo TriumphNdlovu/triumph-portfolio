@@ -5,26 +5,31 @@ export default function Home() {
   // State to manage the active windows
   const [openWindows, setOpenWindows] = useState<string[]>([]);
   const [positions, setPositions] = useState<{ [key: string]: { top: number; left: number } }>({});
+  const [size, setSize] = useState<{ [key: string]: { width: number; height: number } }>({});
 
   const handleWindowOpen = (section: string) => {
     if (!openWindows.includes(section)) {
       setOpenWindows([...openWindows, section]);
 
-      // Calculate the new position for the window based on existing ones
       const newPosition = { top: 100, left: 100 };
-      const offset = 30; // The amount of offset between windows
+      const offset = 30; 
+      const size = { width: 70, height: 70 };
 
-      // If there are already open windows, calculate the new position
       const existingPositions = Object.values(positions);
       if (existingPositions.length > 0) {
         const lastPosition = existingPositions[existingPositions.length - 1];
-        newPosition.top = lastPosition.top + offset; // Offset vertically from the last window
-        newPosition.left = lastPosition.left + offset; // Offset horizontally from the last window
+        newPosition.top = lastPosition.top + offset; 
+        newPosition.left = lastPosition.left + offset; 
       }
 
       setPositions((prevPositions) => ({
         ...prevPositions,
-        [section]: newPosition, // Set initial position for the new window
+        [section]: newPosition, 
+      }));
+
+      setSize((prevSize) => ({ 
+        ...prevSize,
+        [section]: size,
       }));
     }
   };
@@ -32,10 +37,26 @@ export default function Home() {
   const handleWindowClose = (section: string) => {
     setOpenWindows(openWindows.filter(window => window !== section));
     setPositions((prevPositions) => {
-      const { [section]: _, ...rest } = prevPositions; // Remove the position when window is closed
+      const { [section]: _, ...rest } = prevPositions; 
       return rest;
     });
   };
+
+  const handleWindowMaximize = (section: string) => {
+      // make the size 100vw and 100 vh
+      setPositions((prevPositions) => ({
+        ...prevPositions,
+        [section]: { top: 0, left: 0 },
+      }));
+
+    ;
+
+      setSize((prevSize) => ({
+        ...prevSize,
+        [section]: { width: 100, height: 100 },
+      }));
+
+  }
 
   const handleDrag = (e: React.MouseEvent, windowName: string) => {
     const startX = e.clientX;
@@ -63,53 +84,70 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-black text-white h-screen flex flex-col items-center">
-      {/* Desktop Icons */}
-      <div className="grid grid-cols-3 gap-6 p-6">
-        <div className="flex flex-col items-center cursor-pointer" onClick={() => handleWindowOpen('about')}>
-          <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-            <i className="fas fa-user text-4xl text-blue-500"></i>
-          </div>
-          <p className="text-sm mt-2">About</p>
-        </div>
-
-        <div className="flex flex-col items-center cursor-pointer" onClick={() => handleWindowOpen('projects')}>
-          <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-            <i className="fas fa-briefcase text-4xl text-blue-500"></i>
-          </div>
-          <p className="text-sm mt-2">Projects</p>
-        </div>
-
-        <div className="flex flex-col items-center cursor-pointer" onClick={() => handleWindowOpen('skills')}>
-          <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-            <i className="fas fa-laptop-code text-4xl text-blue-500"></i>
-          </div>
-          <p className="text-sm mt-2">Skills</p>
-        </div>
-
-        <div className="flex flex-col items-center cursor-pointer" onClick={() => handleWindowOpen('contact')}>
-          <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-            <i className="fas fa-envelope text-4xl text-blue-500"></i>
-          </div>
-          <p className="text-sm mt-2">Contact</p>
-        </div>
-
-        <div className="flex flex-col items-center cursor-pointer" onClick={() => handleWindowOpen('resume')}>
-          <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-            <i className="fas fa-file text-4xl text-blue-500"></i>
-          </div>
-          <p className="text-sm mt-2">Resume</p>
-        </div>
-
-        <div className="flex flex-col items-center cursor-pointer" onClick={() => handleWindowOpen('blog')}>
-          <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-            <i className="fas fa-blog text-4xl text-blue-500"></i>
-          </div>
-          <p className="text-sm mt-2">Blog</p>
-        </div>
+    
+<div className="bg-black text-white h-screen flex flex-col items-center">
+  {/* Desktop Icons */}
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-6 p-6">
+    <div
+      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
+      onClick={() => handleWindowOpen('about')}
+    >
+      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out">
+        <i className="fas fa-user text-4xl text-blue-500 hover:text-white"></i>
       </div>
+      <p className="text-sm mt-2 text-center hover:text-blue-500 transition duration-300">About</p>
+    </div>
 
+    <div
+      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
+      onClick={() => handleWindowOpen('projects')}
+    >
+      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out">
+        <i className="fas fa-briefcase text-4xl text-blue-500 hover:text-white"></i>
+      </div>
+      <p className="text-sm mt-2 text-center hover:text-blue-500 transition duration-300">Projects</p>
+    </div>
 
+    <div
+      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
+      onClick={() => handleWindowOpen('skills')}
+    >
+      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out">
+        <i className="fas fa-laptop-code text-4xl text-blue-500 hover:text-white"></i>
+      </div>
+      <p className="text-sm mt-2 text-center hover:text-blue-500 transition duration-300">Skills</p>
+    </div>
+
+    <div
+      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
+      onClick={() => handleWindowOpen('contact')}
+    >
+      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out">
+        <i className="fas fa-envelope text-4xl text-blue-500 hover:text-white"></i>
+      </div>
+      <p className="text-sm mt-2 text-center hover:text-blue-500 transition duration-300">Contact</p>
+    </div>
+
+    <div
+      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
+      onClick={() => handleWindowOpen('resume')}
+    >
+      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out">
+        <i className="fas fa-file text-4xl text-blue-500 hover:text-white"></i>
+      </div>
+      <p className="text-sm mt-2 text-center hover:text-blue-500 transition duration-300">Resume</p>
+    </div>
+
+    <div
+      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
+      onClick={() => handleWindowOpen('blog')}
+    >
+      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out">
+        <i className="fas fa-blog text-4xl text-blue-500 hover:text-white"></i>
+      </div>
+      <p className="text-sm mt-2 text-center hover:text-blue-500 transition duration-300">Blog</p>
+    </div>
+  </div>
 
       {/* Open Windows (Desktop-style Windows) */}
       <div className="relative w-full h-full flex items-center justify-center">
@@ -120,8 +158,9 @@ export default function Home() {
             style={{
               top: `${positions[window]?.top}px`,
               left: `${positions[window]?.left}px`,
-              width: '60vw',  
-              minHeight: '60vh', 
+              width: `${size[window]?.width}vw`,
+              minHeight: `${size[window]?.height}vh`, 
+              zIndex: index + 1,
             }} 
           >
             {/* Header Bar */}
@@ -131,8 +170,14 @@ export default function Home() {
             >
               <div className="flex gap-2">
                 {/* Buttons (Minimize, Maximize, Close) */}
-                <div className="w-3 h-3 bg-[#4CAF50] rounded-full hover:bg-[#45a049] cursor-pointer"></div> {/* Minimize */}
-                <div className="w-3 h-3 bg-[#FFEB3B] rounded-full hover:bg-[#FFEB3B] cursor-pointer"></div> {/* Maximize */}
+                <div className="w-3 h-3 bg-[#4CAF50] rounded-full hover:bg-[#45a049] cursor-pointer"
+                  onClick={() => handleWindowClose(window)}
+                  
+                ></div> {/* Minimize */}
+                <div className="w-3 h-3 bg-[#FFEB3B] rounded-full hover:bg-[#FFEB3B] cursor-pointer"
+                onClick={() => handleWindowMaximize(window)}
+                
+                ></div> {/* Maximize */}
                 <div
                   className="w-3 h-3 bg-[#F44336] rounded-full hover:bg-[#e53935] cursor-pointer"
                   onClick={() => handleWindowClose(window)}
@@ -383,9 +428,6 @@ export default function Home() {
                       </div>
                     </section>
                                         )}
-
-
-
           </div>
         ))}
       </div>
