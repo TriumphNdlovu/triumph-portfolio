@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from '../Components/NavBar/page';
-import Link from 'next/link';
 
 
 export const metadata: Metadata = {
@@ -23,9 +22,9 @@ export default function RootLayout({
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
           />
 
-      {/* <Link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" 
+      <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" 
       rel="stylesheet"
-       /> */}
+       />
 
 
       </head>
