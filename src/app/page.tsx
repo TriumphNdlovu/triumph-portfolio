@@ -48,13 +48,20 @@ export default function Home() {
         ...prevPositions,
         [section]: { top: 0, left: 0 },
       }));
-
-    ;
-
-      setSize((prevSize) => ({
-        ...prevSize,
-        [section]: { width: 100, height: 100 },
-      }));
+      if(size[section].width === 100)
+        {
+          setSize((prevSize) => ({
+            ...prevSize,
+            [section]: { width: 70, height: 70 },
+          }));
+        }
+      else
+      {
+        setSize((prevSize) => ({
+          ...prevSize,
+          [section]: { width: 100, height: 100 },
+        }));
+      }
 
   }
 
@@ -85,69 +92,93 @@ export default function Home() {
 
   return (
     
-<div className="bg-black text-white h-screen flex flex-col items-center">
+<div className="bg-black text-white h-screen flex justify-center items-center">
   {/* Desktop Icons */}
-  <div className="grid grid-cols-2 md:grid-cols-3 gap-6 p-6">
+  <div className="fixed top-0 left-0 h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 p-4 z-50 overflow-y-auto">
     <div
       className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
       onClick={() => handleWindowOpen('about')}
     >
-      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out">
-        <i className="fas fa-user text-4xl text-blue-500 hover:text-white"></i>
+      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
+        <i className="fas fa-user text-4xl text-neonGreen"></i>
       </div>
-      <p className="text-sm mt-2 text-center hover:text-blue-500 transition duration-300">About</p>
+      <p className="text-sm mt-2 text-center transition duration-300">About</p>
     </div>
 
     <div
       className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
       onClick={() => handleWindowOpen('projects')}
     >
-      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out">
-        <i className="fas fa-briefcase text-4xl text-blue-500 hover:text-white"></i>
+      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
+        <i className="fas fa-briefcase text-4xl text-neonGreen"></i>
       </div>
-      <p className="text-sm mt-2 text-center hover:text-blue-500 transition duration-300">Projects</p>
+      <p className="text-sm mt-2 text-center transition duration-300">Projects</p>
     </div>
 
     <div
       className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
       onClick={() => handleWindowOpen('skills')}
     >
-      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out">
-        <i className="fas fa-laptop-code text-4xl text-blue-500 hover:text-white"></i>
+      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
+        <i className="fas fa-laptop-code text-4xl text-neonGreen"></i>
       </div>
-      <p className="text-sm mt-2 text-center hover:text-blue-500 transition duration-300">Skills</p>
+      <p className="text-sm mt-2 text-center transition duration-300">Skills</p>
     </div>
 
     <div
       className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
       onClick={() => handleWindowOpen('contact')}
     >
-      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out">
-        <i className="fas fa-envelope text-4xl text-blue-500 hover:text-white"></i>
+      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
+        <i className="fas fa-envelope text-4xl text-neonGreen"></i>
       </div>
-      <p className="text-sm mt-2 text-center hover:text-blue-500 transition duration-300">Contact</p>
+      <p className="text-sm mt-2 text-center transition duration-300">Contact</p>
     </div>
 
     <div
       className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
       onClick={() => handleWindowOpen('resume')}
     >
-      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out">
-        <i className="fas fa-file text-4xl text-blue-500 hover:text-white"></i>
+      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
+        <i className="fas fa-file text-4xl text-neonGreen"></i>
       </div>
-      <p className="text-sm mt-2 text-center hover:text-blue-500 transition duration-300">Resume</p>
+      <p className="text-sm mt-2 text-center transition duration-300">Resume</p>
     </div>
 
     <div
       className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
       onClick={() => handleWindowOpen('blog')}
     >
-      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out">
-        <i className="fas fa-blog text-4xl text-blue-500 hover:text-white"></i>
+      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
+        <i className="fas fa-blog text-4xl text-neonGreen"></i>
       </div>
-      <p className="text-sm mt-2 text-center hover:text-blue-500 transition duration-300">Blog</p>
+      <p className="text-sm mt-2 text-center transition duration-300">Blog</p>
+    </div>
+
+    <div 
+      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
+      onClick={() => handleWindowOpen('Trash')}
+    >
+      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
+        <i className="fas fa-trash text-4xl text-neonGreen"></i>
+      </div>
+      <p className="text-sm mt-2 text-center transition duration-300">Trash</p>
+    </div>
+
+    <div
+      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
+      onClick={() => handleWindowOpen('Downloads')}
+    >
+      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
+        <i className="fas fa-download text-4xl text-neonGreen"></i>
+      </div>
+      <p className="text-sm mt-2 text-center transition duration-300">Downloads</p>
     </div>
   </div>
+
+
+
+
 
       {/* Open Windows (Desktop-style Windows) */}
       <div className="relative w-full h-full flex items-center justify-center">
@@ -160,7 +191,7 @@ export default function Home() {
               left: `${positions[window]?.left}px`,
               width: `${size[window]?.width}vw`,
               minHeight: `${size[window]?.height}vh`, 
-              zIndex: index + 1,
+              zIndex: 50 + index,
             }} 
           >
             {/* Header Bar */}
@@ -428,6 +459,47 @@ export default function Home() {
                       </div>
                     </section>
                                         )}
+                  {window === 'Trash' && (
+  <section id="Trash" className="p-6 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-lg shadow-lg">
+    <h2 className="text-4xl text-red-500 font-bold mb-6 text-center">
+      Trash: Negative Thoughts Archive
+    </h2>
+    <p className="text-lg mb-8 text-center text-gray-400">
+      It's okay to feel down, but let's not dwell on these thoughts. Here are some things I need to let go.
+    </p>
+    
+    <div className="space-y-4">
+      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-red-600 transition duration-300 ease-in-out">
+        <p className="text-xl text-gray-300">"I am a failure"</p>
+      </div>
+      
+      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-red-600 transition duration-300 ease-in-out">
+        <p className="text-xl text-gray-300">"I am a loser"</p>
+      </div>
+      
+      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-red-600 transition duration-300 ease-in-out">
+        <p className="text-xl text-gray-300">"I am a nobody"</p>
+      </div>
+
+      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-red-600 transition duration-300 ease-in-out">
+        <p className="text-xl text-gray-300">"I will never succeed"</p>
+      </div>
+
+      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-red-600 transition duration-300 ease-in-out">
+        <p className="text-xl text-gray-300">"Nobody cares about me"</p>
+      </div>
+
+      <div className="bg-gray-700 p-4 rounded-lg shadow-md hover:bg-red-600 transition duration-300 ease-in-out">
+        <p className="text-xl text-gray-300">"I'm just not good enough"</p>
+      </div>
+    </div>
+
+    <p className="mt-8 text-center text-sm text-gray-400">
+      These thoughts are just passing through. They don't define me, and I am working on letting them go.
+    </p>
+  </section>
+)}
+
           </div>
         ))}
       </div>
