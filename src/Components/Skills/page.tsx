@@ -16,11 +16,15 @@ export default function Skills() {
     { name: 'Firebase', category: 'Backend' },
     { name: 'Supabase', category: 'Backend' },
     { name: 'Node.Js', category: 'Backend' },
-    { name: 'Spring Boot', category: 'Backend' },
+    { name: 'Java & Spring Boot', category: 'Backend' },
     { name: 'Git', category: 'Tools & Frameworks' },
+    { name: 'Maven & Gandle', category: 'Tools & Frameworks' },
+    { name: 'npm & yarn', category: 'Tools & Frameworks' }
+
+
   ];
 
-  // Group skills by category
+
   const groupedSkills = skills.reduce((acc, skill) => {
     (acc[skill.category] = acc[skill.category] || []).push(skill);
     return acc;
