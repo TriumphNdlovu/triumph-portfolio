@@ -56,9 +56,11 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero" className="h-screen bg-black flex items-center justify-center text-center text-neonGreen relative overflow-hidden">
         <div>
-          <h1 className="text-6xl font-vt323 mb-4 animate-glitch text-retroPink">Triumph Ndlovu</h1>
+          <h1 className="text-6xl font-vt323 mb-4  text-retroPink animate-glitch">Triumph Ndlovu</h1>
           <p className="text-xl mb-8 text-neonGreen font-pixel">A passionate developer focused on creating innovative and efficient solutions.</p>
-          <a href="#projects" className="bg-retroPink text-black p-3 rounded-lg hover:bg-neonGreen hover:text-black">See My Work</a>
+          <div className='animate-glitch'>
+          <a href="#projects" className="bg-retroPink text-black p-3 rounded-lg hover:bg-neonGreen hover:text-black ">Let's Explore</a>
+          </div>
         </div>
 
         {/* Flying Objects */}
@@ -69,7 +71,7 @@ export default function Home() {
         <div className="flying-object" style={randomPosition()}></div>
       </section>
 
-     <section id="about" className="py-16 bg-black text-neonGreen text-center">
+     <section id="about" className="py-16 bg-black text-neonGreen text-center h-[100vh]">
   <h2 className="text-4xl font-vt323 mb-8 text-retroPink">About Triumph</h2>
   
   <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 max-w-4xl mx-auto px-4">
@@ -83,10 +85,10 @@ export default function Home() {
     </div>
     
     {/* Terminal-Style Text */}
-    <div className="text-lg font-mono text-neonGreen bg-black p-6 rounded-md leading-relaxed max-w-2xl md:text-left text-center shadow-lg border border-neonGreen">
+    <div className="text-lg font-mono text-neonGreen  bg-black p-6 rounded-md leading-relaxed max-w-2xl md:text-left text-center shadow-lg border border-neonGreen">
       {/* Terminal Prompt */}
       <p className="text-retroPink">
-        triumph@Linux:~/Documents/triumph-portfolio$
+        triumph@Linux:~/github/triumph-portfolio$
       </p>
       <p className="">
         I'm a BSc Computer Science graduate from the University of Pretoria, passionate about solving complex problems through technology. With experience in web development, software engineering, and a focus on creating impactful solutions, I strive to build things that make a difference.
@@ -94,72 +96,92 @@ export default function Home() {
       </p>
     </div>
   </div>
+  <a 
+    href="/path/to/your-cv.pdf" 
+    download 
+    className="inline-block bg-retroPink text-black py-3 px-6 rounded-lg hover:bg-neonGreen font-pixel">
+    Download CV
+  </a>
+
 </section>
 
 
-{/* Projects Section */}
-<section id="projects" className="py-16 bg-black text-neonGreen text-center">
-  <h2 className="text-4xl font-vt323 mb-8 text-retroPink">Projects</h2>
+{/* Skills Section */}
+{/* Skills Section */}
+<section id="skills" className="py-16 bg-black text-neonGreen text-center h-[100vh] flex flex-col items-center">
+  <h2 className="text-4xl font-vt323 mb-8 text-retroPink">Skills</h2>
 
-  <div className="flex flex-row gap-12 max-w-4xl mx-auto px-4">
-    {/* Project 1 */}
-    <div
-      className="opacity-0 w-[20vw] h-[80vh]  flex flex-col md:flex-row items-center justify-center shadow-lg border border-neonGreen overflow-hidden"
-      ref={(el) => {
-        projectRefs.current[0] = el;
-      }}
-      
-    >
-      {/* Image */}
-      <img
-        src="/sweatsession.png"
-        alt="Sweat Session"
-        // className="w-full h-auto md:w-1/2 object-contain border-2 border-neonGreen"
-        data-animation="left"
-      />
-
-      {/* Content */}
-      {/* <div className="flex flex-col justify-center text-center md:text-left mt-6 md:mt-0 md:ml-6">
-        <h3 className="text-2xl font-pixel mb-2 text-retroPink">Sweat Session Mobile App</h3>
-        <p className="text-lg mb-4">
-          The purpose of SweatSession is to develop a social, location-based mobile app that will enable users to schedule workout sessions with their friends, track their progress, view their friends' personal bests, and earn rewards for achieving their fitness goals.
-        </p>
-        <a href="#" className="text-retroPink hover:text-neonGreen">GitHub Link</a>
-      </div> */}
-    </div>
-
-    {/* Project 2 */}
-    <div
-      className="opacity-0 bg-darkGray p-6 rounded-lg w-[60vw] h-[80vh] flex flex-col md:flex-row items-center justify-center shadow-lg border border-neonGreen overflow-hidden"
-      data-animation="right"
-      ref={(el) => { projectRefs.current[1] = el }}
-    >
-      {/* Image */}
-      {/* <img
-        src="/project2.png"
-        alt="Project 2"
-        className="w-full h-auto md:w-1/2 object-contain border-2 border-neonGreen"
-      /> */}
-
-      {/* Content */}
-      {/* <div className="flex flex-col justify-center text-center md:text-left mt-6 md:mt-0 md:ml-6">
-        <h3 className="text-2xl font-pixel mb-2 text-retroPink">Project 2</h3>
-        <p className="text-lg mb-4">A brief description of what this project is about.</p>
-        <a href="#" className="text-retroPink hover:text-neonGreen">View Details</a>
-      </div> */}
-      <div className="flex flex-col justify-center text-center md:text-left mt-6 md:mt-0 md:ml-6">
-        <h3 className="text-2xl font-pixel mb-2 text-retroPink">Sweat Session Mobile App</h3>
-        <p className="text-lg mb-4">
-          The purpose of SweatSession is to develop a social, location-based mobile app that will enable users to schedule workout sessions with their friends, track their progress, view their friends' personal bests, and earn rewards for achieving their fitness goals.
-        </p>
-        <a href="#" className="text-retroPink hover:text-neonGreen">GitHub Link</a>
-      </div>
-    </div>
+  {/* Skills Grid */}
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full max-w-4xl px-4">
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">JavaScript</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">TypeScript</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">React</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Node.js</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Express</div>
+    {/* // vertial line */}
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Next.js</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">MongoDB</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Firebase</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Tailwind CSS</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Java</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Spring Boot</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">SQL</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Python</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">HTML & CSS</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Git</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Docker</div>
   </div>
 </section>
 
 
 
+
+
+
+<section id="projects" className="py-16 bg-black text-neonGreen text-center h-screen">
+  <h2 className="text-4xl font-vt323 mb-8 text-retroPink">Projects</h2>
+
+  {/* Grid Layout */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
+    
+    {/* Project Card */}
+    <div className="relative group border border-neonGreen rounded-lg overflow-hidden shadow-lg bg-opacity-10 hover:bg-opacity-20 transition">
+      {/* Image */}
+      <img
+        src="/sweatsession.png"
+        alt="Sweat Session"
+        className="w-full h-[50vh] object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
+        <div className="text-center">
+          <h3 className="text-2xl font-pixel text-retroPink mb-2">Sweat Session Mobile App</h3>
+          <p className="text-lg mb-4">
+            A social, location-based app for scheduling workout sessions, tracking progress, and achieving fitness goals with friends.
+          </p>
+          <a href="#" className="text-retroPink hover:text-neonGreen">GitHub Link</a>
+        </div>
+      </div>
+    </div>
+
+    {/* Project 2 Card */}
+    <div className="relative group border border-neonGreen rounded-lg overflow-hidden shadow-lg bg-opacity-10 hover:bg-opacity-20 transition">
+      <img
+        src="/project2.png"
+        alt="Project 2"
+        className="w-full h-[50vh] object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
+        <div className="text-center">
+          <h3 className="text-2xl font-pixel text-retroPink mb-2">Project 2</h3>
+          <p className="text-lg mb-4">A brief description of this project.</p>
+          <a href="#" className="text-retroPink hover:text-neonGreen">View Details</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
       {/* Footer */}
