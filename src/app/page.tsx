@@ -1,272 +1,193 @@
 'use client'
-import { useState } from 'react';
-import About from '../Components/About/page';
-import Projects from '@/Components/Projects/page';
-import Skills from '@/Components/Skills/page';
-import Contact from '@/Components/Contact/page';
-import Resume from '@/Components/Resume/page';
-import Blog from '@/Components/Blog/page';
-import Trash from '@/Components/Trash/page';
+import Link from 'next/link';
+import ScrollProgressBar from '../Components/ScrollProgressBar';
+import { useEffect, useRef } from 'react';
 
 export default function Home() {
-  // State to manage the active windows
-  const [openWindows, setOpenWindows] = useState<string[]>([]);
-  const [positions, setPositions] = useState<{ [key: string]: { top: number; left: number } }>({});
-  const [size, setSize] = useState<{ [key: string]: { width: number; height: number } }>({});
-
-  const handleWindowOpen = (section: string) => {
-    if (!openWindows.includes(section)) {
-      setOpenWindows([...openWindows, section]);
-
-      const newPosition = { top: 30, left: 320 };
-      const offset = 30; 
-      const size = { width: 80, height: 60 };
-
-      const existingPositions = Object.values(positions);
-      if (existingPositions.length > 0) {
-        const lastPosition = existingPositions[existingPositions.length - 1];
-        newPosition.top = lastPosition.top + offset; 
-        newPosition.left = lastPosition.left + offset; 
-      }
-
-      setPositions((prevPositions) => ({
-        ...prevPositions,
-        [section]: newPosition, 
-      }));
-
-      setSize((prevSize) => ({ 
-        ...prevSize,
-        [section]: size,
-      }));
-    }
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+  // Function to generate random values
+  const randomPosition = () => {
+    const randomTop = Math.random() * 100; // Random top position (percentage)
+    const randomLeft = Math.random() * 100; // Random left position (percentage)
+    const randomDelay = Math.random() * 5 + 's'; // Random delay for animation
+    const randomDuration = Math.random() * 3 + 5 + 's'; // Random duration (8s to 11s)
+    return {
+      top: `${randomTop}%`,
+      left: `${randomLeft}%`,
+      animationDelay: randomDelay,
+      animationDuration: randomDuration,
+    };
   };
 
-  const handleWindowClose = (section: string) => {
-    setOpenWindows(openWindows.filter(window => window !== section));
-    setPositions((prevPositions) => {
-      const { [section]: _, ...rest } = prevPositions; 
-      return rest;
-    });
-  };
+    useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const element = entry.target as HTMLElement; // Cast to HTMLElement
 
-  const handleWindowMaximize = (section: string) => {
-      // make the size 100vw and 100 vh
-      setPositions((prevPositions) => ({
-        ...prevPositions,
-        [section]: { top: 0, left: 0 },
-      }));
-      if(size[section].width === 100)
-        {
-          setSize((prevSize) => ({
-            ...prevSize,
-            [section]: { width: 80, height: 60 },
-          }));
+        // Reset the animation when leaving the viewport
+        if (!entry.isIntersecting) {
+          element.classList.remove('animate-slideInLeft', 'animate-slideInRight');
+          element.classList.add('opacity-0'); // Keep it hidden when not in view
         }
-      else
-      {
-        setSize((prevSize) => ({
-          ...prevSize,
-          [section]: { width: 100, height: 100 },
-        }));
-      }
 
-  }
+        // Add animation when the element is in the viewport
+        if (entry.isIntersecting) {
+          const animation = element.dataset.animation === 'left' ? 'animate-slideInLeft' : 'animate-slideInRight';
+          element.classList.remove('opacity-0'); // Remove opacity when the animation starts
+          element.classList.add(animation); // Add animation class
+        }
+      });
+    },
+    { threshold: 0.2 } // Trigger when 20% of the element is in view
+  );
 
-  const handleDrag = (e: React.MouseEvent, windowName: string) => {
-    const startX = e.clientX;
-    const startY = e.clientY;
-    const startTop = positions[windowName].top;
-    const startLeft = positions[windowName].left;
+  projectRefs.current.filter((project): project is HTMLDivElement => project !== null).forEach((project) => observer.observe(project));
 
-    const onMouseMove = (moveEvent: MouseEvent) => {
-      const newTop = startTop + moveEvent.clientY - startY;
-      const newLeft = startLeft + moveEvent.clientX - startX;
+  return () => observer.disconnect();
+}, []);
 
-      setPositions((prevPositions) => ({
-        ...prevPositions,
-        [windowName]: { top: newTop, left: newLeft },
-      }));
-    };
-
-    const onMouseUp = () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseup', onMouseUp);
-    };
-
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseup', onMouseUp);
-  };
 
   return (
+    <div className="scroll-smooth bg-black relative">
+      {/* Scroll Progress Bar */}
+      <ScrollProgressBar />
+
+      {/* Hero Section */}
+      <section id="hero" className="h-screen bg-black flex items-center justify-center text-center text-neonGreen relative overflow-hidden">
+        <div>
+          <h1 className="text-6xl font-vt323 mb-4  text-retroPink animate-glitch">Triumph Ndlovu</h1>
+          <p className="text-xl mb-8 text-neonGreen font-pixel">A passionate developer focused on creating innovative and efficient solutions.</p>
+          <div className='animate-glitch'>
+          <a href="#projects" className="bg-retroPink text-black p-3 rounded-lg hover:bg-neonGreen hover:text-black ">Let's Explore</a>
+          </div>
+        </div>
+
+        {/* Flying Objects */}
+        <div className="flying-object" style={randomPosition()}></div>
+        <div className="flying-object" style={randomPosition()}></div>
+        <div className="flying-object" style={randomPosition()}></div>
+        <div className="flying-object" style={randomPosition()}></div>
+        <div className="flying-object" style={randomPosition()}></div>
+      </section>
+
+     <section id="about" className="py-16 bg-black text-neonGreen text-center h-[100vh]">
+  <h2 className="text-4xl font-vt323 mb-8 text-retroPink">About Triumph</h2>
+  
+  <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 max-w-4xl mx-auto px-4">
+    {/* Profile Image */}
+    <div className="relative w-48 h-48 rounded-full border-4 border-neonGreen overflow-hidden">
+      <img 
+        src="/profilePicture.png" 
+        alt="Triumph Ndlovu"
+        className="w-full h-full object-cover"
+      />
+    </div>
     
-<div className="bg-black text-white h-screen flex justify-center items-center overflow-y-clip">
-  {/* Desktop Icons */}
-  <div className="fixed top-0 left-0 h-full font-pixel grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 p-4 z-50 overflow-y-auto">
-    <div
-      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
-      onClick={() => handleWindowOpen('about')}
-    >
-      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
-        <i className="fas fa-user text-4xl text-neonGreen"></i>
-      </div>
-      <p className="text-sm mt-2 text-center transition duration-300">About</p>
-    </div>
-
-    <div
-      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
-      onClick={() => handleWindowOpen('projects')}
-    >
-      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
-        <i className="fas fa-briefcase text-4xl text-neonGreen"></i>
-      </div>
-      <p className="text-sm  mt-2 text-center transition duration-300">Projects</p>
-    </div>
-
-    <div
-      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
-      onClick={() => handleWindowOpen('skills')}
-    >
-      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
-        <i className="fas fa-laptop-code text-4xl text-neonGreen"></i>
-      </div>
-      <p className="text-sm mt-2 text-center transition duration-300">Skills</p>
-    </div>
-
-    <div
-      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
-      onClick={() => handleWindowOpen('contact')}
-    >
-      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
-        <i className="fas fa-envelope text-4xl text-neonGreen"></i>
-      </div>
-      <p className="text-sm mt-2 text-center transition duration-300">Contact</p>
-    </div>
-
-    <div
-      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
-      onClick={() => handleWindowOpen('resume')}
-    >
-      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
-        <i className="fas fa-file text-4xl text-neonGreen"></i>
-      </div>
-      <p className="text-sm mt-2 text-center transition duration-300">Resume</p>
-    </div>
-
-    <div
-      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
-      onClick={() => handleWindowOpen('blog')}
-    >
-      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
-        <i className="fas fa-blog text-4xl text-neonGreen"></i>
-      </div>
-      <p className="text-sm mt-2 text-center transition duration-300">Blog</p>
-    </div>
-
-    <div 
-      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
-      onClick={() => handleWindowOpen('Trash')}
-    >
-      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
-        <i className="fas fa-trash text-4xl text-neonGreen"></i>
-      </div>
-      <p className="text-sm mt-2 text-center transition duration-300">Trash</p>
-    </div>
-
-    <div
-      className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
-      onClick={() => handleWindowOpen('Downloads')}
-    >
-      <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
-        <i className="fas fa-download text-4xl text-neonGreen"></i>
-      </div>
-      <p className="text-sm mt-2 text-center transition duration-300">Downloads</p>
+    {/* Terminal-Style Text */}
+    <div className="text-lg font-mono text-neonGreen  bg-black p-6 rounded-md leading-relaxed max-w-2xl md:text-left text-center shadow-lg border border-neonGreen">
+      {/* Terminal Prompt */}
+      <p className="text-retroPink">
+        triumph@Linux:~/github/triumph-portfolio$
+      </p>
+      <p className="">
+        I'm a BSc Computer Science graduate from the University of Pretoria, passionate about solving complex problems through technology. With experience in web development, software engineering, and a focus on creating impactful solutions, I strive to build things that make a difference.
+      <span className="blink text-retroPink">|</span>
+      </p>
     </div>
   </div>
+  <a 
+    href="/path/to/your-cv.pdf" 
+    download 
+    className="inline-block bg-retroPink text-black py-3 px-6 rounded-lg hover:bg-neonGreen font-pixel">
+    Download CV
+  </a>
 
-      <div className="relative w-full h-full flex items-center justify-center">
-        {openWindows.map((window, index) => (
-          <div
-            key={index}
-            className="bg-black rounded-lg border-2 border-neonGreen absolute w-96 min-h-[70vh] transition-all duration-200"
-            style={{
-              top: `${positions[window]?.top}px`,
-              left: `${positions[window]?.left}px`,
-              width: `${size[window]?.width}vw`,
-              minHeight: `${size[window]?.height}vh`, 
-              zIndex: 50 + index,
-            }} 
-          >
-            
-
-            <div
-              className="bg-black text-white p-2 rounded-t-lg flex justify-between items-center shadow-md border-b-2 border-neonGreen"
-              onMouseDown={(e) => handleDrag(e, window)} 
-            >
-              <div className="flex gap-2">
-                {/* Buttons (Minimize, Maximize, Close) */}
-                <div className="w-3 h-3 bg-[#4CAF50] rounded-full hover:bg-[#45a049] cursor-pointer"
-                  onClick={() => handleWindowClose(window)}
-                  
-                ></div> {/* Minimize */}
-                <div className="w-3 h-3 bg-[#FFEB3B] rounded-full hover:bg-[#FFEB3B] cursor-pointer"
-                onClick={() => handleWindowMaximize(window)}
-                
-                ></div> {/* Maximize */}
-                <div
-                  className="w-3 h-3 bg-[#F44336] rounded-full hover:bg-[#e53935] cursor-pointer"
-                  onClick={() => handleWindowClose(window)}
-                ></div> 
-              </div>
-              <span className=" text-lg font-pixel text-retroPink">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
-            </div>
-
-         
-            {window === 'about' && (
-              <section id = 'about' className="p-6 bg-black text-white">
-                <About />
-              </section>
-            )}
-
-            {window === 'projects' && (
-              <section id="projects" className="p-6 bg-black text-white max-h-[90vh] overflow-y-auto">
-                <Projects />
-              </section>
-            )}
+</section>
 
 
-            {window === 'skills' && (
-                  <section id="skills" className="p-6 bg-black text-white">
-                    <Skills />
-                  </section>
-            )}
+{/* Skills Section */}
+{/* Skills Section */}
+<section id="skills" className="py-16 bg-black text-neonGreen text-center h-[100vh] flex flex-col items-center">
+  <h2 className="text-4xl font-vt323 mb-8 text-retroPink">Skills</h2>
+
+  {/* Skills Grid */}
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full max-w-4xl px-4">
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">JavaScript</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">TypeScript</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">React</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Node.js</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Express</div>
+    {/* // vertial line */}
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Next.js</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">MongoDB</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Firebase</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Tailwind CSS</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Java</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Spring Boot</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">SQL</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Python</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">HTML & CSS</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Git</div>
+    <div className="bg-darkGray p-4 rounded-lg border border-neonGreen font-pixel">Docker</div>
+  </div>
+</section>
 
 
-            {window === 'contact' && (
-                <section id="contact" className="p-6 bg-gray-900 text-white">
-                    <Contact />
-                  </section> 
-            )}
 
-            {window === 'resume' && (
-                <section id="resume" className="p-6 bg-black text-white">
-                  <Resume />                  
-                </section>
-            )}
-            {window === 'blog' && (
-              <section id="blog" className="p-6 bg-black text-white">
-                      <Blog />
-              </section>
-            )}
-            
-            {window === 'Trash' && (
-              <section id="Trash" className="p-6 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-lg shadow-lg">
-                <Trash />
-              </section>
-            )}
 
-          </div>
-        ))}
+
+
+<section id="projects" className="py-16 bg-black text-neonGreen text-center h-screen">
+  <h2 className="text-4xl font-vt323 mb-8 text-retroPink">Projects</h2>
+
+  {/* Grid Layout */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
+    
+    {/* Project Card */}
+    <div className="relative group border border-neonGreen rounded-lg overflow-hidden shadow-lg bg-opacity-10 hover:bg-opacity-20 transition">
+      {/* Image */}
+      <img
+        src="/sweatsession.png"
+        alt="Sweat Session"
+        className="w-full h-[50vh] object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
+        <div className="text-center">
+          <h3 className="text-2xl font-pixel text-retroPink mb-2">Sweat Session Mobile App</h3>
+          <p className="text-lg mb-4">
+            A social, location-based app for scheduling workout sessions, tracking progress, and achieving fitness goals with friends.
+          </p>
+          <a href="#" className="text-retroPink hover:text-neonGreen">GitHub Link</a>
+        </div>
       </div>
+    </div>
+
+    {/* Project 2 Card */}
+    <div className="relative group border border-neonGreen rounded-lg overflow-hidden shadow-lg bg-opacity-10 hover:bg-opacity-20 transition">
+      <img
+        src="/project2.png"
+        alt="Project 2"
+        className="w-full h-[50vh] object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
+        <div className="text-center">
+          <h3 className="text-2xl font-pixel text-retroPink mb-2">Project 2</h3>
+          <p className="text-lg mb-4">A brief description of this project.</p>
+          <a href="#" className="text-retroPink hover:text-neonGreen">View Details</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+      {/* Footer */}
+      <footer className="bg-black text-center p-4 text-neonGreen">
+        <p>&copy; 2024 Triumph Ndlovu | All Rights Reserved</p>
+      </footer>
     </div>
   );
 }

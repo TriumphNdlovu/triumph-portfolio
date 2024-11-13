@@ -26,7 +26,7 @@ export default {
         },
       },
       fontFamily: {
-        pixel: ['"Press Start 2P"', 'system-ui'],
+        pixel: ['"Press Start 2P"', 'cursive'],
         vt323: ['"VT323"', 'monospace'], // Option for VT323 font
       },
     },
