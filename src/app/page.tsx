@@ -232,7 +232,7 @@ export default function Home() {
 
                   {/* Text and Name Section */}
                   <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                    <h1 className="text-3xl font-semibold text-retroPink mb-4">Triumph Ndlovu</h1>
+                    <h1 className="text-3xl font-pixel text-retroPink mb-4">Triumph Ndlovu</h1>
 
                     <div className="bg-black text-neonGreen p-6 rounded-lg shadow-lg max-w-3xl mx-auto">
                       <p className="text-lg mb-4 leading-relaxed">
