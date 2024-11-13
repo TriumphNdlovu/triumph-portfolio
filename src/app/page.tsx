@@ -18,9 +18,9 @@ export default function Home() {
     if (!openWindows.includes(section)) {
       setOpenWindows([...openWindows, section]);
 
-      const newPosition = { top: 100, left: 100 };
+      const newPosition = { top: 30, left: 320 };
       const offset = 30; 
-      const size = { width: 70, height: 70 };
+      const size = { width: 80, height: 60 };
 
       const existingPositions = Object.values(positions);
       if (existingPositions.length > 0) {
@@ -59,7 +59,7 @@ export default function Home() {
         {
           setSize((prevSize) => ({
             ...prevSize,
-            [section]: { width: 70, height: 70 },
+            [section]: { width: 80, height: 60 },
           }));
         }
       else
@@ -99,7 +99,7 @@ export default function Home() {
 
   return (
     
-<div className="bg-black text-white h-screen flex justify-center items-center">
+<div className="bg-black text-white h-screen flex justify-center items-center overflow-y-clip">
   {/* Desktop Icons */}
   <div className="fixed top-0 left-0 h-full font-pixel grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 p-4 z-50 overflow-y-auto">
     <div
@@ -217,7 +217,7 @@ export default function Home() {
                   onClick={() => handleWindowClose(window)}
                 ></div> 
               </div>
-              <span className="font-sans text-lg font-semibold text-retroPink">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
+              <span className=" text-lg font-pixel text-retroPink">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
             </div>
 
          
@@ -228,7 +228,7 @@ export default function Home() {
             )}
 
             {window === 'projects' && (
-              <section id="projects" className="p-6 bg-black text-white">
+              <section id="projects" className="p-6 bg-black text-white max-h-[90vh] overflow-y-auto">
                 <Projects />
               </section>
             )}
