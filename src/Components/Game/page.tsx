@@ -54,7 +54,7 @@ export default function Game() {
         {Array.from({ length: 9 }, (_, index) => (
           <div
             key={index}
-            className={`h-24 w-24 bg-gray-700 rounded-lg border-2 border-neonGreen relative ${index === molePosition ? 'bg-green-500' : ''}`}
+            className={`h-24 w-24 bg-black rounded-lg border-2 border-neonGreen relative ${index === molePosition ? 'bg-green-500' : ''}`}
             onClick={() => hitMole(index)}
           >
             {index === molePosition && (
