@@ -7,6 +7,7 @@ import Contact from '@/Components/Contact/page';
 import Resume from '@/Components/Resume/page';
 import Blog from '@/Components/Blog/page';
 import Trash from '@/Components/Trash/page';
+import Game from '@/Components/Game/page';
 
 export default function Home() {
   // State to manage the active windows
@@ -157,7 +158,7 @@ export default function Home() {
       onClick={() => handleWindowOpen('blog')}
     >
       <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
-        <i className="fas fa-blog text-4xl text-neonGreen"></i>
+        <i className="fas fa-comments text-4xl text-neonGreen"></i>
       </div>
       <p className="text-sm mt-2 text-center transition duration-300">Blog</p>
     </div>
@@ -174,12 +175,12 @@ export default function Home() {
 
     <div
       className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
-      onClick={() => handleWindowOpen('Downloads')}
+      onClick={() => handleWindowOpen('Game')}
     >
       <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
-        <i className="fas fa-download text-4xl text-neonGreen"></i>
+        <i className="fas fa-gamepad text-4xl text-neonGreen"></i>
       </div>
-      <p className="text-sm mt-2 text-center transition duration-300">Downloads</p>
+      <p className="text-sm mt-2 text-center transition duration-300">Game</p>
     </div>
   </div>
 
@@ -261,6 +262,12 @@ export default function Home() {
             {window === 'Trash' && (
               <section id="Trash" className="p-6 text-white rounded-lg shadow-lg">
                 <Trash />
+              </section>
+            )}
+
+            {window === 'Game' && (
+              <section id="Game" className="p-6 text-white rounded-lg shadow-lg">
+                <Game />
               </section>
             )}
 
