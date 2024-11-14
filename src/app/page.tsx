@@ -14,6 +14,8 @@ export default function Home() {
   const [openWindows, setOpenWindows] = useState<string[]>([]);
   const [positions, setPositions] = useState<{ [key: string]: { top: number; left: number } }>({});
   const [size, setSize] = useState<{ [key: string]: { width: number; height: number } }>({});
+  const [minimizedWindows, setMinimizedWindows] = useState<string[]>([]);
+
 
   const handleWindowOpen = (section: string) => {
     if (!openWindows.includes(section)) {
@@ -59,14 +61,21 @@ export default function Home() {
     });
   };
 
-  const handleWindowMinimize = (section: string) => {
-    setPositions((prevPositions) => ({
-      ...prevPositions,
-      [section]: { top: window.innerHeight - 40, left: 0 },
-    }));
-  }
+      const handleWindowMinimize = (section: string) => {
+      setMinimizedWindows([...minimizedWindows, section]);
+    };
 
-  const handleWindowMaximize = (section: string) => {
+
+    const handleTaskbarClick = (section: string) => {
+      if (minimizedWindows.includes(section)) {
+        setMinimizedWindows(minimizedWindows.filter((window) => window !== section));
+      } else {
+        handleWindowOpen(section);
+      }
+    };
+
+    
+  const handleWindowMaximizeORMinimize = (section: string) => {
     setPositions((prevPositions) => ({
       ...prevPositions,
       [section]: { top: 0, left: 0 },
@@ -134,66 +143,78 @@ export default function Home() {
 
       <div className="relative w-full h-full flex items-center justify-center">
         {openWindows.map((window, index) => (
+  !minimizedWindows.includes(window) && (
+    <div
+      key={index}
+      className="bg-forG rounded-lg border-2 border-neonGreen absolute transition-all duration-200"
+      style={{
+        top: `${positions[window]?.top}px`,
+        left: `${positions[window]?.left}px`,
+        width: `${size[window]?.width}vw`,
+        minHeight: `${size[window]?.height}vh`,
+        zIndex: 50 + index,
+      }}
+    >
+      <div
+        className="bg-[#121212] text-white p-2 rounded-t-lg flex justify-between 
+        items-center shadow-md border-b-2 border-neonGreen
+        cursor-move"
+        onMouseDown={(e) => handleDrag(e, window)}
+      >
+        <div className="flex gap-2">
           <div
-            key={index}
-            className="bg-forG rounded-lg border-2 border-neonGreen absolute transition-all duration-200"
-            style={{
-              top: `${positions[window]?.top}px`,
-              left: `${positions[window]?.left}px`,
-              width: `${size[window]?.width}vw`,
-              minHeight: `${size[window]?.height}vh`,
-              zIndex: 50 + index,
-            }}
-          >
-            <div
-              className="bg-[#121212] text-white p-2 rounded-t-lg flex justify-between 
-              items-center shadow-md border-b-2 border-neonGreen
-              cursor-move
-              "
-              onMouseDown={(e) => handleDrag(e, window)}
-            >
-              <div className="flex gap-2">
-                <div
-                  className="w-3 h-3 bg-[#4CAF50] rounded-full hover:bg-[#45a049] cursor-pointer"
-                  onClick={() => handleWindowMinimize(window)}
-                ></div>
-                <div
-                  className="w-3 h-3 bg-[#FFEB3B] rounded-full hover:bg-[#FFEB3B] cursor-pointer"
-                  onClick={() => handleWindowMaximize(window)}
-                ></div>
-                <div
-                  className="w-3 h-3 bg-[#F44336] rounded-full hover:bg-[#e53935] cursor-pointer"
-                  onClick={() => handleWindowClose(window)}
-                ></div>
-              </div>
-              <span className="text-lg font-pixel text-retroPink">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
-            </div>
-            <div className="overflow-y-auto max-h-[90vh]">
-            {window === 'about' && <About />}
-            {window === 'projects' && <Projects />}
-            {window === 'skills' && <Skills />}
-            {window === 'contact' && <Contact />}
-            {window === 'resume' && <Resume />}
-            {window === 'blog' && <Blog />}
-            {window === 'Trash' && <Trash />}
-            {window === 'Game' && <Game />}
-            </div>
-          </div>
-        ))}
-      <div className="fixed bottom-0 left-0 right-0 bg-[#1A1A1A] text-white flex items-center h-12 p-2 shadow-lg font-pixel z-60">
-  <div className="flex items-center space-x-4 px-4 cursor-pointer hover:bg-[#3a3a3a] rounded-md py-1">
-    <i className="fas fa-windows text-lg"></i>
-    <span className="text-sm">Start</span>
-  </div>
-  <div className="flex-grow"></div>
-  {/* Add icons or titles of opened windows */}
-  {openWindows.map((window) => (
-    <div key={window} className="flex items-center px-4 hover:bg-[#3a3a3a] rounded-md cursor-pointer">
-      <i className={`fas fa-${window === 'about' ? 'user' : window === 'projects' ? 'briefcase' : window === 'skills' ? 'laptop-code' : window === 'contact' ? 'envelope' : window === 'resume' ? 'file' : window === 'blog' ? 'comments' : window === 'Trash' ? 'trash' : 'gamepad'}`}></i>
-      <span className="ml-2 text-xs">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
+            className="w-3 h-3 bg-[#4CAF50] rounded-full hover:bg-[#45a049] cursor-pointer"
+            onClick={() => handleWindowMinimize(window)}
+          ></div>
+          <div
+            className="w-3 h-3 bg-[#FFEB3B] rounded-full hover:bg-[#FFEB3B] cursor-pointer"
+            onClick={() => handleWindowMaximizeORMinimize(window)}
+          ></div>
+          <div
+            className="w-3 h-3 bg-[#F44336] rounded-full hover:bg-[#e53935] cursor-pointer"
+            onClick={() => handleWindowClose(window)}
+          ></div>
+        </div>
+        <span className="text-lg font-pixel text-retroPink">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
+      </div>
+      <div className="overflow-y-auto max-h-[90vh]">
+        {window === 'about' && <About />}
+        {window === 'projects' && <Projects />}
+        {window === 'skills' && <Skills />}
+        {window === 'contact' && <Contact />}
+        {window === 'resume' && <Resume />}
+        {window === 'blog' && <Blog />}
+        {window === 'Trash' && <Trash />}
+        {window === 'Game' && <Game />}
+      </div>
     </div>
-  ))}
-</div>
+  )
+))}
+
+      <div className="fixed bottom-0 left-0 right-0 bg-[#1A1A1A] text-white flex items-center h-12 p-2 shadow-lg font-pixel z-60">
+            <div className="flex items-center space-x-4 px-4 cursor-pointer hover:bg-[#3a3a3a] rounded-md py-1">
+              <i className="fas fa-tv text-lg"></i>
+              <span className="text-sm">Start</span>
+            </div>
+            <div className="flex-grow"></div>
+            {/* Add icons or titles of opened windows */}
+            {openWindows.map((window) => (
+            <div
+              key={window}
+              className="flex items-center px-4 hover:bg-[#3a3a3a] cursor-pointer"
+              onClick={() => handleTaskbarClick(window)}
+            >
+              <i className={`fas fa-${window === 'about' ? 'user' : window === 'projects' ? 'briefcase' : window === 'skills' ? 'laptop-code' : window === 'contact' ? 'envelope' : window === 'resume' ? 'file' : window === 'blog' ? 'comments' : window === 'Trash' ? 'trash' : 'gamepad'}`}></i>
+              <span className="ml-2 text-xs">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
+            </div>
+          ))}
+          
+          <div className="flex-right">
+            15:00
+          </div>
+
+      </div>
+      
         </div>
       </div>
     </div>
