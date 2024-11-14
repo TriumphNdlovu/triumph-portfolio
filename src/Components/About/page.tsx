@@ -16,11 +16,11 @@ export default function About() {
                   </div>
 
                   {/* Text and Name Section */}
-                  <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                  <div className="flex flex-col items-center md:items-start text-center md:text-left ">
                     <h1 className="text-3xl font-pixel text-neonGreen mb-4">Triumph Ndlovu</h1>
                     <h2 className="text-lg font-pixel text-neonGreen mb-4">Bsc Computer Science</h2>
 
-                    <div className=" text-white font-vt323 text-xs p-6 rounded-lg shadow-lg max-w-6xl mx-auto w-full">
+                    <div className=" text-white font-vt323 text-xs p-6 rounded-lg shadow-lg max-w-6xl mx-auto w-full  border border-neonGreen">
                       <p className="text-lg mb-4 leading-relaxed">
                         I'm a Bsc Computer Science graduate from the University of Pretoria, passionate about solving complex problems through technology. With experience in web development, software engineering, and a focus on creating impactful solutions, I strive to build things that make a difference.
                       </p>

@@ -135,7 +135,10 @@ export default function Home() {
             }}
           >
             <div
-              className="bg-[#121212] text-white p-2 rounded-t-lg flex justify-between items-center shadow-md border-b-2 border-neonGreen"
+              className="bg-[#121212] text-white p-2 rounded-t-lg flex justify-between 
+              items-center shadow-md border-b-2 border-neonGreen
+              cursor-move
+              "
               onMouseDown={(e) => handleDrag(e, window)}
             >
               <div className="flex gap-2">
