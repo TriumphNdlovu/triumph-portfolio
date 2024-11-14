@@ -20,8 +20,6 @@ export default function Skills() {
     { name: 'Git', category: 'Tools & Frameworks' },
     { name: 'Maven & Gandle', category: 'Tools & Frameworks' },
     { name: 'npm & yarn', category: 'Tools & Frameworks' }
-
-
   ];
 
 
