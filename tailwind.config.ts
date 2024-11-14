@@ -10,7 +10,9 @@ export default {
     extend: {
       colors: { 
         // neonGreen: '#00FF00',387654
-        neonGreen: '#38ff11',
+        // neonGreen: '#38ff11',
+        // neonGreen: '#b5366b',
+        neonGreen : '#305cb3',
         // retroPink: '#FF1493',F6733A
         retroPink: '#BFBFBF',
         darkCharcoal: '#444444', // Lighter charcoal

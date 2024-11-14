@@ -49,7 +49,7 @@ export default function Game() {
         <p className="text-2xl text-gray-500">Time Left: {timer}s</p>
       </div>
 
-      <div className="grid items-center justify-center grid-cols-3 gap-2 mb-6">
+      <div className="grid items-center justify-center grid-cols-3 gap-2 mb-6 border border-neonGreen mx-6 text-center">
         {Array.from({ length: 9 }, (_, index) => (
           <div
             key={index}

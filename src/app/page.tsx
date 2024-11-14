@@ -59,6 +59,13 @@ export default function Home() {
     });
   };
 
+  const handleWindowMinimize = (section: string) => {
+    setPositions((prevPositions) => ({
+      ...prevPositions,
+      [section]: { top: window.innerHeight - 40, left: 0 },
+    }));
+  }
+
   const handleWindowMaximize = (section: string) => {
     setPositions((prevPositions) => ({
       ...prevPositions,
@@ -103,17 +110,21 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-[#121212] text-white h-screen flex justify-center items-center overflow-y-clip">
+    <>
+      <div className="bg-black absolute inset-0">
+    <div className="bg-[url('/background.webp')] bg-opacity-60 bg-cover bg-center bg-fixed text-white h-screen flex justify-center items-center overflow-y-clip">
       {/* Desktop Icons */}
       <div className="fixed top-0 left-0 h-full font-pixel grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-2 gap-4 p-4 z-50 overflow-y-auto">
         {/* Each window icon */}
         {['about', 'projects', 'skills', 'contact', 'resume', 'blog', 'Trash', 'Game'].map((section) => (
           <div
             key={section}
-            className="flex flex-col items-center cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
+            className="flex flex-col items-center cursor-pointer transform transition duration-300"
+            >
+            <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out"
             onClick={() => handleWindowOpen(section)}
-          >
-            <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
+            
+            >
               <i className={`fas fa-${section === 'about' ? 'user' : section === 'projects' ? 'briefcase' : section === 'skills' ? 'laptop-code' : section === 'contact' ? 'envelope' : section === 'resume' ? 'file' : section === 'blog' ? 'comments' : section === 'Trash' ? 'trash' : 'gamepad'} text-4xl text-neonGreen`}></i>
             </div>
             <p className="text-sm mt-2 text-center transition duration-300">{section.charAt(0).toUpperCase() + section.slice(1)}</p>
@@ -144,7 +155,7 @@ export default function Home() {
               <div className="flex gap-2">
                 <div
                   className="w-3 h-3 bg-[#4CAF50] rounded-full hover:bg-[#45a049] cursor-pointer"
-                  onClick={() => handleWindowClose(window)}
+                  onClick={() => handleWindowMinimize(window)}
                 ></div>
                 <div
                   className="w-3 h-3 bg-[#FFEB3B] rounded-full hover:bg-[#FFEB3B] cursor-pointer"
@@ -169,7 +180,23 @@ export default function Home() {
             </div>
           </div>
         ))}
+      <div className="fixed bottom-0 left-0 right-0 bg-[#1A1A1A] text-white flex items-center h-12 p-2 shadow-lg font-pixel z-60">
+  <div className="flex items-center space-x-4 px-4 cursor-pointer hover:bg-[#3a3a3a] rounded-md py-1">
+    <i className="fas fa-windows text-lg"></i>
+    <span className="text-sm">Start</span>
+  </div>
+  <div className="flex-grow"></div>
+  {/* Add icons or titles of opened windows */}
+  {openWindows.map((window) => (
+    <div key={window} className="flex items-center px-4 hover:bg-[#3a3a3a] rounded-md cursor-pointer">
+      <i className={`fas fa-${window === 'about' ? 'user' : window === 'projects' ? 'briefcase' : window === 'skills' ? 'laptop-code' : window === 'contact' ? 'envelope' : window === 'resume' ? 'file' : window === 'blog' ? 'comments' : window === 'Trash' ? 'trash' : 'gamepad'}`}></i>
+      <span className="ml-2 text-xs">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
+    </div>
+  ))}
+</div>
+        </div>
       </div>
     </div>
+</>
   );
 }
