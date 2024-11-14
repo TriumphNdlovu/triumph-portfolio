@@ -26,8 +26,8 @@ export default function Home() {
 
       // Adjust position for smaller screens (Mobile View)
       if (window.innerWidth < 768) {
-        newPosition = { top: 0, left: 0 };
-        newSize = { width: 90, height: 90 };
+        newPosition = { top: 5, left: 5 };
+        newSize = { width: 95, height: 95 };
         offset = 0;
       }
 
@@ -105,7 +105,7 @@ export default function Home() {
   return (
     <div className="bg-[#121212] text-white h-screen flex justify-center items-center overflow-y-clip">
       {/* Desktop Icons */}
-      <div className="fixed top-0 left-0 h-full font-pixel grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-2 gap-4 p-4 z-50 overflow-y-auto">
+      <div className="fixed top-0 left-0 h-full font-pixel grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-2 gap-4 p-4 z-50 overflow-y-auto">
         {/* Each window icon */}
         {['about', 'projects', 'skills', 'contact', 'resume', 'blog', 'Trash', 'Game'].map((section) => (
           <div
@@ -154,7 +154,7 @@ export default function Home() {
               </div>
               <span className="text-lg font-pixel text-retroPink">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
             </div>
-
+            <div className="overflow-y-auto max-h-[90vh]">
             {window === 'about' && <About />}
             {window === 'projects' && <Projects />}
             {window === 'skills' && <Skills />}
@@ -163,6 +163,7 @@ export default function Home() {
             {window === 'blog' && <Blog />}
             {window === 'Trash' && <Trash />}
             {window === 'Game' && <Game />}
+            </div>
           </div>
         ))}
       </div>
