@@ -37,7 +37,7 @@ export default function Projects() {
       {projects.map((project, index) => (
         <div
           key={index}
-          className=" border border-neonGreen p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          className=" border border-neonGreen p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 m-5"
         >
           <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
             <Image
@@ -60,7 +60,9 @@ export default function Projects() {
               </span>
             ))}
           </div>
-          <a className="inline-block mt-4 px-6 py-2 bg-neonGreen text-gray-900 rounded-lg font-pixel hover:bg-blue-500 transition duration-300"
+          <a className="inline-block mt-4 px-6 py-2 bg-neonGreen text-gray-900 
+                        rounded-lg font-pixel hover:bg-blue-500 transition duration-300 
+                        cursor-pointer w-full justify-center text-center"
             onClick={() => window.open(project.github, '_blank')}
           >
             View on Gihub

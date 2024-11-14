@@ -17,8 +17,8 @@ export default function About() {
 
                   {/* Text and Name Section */}
                   <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                    <h1 className="text-3xl font-pixel text-retroPink mb-4">Triumph Ndlovu</h1>
-                    <h2 className="text-lg font-pixel text-retroPink mb-4">Bsc Computer Science</h2>
+                    <h1 className="text-3xl font-pixel text-neonGreen mb-4">Triumph Ndlovu</h1>
+                    <h2 className="text-lg font-pixel text-neonGreen mb-4">Bsc Computer Science</h2>
 
                     <div className=" text-white font-vt323 text-xs p-6 rounded-lg shadow-lg max-w-6xl mx-auto w-full">
                       <p className="text-lg mb-4 leading-relaxed">
