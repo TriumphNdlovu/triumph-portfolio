@@ -4,19 +4,17 @@ export default function Resume() {
       <h2 className="text-4xl text-neonGreen font-pixel mb-8">Resume</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Education Section */}
+        {/* Career Goals & Interests Section */}
         <div className="bg-gray-900 p-6 rounded-lg border border-neonGreen shadow-lg">
-          <h3 className="text-2xl text-neonGreen font-semibold mb-4">Education</h3>
-          <div className="mb-4">
-            <h4 className="text-lg font-semibold text-gray-300">BSc Computer Science</h4>
-            <p className="text-gray-500">University of Pretoria</p>
-            <p className="text-gray-500">2020 - 2024</p>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold text-gray-300">High School Diploma</h4>
-            <p className="text-gray-500">High School Name</p>
-            <p className="text-gray-500">2011 - 2016</p>
-          </div>
+          <h3 className="text-2xl text-neonGreen font-semibold mb-4">Career Goals & Interests</h3>
+          <p className="text-gray-300 font-vt323 text-lg">
+            I aim to develop impactful, user-focused solutions in software development. My interests include
+            backend development, cloud technologies, and creating seamless user experiences.
+          </p>
+          <p className="text-gray-300 font-vt323 text-lg mt-4">
+            I'm passionate about AI advancements, real-time data processing, and designing intuitive,
+            interactive interfaces.
+          </p>
         </div>
 
         {/* PDF Viewer */}

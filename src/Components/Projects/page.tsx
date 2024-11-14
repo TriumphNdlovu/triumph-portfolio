@@ -60,11 +60,12 @@ export default function Projects() {
               </span>
             ))}
           </div>
-          <button className="bg-retroPink text-black px-4 py-2 mt-4 rounded-lg hover:bg-gray-800 transition-colors duration-300 w-full"
+          <a className="inline-block mt-4 px-6 py-2 bg-neonGreen text-gray-900 rounded-lg font-pixel hover:bg-blue-500 transition duration-300"
             onClick={() => window.open(project.github, '_blank')}
           >
-            View on Github
-          </button>
+            View on Gihub
+          </a>
+          
         </div>
       ))}
     </div>
