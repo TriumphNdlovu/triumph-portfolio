@@ -19,9 +19,16 @@ export default function Home() {
     if (!openWindows.includes(section)) {
       setOpenWindows([...openWindows, section]);
 
-      const newPosition = { top: 30, left: 320 };
-      const offset = 30; 
-      const size = { width: 80, height: 60 };
+      // if on a mobile device, set the position to center
+      let newPosition = { top: 30, left: 320 };
+      let size = { width: 80, height: 60 };
+      let offset = 30; 
+
+      if (window.innerWidth < 768) {
+        newPosition = { top: 0, left: 0 };
+        size = { width: 100, height: 100 };
+        offset = 0;
+      }
 
       const existingPositions = Object.values(positions);
       if (existingPositions.length > 0) {
@@ -223,7 +230,7 @@ export default function Home() {
 
          
             {window === 'about' && (
-              <section id = 'about' className="p-6 text-white">
+              <section id = 'about' className="p-6 text-white max-h-[90vh] overflow-y-auto">
                 <About />
               </section>
             )}
@@ -236,37 +243,37 @@ export default function Home() {
 
 
             {window === 'skills' && (
-                  <section id="skills" className="p-6 text-white">
+                  <section id="skills" className="p-6 text-white max-h-[90vh] overflow-y-auto">
                     <Skills />
                   </section>
             )}
 
 
             {window === 'contact' && (
-                <section id="contact" className="p-6 text-white">
+                <section id="contact" className="p-6 text-white max-h-[90vh] overflow-y-auto">
                     <Contact />
                   </section> 
             )}
 
             {window === 'resume' && (
-                <section id="resume" className="p-6 text-white">
+                <section id="resume" className="p-6 text-white max-h-[90vh] overflow-y-auto">
                   <Resume />                  
                 </section>
             )}
             {window === 'blog' && (
-              <section id="blog" className="p-6 text-white">
+              <section id="blog" className="p-6 text-white max-h-[90vh] overflow-y-auto">
                       <Blog />
               </section>
             )}
             
             {window === 'Trash' && (
-              <section id="Trash" className="p-6 text-white rounded-lg shadow-lg">
+              <section id="Trash" className="p-6 text-white rounded-lg shadow-lg max-h-[90vh] overflow-y-auto">
                 <Trash />
               </section>
             )}
 
             {window === 'Game' && (
-              <section id="Game" className="p-6 text-white rounded-lg shadow-lg">
+              <section id="Game" className="p-6 text-white rounded-lg shadow-lg max-h-[90vh] overflow-y-auto">
                 <Game />
               </section>
             )}

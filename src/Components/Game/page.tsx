@@ -2,39 +2,38 @@ import { useState, useEffect } from "react";
 
 export default function Game() {
   const [score, setScore] = useState(0);
-  const [molePosition, setMolePosition] = useState<number | null>(null); // Initialize with `null`
-  const [isGameOver, setIsGameOver] = useState(true);
-  const [timer, setTimer] = useState(20); // 30-second timer
+  const [molePosition, setMolePosition] = useState<number | null>(null); 
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [timer, setTimer] = useState(20); 
+  const [gameStarted, setGameStarted] = useState(false); 
 
-  // Generate a random position for the mole to pop up
   const generateRandomPosition = () => {
-    const randomIndex = Math.floor(Math.random() * 9); // 9 positions (3x3 grid)
+    const randomIndex = Math.floor(Math.random() * 9); 
     return randomIndex;
   };
 
-  // Start the game and reset the score
   const startGame = () => {
     setScore(0);
     setTimer(20);
     setIsGameOver(false);
+    setGameStarted(true);
     setMolePosition(generateRandomPosition());
   };
 
-  // Decrease the timer every second
   useEffect(() => {
-    if (timer > 0 && !isGameOver) {
+    if (timer > 0 && !isGameOver && gameStarted) {
       const interval = setInterval(() => {
         setTimer(prev => prev - 1);
       }, 1000);
       return () => clearInterval(interval);
     } else if (timer === 0) {
       setIsGameOver(true);
+      setGameStarted(false); 
     }
-  }, [timer, isGameOver]);
+  }, [timer, isGameOver, gameStarted]);
 
-  // Function to handle hitting the mole
   const hitMole = (index: number) => {
-    if (index === molePosition) {
+    if (index === molePosition && gameStarted && !isGameOver) {
       setScore(score + 1);
       setMolePosition(generateRandomPosition());
     }
@@ -54,7 +53,9 @@ export default function Game() {
         {Array.from({ length: 9 }, (_, index) => (
           <div
             key={index}
-            className={`h-24 w-24 bg-black rounded-lg border-2 border-neonGreen relative ${index === molePosition ? 'bg-green-500' : ''}`}
+            className={`h-24 w-24 bg-black rounded-lg border-2 border-neonGreen relative ${
+              index === molePosition ? "bg-green-500" : ""
+            } ${gameStarted ? "" : "pointer-events-none"}`} 
             onClick={() => hitMole(index)}
           >
             {index === molePosition && (
@@ -66,6 +67,17 @@ export default function Game() {
         ))}
       </div>
 
+      {!gameStarted && !isGameOver && (
+        <div className="text-center mt-6">
+          <button
+            onClick={startGame}
+            className="px-6 py-3 bg-neonGreen text-white rounded-lg font-pixel hover:bg-blue-500 transition duration-300"
+          >
+            Start Game
+          </button>
+        </div>
+      )}
+
       {isGameOver && (
         <div className="text-center mt-6">
           <h3 className="text-3xl text-red-500 font-pixel mb-4">Game Over!</h3>
@@ -74,11 +86,10 @@ export default function Game() {
             onClick={startGame}
             className="px-6 py-3 bg-neonGreen text-white rounded-lg font-pixel hover:bg-blue-500 transition duration-300"
           >
-            Play
+            Play Again
           </button>
         </div>
       )}
     </>
   );
 }
-
