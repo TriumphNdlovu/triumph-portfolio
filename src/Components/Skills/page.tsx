@@ -17,10 +17,10 @@ export default function Skills() {
     { name: 'Supabase', category: 'Backend' },
     { name: 'Node.Js', category: 'Backend' },
     { name: 'Java & Spring Boot', category: 'Backend' },
-    { name: 'Git', category: 'Tools & Frameworks' },
-    { name: 'Maven & Gandle', category: 'Tools & Frameworks' },
-    { name: 'npm & yarn', category: 'Tools & Frameworks' }
-  ];
+    { name: 'Git', category: 'Tools' },
+    { name: 'Maven & Gandle', category: 'Tools' },
+    { name: 'npm & yarn', category: 'Tools' }
+];
 
 
   const groupedSkills = skills.reduce((acc, skill) => {
