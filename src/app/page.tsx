@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import About from '../Components/About/page';
 import Projects from '@/Components/Projects/page';
 import Skills from '@/Components/Skills/page';
@@ -15,25 +15,23 @@ export default function Home() {
   const [positions, setPositions] = useState<{ [key: string]: { top: number; left: number } }>({});
   const [size, setSize] = useState<{ [key: string]: { width: number; height: number } }>({});
   const [minimizedWindows, setMinimizedWindows] = useState<string[]>([]);
+  const [currentTime, setCurrentTime] = useState('');
 
 
   const handleWindowOpen = (section: string) => {
     if (!openWindows.includes(section)) {
       setOpenWindows([...openWindows, section]);
 
-      // Set default window size and position based on screen width
       let newPosition = { top: 30, left: 320 };
       let newSize = { width: 80, height: 60 };
       let offset = 30;
 
-      // Adjust position for smaller screens (Mobile View)
       if (window.innerWidth < 768) {
         newPosition = { top: 5, left: 5 };
         newSize = { width: 95, height: 95 };
         offset = 0;
       }
 
-      // Prevent overlap and adjust position for multiple windows
       const existingPositions = Object.values(positions);
       if (existingPositions.length > 0) {
         const lastPosition = existingPositions[existingPositions.length - 1];
@@ -67,12 +65,22 @@ export default function Home() {
 
 
     const handleTaskbarClick = (section: string) => {
-      if (minimizedWindows.includes(section)) {
-        setMinimizedWindows(minimizedWindows.filter((window) => window !== section));
+      if (openWindows.includes(section)) {
+
+        if (minimizedWindows.includes(section)) {
+          
+          setMinimizedWindows(minimizedWindows.filter((window) => window !== section));
+        } else {
+          
+          setMinimizedWindows([...minimizedWindows, section]);
+        }
       } else {
+        
         handleWindowOpen(section);
       }
     };
+
+
 
     
   const handleWindowMaximizeORMinimize = (section: string) => {
@@ -117,6 +125,20 @@ export default function Home() {
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseup', onMouseUp);
   };
+
+  useEffect(() => {
+    const updateCurrentTime = () => {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      setCurrentTime(`${hours}:${minutes}`);
+    };
+
+    updateCurrentTime();
+    const timer = setInterval(updateCurrentTime, 60000);
+    return () => clearInterval(timer);
+  }, []);
+  
 
   return (
     <>
@@ -191,26 +213,27 @@ export default function Home() {
   )
 ))}
 
-      <div className="fixed bottom-0 left-0 right-0 bg-[#1A1A1A] text-white flex items-center h-12 p-2 shadow-lg font-pixel z-60">
+      <div className="fixed bottom-0 left-0 right-0 bg-[#1A1A1A] text-white sm:flex items-center h-12 p-2 shadow-lg font-pixel z-[60] hidden ">
             <div className="flex items-center space-x-4 px-4 cursor-pointer hover:bg-[#3a3a3a] rounded-md py-1">
               <i className="fas fa-tv text-lg"></i>
               <span className="text-sm">Start</span>
             </div>
-            <div className="flex-grow"></div>
-            {/* Add icons or titles of opened windows */}
+            
             {openWindows.map((window) => (
-            <div
-              key={window}
-              className="flex items-center px-4 hover:bg-[#3a3a3a] cursor-pointer"
-              onClick={() => handleTaskbarClick(window)}
-            >
-              <i className={`fas fa-${window === 'about' ? 'user' : window === 'projects' ? 'briefcase' : window === 'skills' ? 'laptop-code' : window === 'contact' ? 'envelope' : window === 'resume' ? 'file' : window === 'blog' ? 'comments' : window === 'Trash' ? 'trash' : 'gamepad'}`}></i>
-              <span className="ml-2 text-xs">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
-            </div>
+              <div
+                key={window}
+                className="flex-left items-center px-4 hover:bg-[#3a3a3a] cursor-pointer border-l border-neonGreen py-1 "
+                onClick={() => handleTaskbarClick(window)}
+                >
+                <i className={`fas fa-${window === 'about' ? 'user' : window === 'projects' ? 'briefcase' : window === 'skills' ? 'laptop-code' : window === 'contact' ? 'envelope' : window === 'resume' ? 'file' : window === 'blog' ? 'comments' : window === 'Trash' ? 'trash' : 'gamepad'}`}></i>
+                <span className="ml-2 text-xs">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
+              </div>
           ))}
-          
-          <div className="flex-right">
-            15:00
+
+          <div className="flex-grow"></div>
+
+          <div className="flex-right mr-4">
+            {currentTime}
           </div>
 
       </div>
