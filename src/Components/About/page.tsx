@@ -27,16 +27,19 @@ export default function About() {
           </h2>
 
           {/* About Text */}
-          <div className="w-full p-6 rounded-lg border border-neonGreen shadow-md">
-            <p className="text-white font-vt323 text-lg leading-relaxed mb-4">
-              I'm a Computer Science graduate from the University of Pretoria with a passion for solving complex problems through technology.
-            </p>
-            <p className="text-white font-vt323 text-lg leading-relaxed mb-4">
-              Skilled in <span className="text-blue-400">NextJS</span>, <span className="text-blue-400">NodeJS</span>, <span className="text-blue-400">Tailwind</span>, and <span className="text-blue-400">Java</span>, I specialize in building innovative solutions and dynamic web applications.
-            </p>
-            <p className="text-white font-vt323 text-lg leading-relaxed mb-4">
-              I'm always excited to work on projects that challenge my creativity and technical expertise. Let’s connect and create something amazing!
-            </p>
+          <div className="w-full p-6 rounded-lg border border-neonGreen shadow-md"> 
+              <p className="text-white font-vt323 text-lg leading-relaxed mb-4"> 
+                Hi there! I'm a Computer Science graduate from the University of Pretoria with a knack for turning complex problems into elegant, 
+                tech-driven solutions. </p> <p className="text-white font-vt323 text-lg leading-relaxed mb-4"> Armed with expertise in 
+                <span className="text-blue-400">Next.js</span>, <span className="text-blue-400">Node.js</span>, 
+                <span className="text-blue-400">Tailwind CSS</span>, and <span className="text-blue-400">Java</span>, 
+                I thrive on crafting innovative web applications that blend functionality with flair. </p> 
+                <p className="text-white font-vt323 text-lg leading-relaxed mb-4"> 
+                I’m passionate about exploring new technologies, designing seamless user experiences, 
+                and tackling challenges that push my boundaries. Whether it's building scalable backends, responsive interfaces, 
+                or immersive user journeys—I'm always up for the adventure. </p> 
+                <p className="text-white font-vt323 text-lg leading-relaxed mb-4"> Let’s connect and create something remarkable together. 
+                The best ideas start with a great conversation! </p> 
           </div>
         </div>
       </div>

@@ -55,7 +55,7 @@ export default function Contact() {
         {/* Social Links */}
         <div className=" p-8 rounded-lg border border-neonGreen shadow-lg overflow-x-auto">
           <h3 className="text-3xl text-neonGreen font-pixel mb-6">Find Me On</h3>
-          <ul className="space-y-4 text-neonGreen font-vt323 text-lg">
+          <ul className="space-y-4 text-neonGreen font-vt323 text-lg select-text">
             <li className="flex items-center space-x-4">
               <i className="fas fa-address-card text-white"></i>
               <a
@@ -86,7 +86,7 @@ export default function Contact() {
             <li className="flex items-center space-x-4">
               <i className="fas fa-phone-alt text-white"></i>
               <a href="#" className="hover:text-blue-400 transition duration-200">
-                <span className="text-white">Mobile: </span> +27 82 779 3862
+                <span className="text-white">Mobile: </span> +27 82 779 3863
               </a>
             </li>
           </ul>
