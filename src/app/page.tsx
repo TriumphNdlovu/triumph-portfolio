@@ -8,6 +8,7 @@ import Resume from '@/Components/Resume/page';
 import Blog from '@/Components/Blog/page';
 import Trash from '@/Components/Trash/page';
 import Game from '@/Components/Game/page';
+import Info from '@/Components/Info/page';
 
 export default function Home() {
   // State to manage the active windows
@@ -23,7 +24,7 @@ export default function Home() {
       setOpenWindows([...openWindows, section]);
 
       let newPosition = { top: 30, left: 320 };
-      let newSize = { width: 80, height: 60 };
+      let newSize = { width: 80, height: 80 };
       let offset = 30;
 
       if (window.innerWidth < 768) {
@@ -143,11 +144,11 @@ export default function Home() {
   return (
     <>
       <div className="bg-black absolute inset-0">
-    <div className="bg-[url('/background.webp')] bg-opacity-60 bg-cover bg-center bg-fixed text-white h-screen flex justify-center items-center overflow-y-clip">
+    <div className="bg-[url('/background.webp')] bg-opacity-60 bg-cover bg-center bg-fixed text-white h-screen flex justify-center items-center overflow-y-clip overflow-x-clip">
       {/* Desktop Icons */}
       <div className="fixed top-0 left-0 h-full font-pixel grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-2 gap-4 p-4 z-50 overflow-y-auto">
         {/* Each window icon */}
-        {['about', 'projects', 'skills', 'contact', 'resume', 'blog', 'Trash', 'Game'].map((section) => (
+        {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog', 'Trash', 'Game' ,'info'].map((section) => (
           <div
             key={section}
             className="flex flex-col items-center cursor-pointer transform transition duration-300"
@@ -156,7 +157,17 @@ export default function Home() {
             onClick={() => handleWindowOpen(section)}
             
             >
-              <i className={`fas fa-${section === 'about' ? 'user' : section === 'projects' ? 'briefcase' : section === 'skills' ? 'laptop-code' : section === 'contact' ? 'envelope' : section === 'resume' ? 'file' : section === 'blog' ? 'comments' : section === 'Trash' ? 'trash' : 'gamepad'} text-4xl text-neonGreen`}></i>
+              <i className={`fas fa-${
+                    section === 'Triumph' ? 'user': 
+                    section === 'projects' ? 'briefcase' : 
+                    section === 'skills' ? 'laptop-code' : 
+                    section === 'contact' ? 'envelope' : 
+                    section === 'resume' ? 'file' : 
+                    section === 'blog' ? 'comments' : 
+                    section === 'Trash' ? 'trash' : 
+                    section === 'Game' ? 'gamepad' :
+                    section === 'info' ? 'info' :
+                    'gamepad' } text-4xl text-neonGreen`}></i>
             </div>
             <p className="text-sm mt-2 text-center transition duration-300">{section.charAt(0).toUpperCase() + section.slice(1)}</p>
           </div>
@@ -199,8 +210,8 @@ export default function Home() {
         </div>
         <span className="text-lg font-pixel text-retroPink">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
       </div>
-      <div className="overflow-y-auto max-h-[90vh]">
-        {window === 'about' && <About />}
+      <div className="overflow-y-auto max-h-[90vh] p-6">
+        {window === 'Triumph' && <About />}
         {window === 'projects' && <Projects />}
         {window === 'skills' && <Skills />}
         {window === 'contact' && <Contact />}
@@ -208,6 +219,7 @@ export default function Home() {
         {window === 'blog' && <Blog />}
         {window === 'Trash' && <Trash />}
         {window === 'Game' && <Game />}
+        {window === 'info' &&  <Info />}
       </div>
     </div>
   )
@@ -225,7 +237,16 @@ export default function Home() {
                 className="flex-left items-center px-4 hover:bg-[#3a3a3a] cursor-pointer border-l border-neonGreen py-1 "
                 onClick={() => handleTaskbarClick(window)}
                 >
-                <i className={`fas fa-${window === 'about' ? 'user' : window === 'projects' ? 'briefcase' : window === 'skills' ? 'laptop-code' : window === 'contact' ? 'envelope' : window === 'resume' ? 'file' : window === 'blog' ? 'comments' : window === 'Trash' ? 'trash' : 'gamepad'}`}></i>
+                <i className={`fas fa-${
+                  window === 'Triumph' ? 'user' : 
+                  window === 'projects' ? 'briefcase' : 
+                  window === 'skills' ? 'laptop-code' : 
+                  window === 'contact' ? 'envelope' : 
+                  window === 'resume' ? 'file' : 
+                  window === 'blog' ? 'comments' : 
+                  window === 'Trash' ? 'trash' :
+                  window === 'info' ? 'info' :
+                  'gamepad'}`}></i>
                 <span className="ml-2 text-xs">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
               </div>
           ))}
