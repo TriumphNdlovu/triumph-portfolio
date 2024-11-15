@@ -20,45 +20,52 @@ export default function Home() {
 
 
   const handleWindowOpen = (section: string) => {
-    if (!openWindows.includes(section)) {
-      setOpenWindows([...openWindows, section]);
+  if (!openWindows.includes(section)) {
+    setOpenWindows((prevWindows) => [...prevWindows, section]);
 
-      let newPosition = { top: 30, left: 320 };
-      let newSize = { width: 80, height: 80 };
-      let offset = 30;
+    let newPosition = { top: 30, left: 320 };
+    let newSize = { width: 80, height: 80 };
+    let offset = 30;
 
-      if (window.innerWidth < 768) {
-        newPosition = { top: 5, left: 5 };
-        newSize = { width: 95, height: 95 };
-        offset = 0;
-      }
-
-      const existingPositions = Object.values(positions);
-      if (existingPositions.length > 0) {
-        const lastPosition = existingPositions[existingPositions.length - 1];
-        newPosition.top = lastPosition.top + offset;
-        newPosition.left = lastPosition.left + offset;
-      }
-
-      setPositions((prevPositions) => ({
-        ...prevPositions,
-        [section]: newPosition,
-      }));
-
-      setSize((prevSize) => ({
-        ...prevSize,
-        [section]: newSize,
-      }));
+    if (window.innerWidth < 768) {
+      newPosition = { top: 5, left: 5 };
+      newSize = { width: 95, height: 95 };
+      offset = 0;
     }
-  };
 
-  const handleWindowClose = (section: string) => {
-    setOpenWindows(openWindows.filter((window) => window !== section));
-    setPositions((prevPositions) => {
-      const { [section]: _, ...rest } = prevPositions;
-      return rest;
-    });
-  };
+    const existingPositions = Object.values(positions);
+    if (existingPositions.length > 0) {
+      const lastPosition = existingPositions[existingPositions.length - 1];
+      newPosition.top = lastPosition.top + offset;
+      newPosition.left = lastPosition.left + offset;
+    }
+
+    setPositions((prevPositions) => ({
+      ...prevPositions,
+      [section]: newPosition,
+    }));
+
+    setSize((prevSize) => ({
+      ...prevSize,
+      [section]: newSize,
+    }));
+  }
+};
+
+const handleWindowClose = (section: string) => {
+  setOpenWindows((prevWindows) => prevWindows.filter((window) => window !== section));
+  setPositions((prevPositions) => {
+    const { [section]: _, ...rest } = prevPositions;
+    return rest;
+  });
+  setSize((prevSize) => {
+    const { [section]: _, ...rest } = prevSize;
+    return rest;
+  });
+};
+
+
+ 
 
       const handleWindowMinimize = (section: string) => {
       setMinimizedWindows([...minimizedWindows, section]);
@@ -128,12 +135,17 @@ export default function Home() {
   };
 
   useEffect(() => {
+
     const updateCurrentTime = () => {
       const now = new Date();
       const hours = now.getHours().toString().padStart(2, '0');
       const minutes = now.getMinutes().toString().padStart(2, '0');
       setCurrentTime(`${hours}:${minutes}`);
     };
+      
+    if (!openWindows.includes('info')) {
+      handleWindowOpen('info');
+    }
 
     updateCurrentTime();
     const timer = setInterval(updateCurrentTime, 60000);
@@ -143,7 +155,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="bg-black absolute inset-0">
+      <div className="bg-black absolute inset-0 select-none">
     <div className="bg-[url('/background.webp')] bg-opacity-60 bg-cover bg-center bg-fixed text-white h-screen flex justify-center items-center overflow-y-clip overflow-x-clip">
       {/* Desktop Icons */}
       <div className="fixed top-0 left-0 h-full font-pixel grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-2 gap-4 p-4 z-50 overflow-y-auto">
