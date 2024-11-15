@@ -46,7 +46,7 @@ export default function Game() {
       </h2>
       <div className="text-center text-lg font-vt323 text-gray-300 mb-6">
         <p className="text-3xl text-red-500 font-pixel mb-6">Score: {score}</p>
-        <p className="text-2xl text-gray-500">Time Left: {timer}s</p>
+        <p className="text-2xl text-green-500">{timer}s</p>
       </div>
 
       <div className="flex justify-center items-center mb-6">
@@ -84,7 +84,7 @@ export default function Game() {
       {isGameOver && (
         <div className="text-center mt-6">
           <h3 className="text-3xl text-red-500 font-pixel mb-4">Game Over!</h3>
-          <p className="text-xl text-gray-400 font-vt323 mb-6">Your final score: {score}</p>
+          <p className="text-xl text-gray-400 font-vt323 mb-6">Frogs Caught: {score}</p>
           <button
             onClick={startGame}
             className="px-6 py-3 bg-neonGreen text-white rounded-lg font-pixel hover:bg-blue-500 transition duration-300"

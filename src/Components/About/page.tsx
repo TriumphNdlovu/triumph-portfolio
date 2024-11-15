@@ -1,46 +1,45 @@
-
 export default function About() {
+  return (
+    <section
+      id="about"
+      className="p-6 text-center md:text-left bg-darkGray rounded-lg shadow-lg"
+    >
+      <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6">
+        {/* Profile Image */}
+        <div className="flex-shrink-0">
+          <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-neonGreen shadow-md">
+            <img
+              src="/profilePicture.png"
+              alt="Triumph"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
 
+        {/* Text Content */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-6xl">
+          {/* Name and Title */}
+          <h1 className="text-4xl md:text-5xl font-pixel text-neonGreen mb-2">
+            Triumph Ndlovu
+          </h1>
+          <h2 className="text-lg md:text-2xl font-pixel text-neonGreen mb-4">
+            BSc Computer Science
+          </h2>
 
-    
-    return (
-        <section id="about" className="p-6 text-center md:text-left relative">
-                <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6">
-                  {/* Profile Image */}
-                  <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden mb-4 md:mb-0 border-2 border-neonGreen">
-                    <img
-                      src="/profilePicture.png"
-                      alt="Triumph"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  {/* Text and Name Section */}
-                  <div className="flex flex-col items-center md:items-start text-center md:text-left ">
-                    <h1 className="text-3xl font-pixel text-neonGreen mb-4">Triumph Ndlovu</h1>
-                    <h2 className="text-lg font-pixel text-neonGreen mb-4">Bsc Computer Science</h2>
-
-                    <div className=" text-white font-vt323 text-xs p-6 rounded-lg shadow-lg max-w-6xl mx-auto w-full  border border-neonGreen">
-                      <p className="text-lg mb-4 leading-relaxed">
-                        I'm a Bsc Computer Science graduate from the University of Pretoria, passionate about solving complex problems through technology. With experience in web development, software engineering, and a focus on creating impactful solutions, I strive to build things that make a difference.
-                      </p>
-                      <p className="text-lg mb-4 leading-relaxed">
-                        I specialize in <span className="text-blue-400">JavaScript</span>, <span className="text-blue-400">TypeScript</span>, <span className="text-blue-400">React</span>, and <span className="text-blue-400">Node.js</span>, and I enjoy working on projects that challenge my creativity and technical skills.
-                      </p>
-                      <p className="text-lg mb-4 leading-relaxed">
-                        Whether it's building innovative web applications or optimizing existing systems, I approach each project with a strong sense of ownership and an eagerness to continuously learn.
-                      </p>
-                      <p className="text-lg mb-4 leading-relaxed">
-                        Let's connect and work together to build something amazing!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Blinking Cursor */}
-                {/* <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                  <span className="blink text-retroPink">|</span>
-                </div> */}
-              </section>
-    );
-    }
+          {/* About Text */}
+          <div className="w-full p-6 rounded-lg border border-neonGreen shadow-md">
+            <p className="text-white font-vt323 text-lg leading-relaxed mb-4">
+              I'm a Computer Science graduate from the University of Pretoria with a passion for solving complex problems through technology.
+            </p>
+            <p className="text-white font-vt323 text-lg leading-relaxed mb-4">
+              Skilled in <span className="text-blue-400">NextJS</span>, <span className="text-blue-400">NodeJS</span>, <span className="text-blue-400">Tailwind</span>, and <span className="text-blue-400">Java</span>, I specialize in building innovative solutions and dynamic web applications.
+            </p>
+            <p className="text-white font-vt323 text-lg leading-relaxed mb-4">
+              I'm always excited to work on projects that challenge my creativity and technical expertise. Let’s connect and create something amazing!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

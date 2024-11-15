@@ -189,7 +189,7 @@ export default function Home() {
               !minimizedWindows.includes(window) && (
                 <div
                   key={index}
-                  className="bg-forG rounded-lg border-2 border-neonGreen absolute transition-all duration-200"
+                  className="bg-forG bg-opacity-95 rounded-lg border-2 border-neonGreen absolute transition-all duration-200"
                   style={{
                     top: `${positions[window]?.top}px`,
                     left: `${positions[window]?.left}px`,
@@ -220,7 +220,7 @@ export default function Home() {
                       {window.charAt(0).toUpperCase() + window.slice(1)}
                     </span>
                   </div>
-                  <div className="overflow-y-auto max-h-[90vh] p-6">
+                  <div className="overflow-y-auto max-h-[85vh] p-6">
                     {window === 'Triumph' && <About />}
                     {window === 'projects' && <Projects />}
                     {window === 'skills' && <Skills />}
@@ -267,7 +267,9 @@ export default function Home() {
           {openWindows.map((window) => (
             <div
               key={window}
-              className="flex-left items-center px-4 hover:bg-[#3a3a3a] cursor-pointer border-l border-neonGreen py-1"
+              className="flex-left items-center px-4 hover:bg-[#3a3a3a] 
+                          cursor-pointer border-l border-neonGreen py-1
+                          "
               onClick={() => handleTaskbarClick(window)}
             >
               <i

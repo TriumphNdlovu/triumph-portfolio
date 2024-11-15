@@ -6,10 +6,10 @@ export default function Contact() {
     const email = encodeURIComponent((document.getElementById("email") as HTMLInputElement).value);
     const message = encodeURIComponent((document.getElementById("message") as HTMLTextAreaElement).value);
 
-    // Construct mailto link
+  
     const mailtoLink = `mailto:realtriumphndlovu@gmail.com?subject=Message from ${name}&body=Hi Triumph,%0A%0A${message}%0A%0AFrom: ${name} (${email})`;
 
-    // Open the mailto link
+   
     window.location.href = mailtoLink;
   };
 
@@ -18,7 +18,7 @@ export default function Contact() {
       <h2 className="text-4xl text-neonGreen font-pixel text-center mb-8">Contact Me</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         
-        {/* Message Form */}
+        
         <div className=" p-8 rounded-lg border border-neonGreen shadow-lg">
           <h3 className="text-3xl text-neonGreen font-pixel mb-6">Send Me a Message</h3>
           <form onSubmit={handleSubmit}>

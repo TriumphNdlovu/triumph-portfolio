@@ -14,12 +14,12 @@ export default {
         // neonGreen: '#b5366b',
         neonGreen : '#305cb3',
         // retroPink: '#FF1493',F6733A
-        retroPink: '#BFBFBF',
+        retroPink: '#ffffff',
         darkCharcoal: '#444444', // Lighter charcoal
         mediumGray: '#555555', // Medium gray for some sections
         borderGray: '#333333',
         neonBlue: '#00FFFF', // Retro blue
-        forG: '#0C0C0C',
+        forG: '#000000',
       },
       animation: {
         glitch: 'glitch 1s infinite',
