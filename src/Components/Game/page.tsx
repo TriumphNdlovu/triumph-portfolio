@@ -23,7 +23,7 @@ export default function Game() {
   useEffect(() => {
     if (timer > 0 && !isGameOver && gameStarted) {
       const interval = setInterval(() => {
-        setTimer(prev => prev - 1);
+        setTimer((prev) => prev - 1);
       }, 1000);
       return () => clearInterval(interval);
     } else if (timer === 0) {
@@ -42,29 +42,32 @@ export default function Game() {
   return (
     <>
       <h2 className="text-4xl text-neonGreen font-pixel mb-6 text-center">
-        Whack-a-Mole Game
+        Whack-a-Frog!
       </h2>
       <div className="text-center text-lg font-vt323 text-gray-300 mb-6">
         <p className="text-3xl text-red-500 font-pixel mb-6">Score: {score}</p>
         <p className="text-2xl text-gray-500">Time Left: {timer}s</p>
       </div>
 
-      <div className="grid items-center justify-center grid-cols-3 gap-2 mb-6 border border-neonGreen mx-6 text-center">
-        {Array.from({ length: 9 }, (_, index) => (
-          <div
-            key={index}
-            className={`h-24 w-24 bg-black rounded-lg border-2 border-neonGreen relative ${
-              index === molePosition ? "bg-green-500" : ""
-            } ${gameStarted ? "" : "pointer-events-none"}`} 
-            onClick={() => hitMole(index)}
-          >
-            {index === molePosition && (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-8 h-8 bg-neonGreen rounded-full" />
-              </div>
-            )}
-          </div>
-        ))}
+      <div className="flex justify-center items-center mb-6">
+        <div className="grid grid-cols-3 gap-2 p-4">
+          {Array.from({ length: 9 }, (_, index) => (
+            <div
+              key={index}
+              className={`h-24 w-24 bg-black rounded-lg border-2 border-neonGreen relative ${
+                index === molePosition ? "bg-neonGreen" : ""
+              } ${gameStarted ? "" : "pointer-events-none"}`}
+              onClick={() => hitMole(index)}
+            >
+              {index === molePosition && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {/* <div className="w-8 h-8 bg-neonGreen rounded-full" /> */}
+                  <i className="fas fa-frog text-3xl text-white absolute" />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       {!gameStarted && !isGameOver && (

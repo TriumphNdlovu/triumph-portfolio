@@ -153,7 +153,7 @@ export default function Home() {
               className="flex flex-col items-center cursor-pointer transform transition duration-300"
               onClick={() => handleWindowOpen(section)}
             >
-              <div className="p-4 rounded-lg shadow-md hover:border-neonGreen hover:border transition duration-300 ease-in-out">
+              <div className="p-4 rounded-lg shadow-md hover:border-neonGreen border border-transparent transition duration-300 ease-in-out">
                 <i
                   className={`fas fa-${
                     section === 'Triumph'

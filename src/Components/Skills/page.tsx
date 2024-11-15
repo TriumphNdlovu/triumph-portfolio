@@ -13,12 +13,12 @@ export default function Skills() {
     { name: 'Tailwind CSS', category: 'Frontend' },
     { name: 'Next.Js', category: 'Frontend' },
     { name: 'Angular', category: 'Frontend' },
-    { name: 'Firebase', category: 'Backend' },
-    { name: 'Supabase', category: 'Backend' },
     { name: 'Node.Js', category: 'Backend' },
     { name: 'Java & Spring Boot', category: 'Backend' },
-    { name: 'Git', category: 'Tools' },
+    { name: 'Firebase', category: 'Backend' },
+    { name: 'Supabase', category: 'Backend' },
     { name: 'Maven & Gandle', category: 'Tools' },
+    { name: 'Git', category: 'Tools' },
     { name: 'npm & yarn', category: 'Tools' }
 ];
 

@@ -1,10 +1,10 @@
 export default function Contact() {
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    const name = encodeURIComponent(document.getElementById("name").value);
-    const email = encodeURIComponent(document.getElementById("email").value);
-    const message = encodeURIComponent(document.getElementById("message").value);
+    const name = encodeURIComponent((document.getElementById("name") as HTMLInputElement).value);
+    const email = encodeURIComponent((document.getElementById("email") as HTMLInputElement).value);
+    const message = encodeURIComponent((document.getElementById("message") as HTMLTextAreaElement).value);
 
     // Construct mailto link
     const mailtoLink = `mailto:realtriumphndlovu@gmail.com?subject=Message from ${name}&body=Hi Triumph,%0A%0A${message}%0A%0AFrom: ${name} (${email})`;
@@ -19,7 +19,7 @@ export default function Contact() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         
         {/* Message Form */}
-        <div className="bg-gray-900 p-8 rounded-lg border border-neonGreen shadow-lg">
+        <div className=" p-8 rounded-lg border border-neonGreen shadow-lg">
           <h3 className="text-3xl text-neonGreen font-pixel mb-6">Send Me a Message</h3>
           <form onSubmit={handleSubmit}>
             <input
@@ -53,25 +53,25 @@ export default function Contact() {
         </div>
 
         {/* Social Links */}
-        <div className="bg-gray-900 p-8 rounded-lg border border-neonGreen shadow-lg">
+        <div className=" p-8 rounded-lg border border-neonGreen shadow-lg overflow-x-auto">
           <h3 className="text-3xl text-neonGreen font-pixel mb-6">Find Me On</h3>
           <ul className="space-y-4 text-neonGreen font-vt323 text-lg">
             <li className="flex items-center space-x-4">
-              <i className="fas fa-address-card text-blue-500"></i>
+              <i className="fas fa-address-card text-white"></i>
               <a
                 href="https://www.linkedin.com/in/triumph-ndlovu-425b73274/"
                 className="hover:text-blue-400 transition duration-200"
               >
-                <span className="text-blue-500">LinkedIn:</span> Triumph LinkedIn
+                <span className="text-white">LinkedIn:</span> Triumph LinkedIn
               </a>
             </li>
             <li className="flex items-center space-x-4">
-              <i className="fas fa-laptop-code text-gray-500"></i>
+              <i className="fas fa-laptop-code text-white"></i>
               <a
                 href="https://github.com/TriumphNdlovu"
                 className="hover:text-blue-400 transition duration-200"
               >
-                <span className="text-blue-500">GitHub:</span> Triumph GitHub
+                <span className="text-white">GitHub:</span> Triumph GitHub
               </a>
             </li>
             <li className="flex items-center space-x-4">
@@ -80,13 +80,13 @@ export default function Contact() {
                 href="mailto:realtriumphndlovu@gmail.com"
                 className="hover:text-blue-400 transition duration-200"
               >
-                <span className="text-retroPink">Email:</span> realtriumphndlovu@gmail.com
+                <p><span className="text-white">Email:</span> realtriumphndlovu@gmail.com</p>
               </a>
             </li>
             <li className="flex items-center space-x-4">
-              <i className="fas fa-phone-alt text-retroPink"></i>
+              <i className="fas fa-phone-alt text-white"></i>
               <a href="#" className="hover:text-blue-400 transition duration-200">
-                <span className="text-blue-500">Mobile: </span> +27 82 779 3862
+                <span className="text-white">Mobile: </span> +27 82 779 3862
               </a>
             </li>
           </ul>

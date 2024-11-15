@@ -19,7 +19,7 @@ export default {
         mediumGray: '#555555', // Medium gray for some sections
         borderGray: '#333333',
         neonBlue: '#00FFFF', // Retro blue
-        forG: '#212B30',
+        forG: '#0C0C0C',
       },
       animation: {
         glitch: 'glitch 1s infinite',
