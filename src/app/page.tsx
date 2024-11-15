@@ -6,9 +6,10 @@ import Skills from '@/Components/Skills/page';
 import Contact from '@/Components/Contact/page';
 import Resume from '@/Components/Resume/page';
 import Blog from '@/Components/Blog/page';
-import Trash from '@/Components/Trash/page';
+import Trash from '@/Components/Settings/page';
 import Game from '@/Components/Game/page';
 import Info from '@/Components/Info/page';
+import Settings from '@/Components/Settings/page';
 
 export default function Home() {
   const [openWindows, setOpenWindows] = useState<string[]>([]);
@@ -147,7 +148,7 @@ export default function Home() {
     <div className="bg-black absolute inset-0 select-none">
       <div className="bg-[url('/background.webp')] bg-opacity-60 bg-cover bg-center bg-fixed text-white h-screen flex justify-center items-center overflow-y-clip overflow-x-clip">
         <div className="fixed top-0 left-0 h-full font-pixel grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-2 gap-4 p-4 z-50 overflow-y-auto">
-          {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog', 'Trash', 'Game', 'info'].map((section) => (
+          {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog','info' , 'Game','Settings' ].map((section) => (
             <div
               key={section}
               className="flex flex-col items-center cursor-pointer transform transition duration-300"
@@ -157,7 +158,7 @@ export default function Home() {
                 <i
                   className={`fas fa-${
                     section === 'Triumph'
-                      ? 'user'
+                      ? 'user-ninja'
                       : section === 'projects'
                       ? 'briefcase'
                       : section === 'skills'
@@ -168,10 +169,10 @@ export default function Home() {
                       ? 'file'
                       : section === 'blog'
                       ? 'comments'
-                      : section === 'Trash'
-                      ? 'trash'
                       : section === 'info'
                       ? 'info'
+                      : section === 'Settings'
+                      ? 'cogs'
                       : 'gamepad'
                   } text-4xl text-neonGreen`}
                 ></i>
@@ -227,9 +228,9 @@ export default function Home() {
                     {window === 'contact' && <Contact />}
                     {window === 'resume' && <Resume />}
                     {window === 'blog' && <Blog />}
-                    {window === 'Trash' && <Trash />}
                     {window === 'info' && <Info />}
                     {window === 'Game' && <Game />}
+                    {window === 'Settings' && <Settings />}
                   </div>
                 </div>
               ),
@@ -238,7 +239,7 @@ export default function Home() {
 
         <div className="fixed bottom-0 left-0 right-0 bg-[#1A1A1A] text-white sm:flex items-center h-12 p-2 shadow-lg font-pixel z-[60] hidden">
           <div
-            className="start-button flex items-center space-x-4 px-4 cursor-pointer hover:bg-[#3a3a3a] rounded-md py-1"
+            className="start-button flex items-center space-x-4 px-4 cursor-pointer bg-neonGreen mr-4 hover:bg-[#3a3a3a] rounded-md py-1"
             onClick={toggleStartMenu}
           >
             <i className="fas fa-tv text-lg"></i>
@@ -248,7 +249,7 @@ export default function Home() {
           {startMenuOpen && (
             <div className="absolute bottom-12 left-4 bg-[#121212] border-2 border-neonGreen rounded-lg p-4 shadow-md z-50">
               <ul className="font-pixel text-sm">
-                {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog', 'Trash', 'Game', 'info'].map((section) => (
+                {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog','info', 'Game',  'Settings'].map((section) => (
                   <li
                     key={section}
                     className="cursor-pointer hover:bg-[#3a3a3a] rounded-md px-2 py-1"
@@ -275,7 +276,7 @@ export default function Home() {
               <i
                 className={`fas fa-${
                   window === 'Triumph'
-                    ? 'user'
+                    ? 'user-ninja'
                     : window === 'projects'
                     ? 'briefcase'
                     : window === 'skills'
@@ -286,10 +287,10 @@ export default function Home() {
                     ? 'file'
                     : window === 'blog'
                     ? 'comments'
-                    : window === 'Trash'
-                    ? 'trash'
                     : window === 'info'
                     ? 'info'
+                    : window === 'Settings'
+                    ? 'cogs'
                     : 'gamepad'
                 }`}
               ></i>
