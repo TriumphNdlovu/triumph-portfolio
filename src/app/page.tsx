@@ -28,8 +28,8 @@ export default function Home() {
       let offset = 30;
 
       if (window.innerWidth < 768) {
-        newPosition = { top: 5, left: 5 };
-        newSize = { width: 95, height: 95 };
+        newPosition = { top: 1, left: 1 };
+        newSize = { width: 99, height: 99 };
         offset = 0;
       }
 

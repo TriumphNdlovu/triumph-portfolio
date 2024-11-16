@@ -18,7 +18,7 @@ export default function Projects() {
     },
     {
       title: 'Point of Sale (POS) System',
-      description: 'The POS System is a user-friendly application designed to streamline sales and inventory management for retail businesses. It features barcode scanning for quick product searches, real-time inventory updates, and secure transaction processing...',
+      description: 'The POS System(Desktop App) is a user-friendly application designed to streamline sales and inventory management for retail businesses. It features barcode scanning for quick product searches, real-time inventory updates, and secure transaction processing...',
       techStack: ['Java Swing', 'Maven', 'JPA', 'Barcode Scanning','Posgres Database'],
       imageUrl: '/project3-image.jpg',
       github: 'https://github.com/TriumphNdlovu/pos_system',

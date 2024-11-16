@@ -5,15 +5,16 @@ export default function Resume() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Career Goals & Interests Section */}
-        <div className=" p-6 rounded-lg border border-neonGreen shadow-lg">
-          <h3 className="text-2xl text-neonGreen font-semibold mb-4"> </h3>
+        <div className="p-6 rounded-lg border border-neonGreen shadow-lg">
+          <h3 className="text-2xl text-neonGreen font-semibold mb-4">Career Aspirations & Opportunities</h3>
           <p className="text-gray-300 font-vt323 text-lg">
-           I'm currently looking for a full-time role in software engineering, where I can contribute to a team and grow as a developer.
+            I’m actively seeking a full-time software engineering role where I can collaborate with a dynamic team, tackle exciting challenges, and grow my expertise as a developer.
           </p>
           <p className="text-gray-300 font-vt323 text-lg mt-4">
-            and I am also taking on freelance projects in web development and design.
+            Additionally, I’m open to freelance opportunities in web development and design, helping bring creative ideas to life through tailored, innovative solutions.
           </p>
         </div>
+
 
         {/* PDF Viewer */}
         <div className=" p-6 rounded-lg border border-neonGreen shadow-lg">
