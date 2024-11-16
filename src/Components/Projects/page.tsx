@@ -16,13 +16,13 @@ export default function Projects() {
       imageUrl: '/sweatsession.webp',
       github: 'https://github.com/COS301-SE-2023/SweatSession',
     },
-    // {
-    //   title: 'Project 3',
-    //   description: 'A mobile app that allows users to track their daily tasks and productivity. The design focuses on simplicity and ease of use.',
-    //   techStack: ['React Native', 'MongoDB', 'Redux'],
-    //   imageUrl: '/project3-image.jpg',
-    //   github: 'the link to the project braddda',
-    // },
+    {
+      title: 'Point of Sale (POS) System',
+      description: 'The POS System is a user-friendly application designed to streamline sales and inventory management for retail businesses. It features barcode scanning for quick product searches, real-time inventory updates, and secure transaction processing...',
+      techStack: ['Java Swing', 'Maven', 'JPA', 'Barcode Scanning','Posgres Database'],
+      imageUrl: '/project3-image.jpg',
+      github: 'https://github.com/TriumphNdlovu/pos_system',
+    },
     // {
     //   title: 'Project 4',
     //   description: 'A mobile app that allows users to track their daily tasks and productivity. The design focuses on simplicity and ease of use.',
