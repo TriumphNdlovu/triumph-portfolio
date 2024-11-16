@@ -31,8 +31,8 @@ export default function About() {
               <p className="text-white font-vt323 text-lg leading-relaxed mb-4"> 
                 Hi there! I'm a Computer Science graduate from the University of Pretoria with a knack for turning complex problems into elegant, 
                 tech-driven solutions. </p> <p className="text-white font-vt323 text-lg leading-relaxed mb-4"> Armed with expertise in 
-                <span className="text-blue-400">Next.js</span>, <span className="text-blue-400">Node.js</span>, 
-                <span className="text-blue-400">Tailwind CSS</span>, and <span className="text-blue-400">Java</span>, 
+                <span className="text-blue-400"> Next.js</span>, <span className="text-blue-400">Node.js</span>,  
+                <span className="text-blue-400"> Tailwind CSS</span>, and <span className="text-blue-400">Java</span>, 
                 I thrive on crafting innovative web applications that blend functionality with flair. </p> 
                 <p className="text-white font-vt323 text-lg leading-relaxed mb-4"> 
                 I’m passionate about exploring new technologies, designing seamless user experiences, 
