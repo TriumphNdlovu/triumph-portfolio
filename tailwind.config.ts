@@ -9,8 +9,8 @@ export default {
   theme: {
     extend: {
       colors: { 
-        // neonGreen: '#00FF00',387654
-        // neonGreen: '#38ff11',
+        retroGreen: '#00FF00',
+        // neonGreen: '#00FF00',
         // neonGreen: '#b5366b',
         neonGreen : '#305cb3',
         // retroPink: '#FF1493',F6733A
@@ -31,10 +31,11 @@ export default {
         },
       },
       fontFamily: {
-        pixel: ['"Press Start 2P"', 'system-ui'],
+        pixel: ['"Press Start 2P"', 'cursive'],
         vt323: ['"VT323"', 'monospace'], // Option for VT323 font
       },
     },
   },
+
   plugins: [],
 } satisfies Config;

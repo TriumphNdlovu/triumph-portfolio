@@ -8,12 +8,13 @@ export default function Resume() {
         <div className="p-6 rounded-lg border border-neonGreen shadow-lg">
           <h3 className="text-2xl text-neonGreen font-semibold mb-4">Career Aspirations & Opportunities</h3>
           <p className="text-gray-300 font-vt323 text-lg">
-            I’m actively seeking a full-time software engineering role where I can collaborate with a dynamic team, tackle exciting challenges, and grow my expertise as a developer.
+            I’m looking for a full-time software engineering job where I can work with a team, solve problems, and grow my skills.
           </p>
           <p className="text-gray-300 font-vt323 text-lg mt-4">
-            Additionally, I’m open to freelance opportunities in web development and design, helping bring creative ideas to life through tailored, innovative solutions.
+            I’m also open to freelance work in web development and design, helping bring ideas to life with creative solutions.
           </p>
         </div>
+
 
 
         {/* PDF Viewer */}
