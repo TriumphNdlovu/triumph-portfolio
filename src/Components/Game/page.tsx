@@ -45,8 +45,8 @@ export default function Game() {
         Whack-a-Frog!
       </h2>
       <div className="text-center text-lg font-vt323 text-gray-300 mb-6">
-        <p className="text-3xl text-red-500 font-pixel mb-6">Score: {score}</p>
-        <p className="text-2xl text-green-500">{timer}s</p>
+        <p className="text-3xl text-yellow-500 font-pixel mb-6">Score: {score}</p>
+        <p className="text-2xl text-red-500">{timer}s</p>
       </div>
 
       <div className="flex justify-center items-center mb-6">
@@ -55,7 +55,7 @@ export default function Game() {
             <div
               key={index}
               className={`h-24 w-24 bg-black rounded-lg border-2 border-neonGreen relative ${
-                index === molePosition ? "bg-neonGreen" : ""
+                index === molePosition ? "bg-yellow-500" : ""
               } ${gameStarted ? "" : "pointer-events-none"}`}
               onClick={() => hitMole(index)}
             >
@@ -74,7 +74,7 @@ export default function Game() {
         <div className="text-center mt-6">
           <button
             onClick={startGame}
-            className="px-6 py-3 bg-neonGreen text-white rounded-lg font-pixel hover:bg-blue-500 transition duration-300"
+            className="px-6 py-3 bg-neonGreen text-white rounded-lg font-pixel hover:bg-yellow-500 transition duration-300"
           >
             Start Game
           </button>
@@ -87,7 +87,7 @@ export default function Game() {
           <p className="text-xl text-gray-400 font-vt323 mb-6">Frogs Caught: {score}</p>
           <button
             onClick={startGame}
-            className="px-6 py-3 bg-neonGreen text-white rounded-lg font-pixel hover:bg-blue-500 transition duration-300"
+            className="px-6 py-3 bg-neonGreen text-white rounded-lg font-pixel hover:bg-yellow-500 transition duration-300"
           >
             Play Again
           </button>

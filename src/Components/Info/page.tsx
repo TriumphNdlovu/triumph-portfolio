@@ -7,7 +7,8 @@ export default function Info() {
 
       <div className="bg-gray-900 p-8 rounded-lg border border-neonGreen shadow-lg max-w-6xl mx-auto">
         <p className="text-lg sm:text-xl text-gray-300 font-vt323 mb-8 leading-relaxed">
-          Welcome to my retro-themed portfolio! Here’s a quick guide to help you navigate and enjoy the experience.
+          Welcome to my retro-themed portfolio! Here's a quick guide to help you navigate and enjoy the experience.
+
         </p>
 
         {/* Instructions Section */}

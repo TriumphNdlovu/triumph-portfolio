@@ -26,26 +26,26 @@ export default function Contact() {
               type="text"
               id="name"
               placeholder="Your Name"
-              className="w-full p-4 mb-4 bg-black text-neonGreen rounded border border-gray-700 focus:outline-none"
+              className="w-full p-4 mb-4 bg-black text-yellow-500 rounded border border-gray-700 focus:outline-none"
               required
             />
             <input
               type="email"
               id="email"
               placeholder="Your Email"
-              className="w-full p-4 mb-4 bg-black text-neonGreen rounded border border-gray-700 focus:outline-none"
+              className="w-full p-4 mb-4 bg-black text-yellow-500 rounded border border-gray-700 focus:outline-none"
               required
             />
             <textarea
               id="message"
               placeholder="Your Message"
-              className="w-full p-4 mb-6 bg-black text-neonGreen rounded border border-gray-700 focus:outline-none"
+              className="w-full p-4 mb-6 bg-black text-yellow-500 rounded border border-gray-700 focus:outline-none"
               rows={4}
               required
             />
             <button
               type="submit"
-              className="w-full py-3 bg-neonGreen text-black font-semibold rounded hover:bg-gray-800 transition duration-300"
+              className="w-full py-3 bg-neonGreen text-white font-pixel rounded hover:text-black hover:bg-yellow-500 transition duration-300"
             >
               Send Message
             </button>

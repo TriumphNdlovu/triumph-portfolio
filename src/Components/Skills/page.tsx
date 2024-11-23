@@ -33,7 +33,7 @@ export default function Skills() {
       <div className="space-y-8">
         {Object.entries(groupedSkills).map(([category, skills]) => (
           <div key={category}>
-            <h2 className="text-2xl text-neonGreen font-pixel font-semibold mb-4">{category}</h2>
+            <h2 className="text-2xl text-yellow-500 font-pixel font-semibold mb-4">{category}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
               {skills.map((skill, index) => (
                 <div

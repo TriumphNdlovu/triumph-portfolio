@@ -19,7 +19,7 @@ export default function Projects() {
     {
       title: 'Point of Sale (POS) System',
       description: 'The POS System(Desktop App) is a user-friendly application designed to streamline sales and inventory management for retail businesses. It features barcode scanning for quick product searches, real-time inventory updates, and secure transaction processing...',
-      techStack: ['Java Swing', 'Maven', 'JPA', 'Barcode Scanning','Posgres Database'],
+      techStack: ['Java Swing', 'Maven', 'JPA', 'Barcode Scanning','PosgreSQL Database'],
       imageUrl: '/project3-image.jpg',
       github: 'https://github.com/TriumphNdlovu/pos_system',
     },
@@ -61,7 +61,7 @@ export default function Projects() {
             ))}
           </div>
           <a className="inline-block mt-4 px-6 py-2 bg-neonGreen text-gray-900 
-                        rounded-lg font-pixel hover:bg-blue-500 transition duration-300 
+                        rounded-lg font-pixel hover:bg-yellow-500 transition duration-300 
                         cursor-pointer w-full justify-center text-center"
             onClick={() => window.open(project.github, '_blank')}
           >

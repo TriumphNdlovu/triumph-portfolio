@@ -19,37 +19,50 @@ export default function Home() {
   const [startMenuOpen, setStartMenuOpen] = useState(false);
 
   const handleWindowOpen = (section: string) => {
-    if (!openWindows.includes(section)) {
-      setOpenWindows((prevWindows) => [...prevWindows, section]);
+  if (!openWindows.includes(section)) {
+    setOpenWindows((prevWindows) => [...prevWindows, section]);
 
-      let newPosition = { top: 30, left: 320 };
-      let newSize = { width: 80, height: 80 };
-      let offset = 30;
+    const offset = 30; 
+    const defaultWidth = 80; 
+    const defaultHeight = 70; 
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
 
-      if (window.innerWidth < 768) {
-        newPosition = { top: 1, left: 1 };
-        newSize = { width: 99, height: 99 };
-        offset = 0;
-      }
+    let newPosition = { top: 30, left: 320 };
+    let newSize = { width: defaultWidth, height: defaultHeight };
 
-      const existingPositions = Object.values(positions);
-      if (existingPositions.length > 0) {
-        const lastPosition = existingPositions[existingPositions.length - 1];
-        newPosition.top = lastPosition.top + offset;
-        newPosition.left = lastPosition.left + offset;
-      }
-
-      setPositions((prevPositions) => ({
-        ...prevPositions,
-        [section]: newPosition,
-      }));
-
-      setSize((prevSize) => ({
-        ...prevSize,
-        [section]: newSize,
-      }));
+ 
+    if (screenWidth < 768) {
+      newPosition = { top: 1, left: 1 };
+      newSize = { width: 99, height: 99 };
     }
-  };
+
+    const existingPositions = Object.values(positions);
+    if (existingPositions.length > 0) {
+      const lastPosition = existingPositions[existingPositions.length - 1];
+      newPosition.top = lastPosition.top + offset;
+      newPosition.left = lastPosition.left + offset;
+    }
+
+    if (newPosition.left + (screenWidth * (defaultWidth / 100)) > screenWidth) {
+      newPosition.left = screenWidth - screenWidth * (defaultWidth / 100) - offset;
+    }
+    if (newPosition.top + (screenHeight * (defaultHeight / 100)) > screenHeight) {
+      newPosition.top = screenHeight - screenHeight * (defaultHeight / 100) - offset;
+    }
+
+    setPositions((prevPositions) => ({
+      ...prevPositions,
+      [section]: newPosition,
+    }));
+
+    setSize((prevSize) => ({
+      ...prevSize,
+      [section]: newSize,
+    }));
+  }
+};
+
 
   const handleWindowClose = (section: string) => {
     setOpenWindows((prevWindows) => prevWindows.filter((window) => window !== section));
@@ -238,7 +251,7 @@ export default function Home() {
 
         <div className="fixed bottom-0 left-0 right-0 bg-[#1A1A1A] text-white sm:flex items-center h-12 p-2 shadow-lg font-pixel z-[60] hidden">
           <div
-            className="start-button flex items-center space-x-4 px-4 cursor-pointer bg-neonGreen mr-4 hover:bg-[#3a3a3a] rounded-md py-1"
+            className="start-button flex items-center space-x-4 px-4 cursor-pointer bg-neonGreen mr-4 hover:text-black hover:bg-yellow-500 rounded-md py-1"
             onClick={toggleStartMenu}
           >
             <i className="fas fa-tv text-lg"></i>
@@ -246,12 +259,12 @@ export default function Home() {
           </div>
 
           {startMenuOpen && (
-            <div className="absolute bottom-12 left-4 bg-[#121212] border-2 border-neonGreen rounded-lg p-4 shadow-md z-50">
+            <div className="absolute bottom-12 left-4 bg-[#121212] border-2 border-yellow-500 rounded-lg p-4 shadow-md z-50">
               <ul className="font-pixel text-sm">
                 {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog','info', 'Game',  'Settings'].map((section) => (
                   <li
                     key={section}
-                    className="cursor-pointer hover:bg-[#3a3a3a] rounded-md px-2 py-1"
+                    className="cursor-pointer hover:bg-neonGreen rounded-md px-2 py-1"
                     onClick={() => {
                       handleWindowOpen(section);
                       toggleStartMenu();

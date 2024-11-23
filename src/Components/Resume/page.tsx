@@ -28,7 +28,7 @@ export default function Resume() {
           <a
             href="/resume.pdf"
             download
-            className="inline-block mt-4 px-6 py-2 bg-neonGreen text-gray-900 rounded-lg font-pixel hover:bg-blue-500 transition duration-300"
+            className="inline-block mt-4 px-6 py-2 bg-neonGreen text-gray-900 rounded-lg font-pixel hover:bg-yellow-500 transition duration-300"
           >
             Download Resume
           </a>
