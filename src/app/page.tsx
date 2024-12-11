@@ -166,7 +166,7 @@ export default function Home() {
               className="flex flex-col items-center cursor-pointer transform transition duration-300"
               onClick={() => handleWindowOpen(section)}
             >
-              <div className="p-4 rounded-lg shadow-md bg-windowBackground bg-opacity-85 hover:border-mainColor border border-transparent transition duration-300 ease-in-out">
+              <div className="p-4 rounded-lg shadow-md bg-windowBackground  hover:border-mainColor border border-transparent transition duration-300 ease-in-out">
                 <i
                   className={`fas fa-${
                     section === 'Triumph'
@@ -202,13 +202,14 @@ export default function Home() {
               !minimizedWindows.includes(window) && (
                 <div
                   key={index}
-                  className="bg-windowBackground rounded-lg border-2 border-mainColor absolute transition-all duration-200"
+                  className="bg-windowBackground bg-opacity-50 rounded-lg border-2 border-mainColor absolute transition-all duration-200"
                   style={{
                     top: `${positions[window]?.top}px`,
                     left: `${positions[window]?.left}px`,
                     width: `${size[window]?.width}vw`,
                     minHeight: `${size[window]?.height}vh`,
                     zIndex: 50 + index,
+                    opacity: 0.95,
                   }}
                 >
                   <div

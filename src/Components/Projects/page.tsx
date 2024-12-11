@@ -38,19 +38,17 @@ export default function Projects() {
 
   return (
     <section className="p-8">
-      <h2 className="text-4xl text-center text-neonGreen font-pixel mb-12">
+      <h2 className="text-4xl text-center text-maintextColor font-pixel mb-12">
         Featured Projects
       </h2>
-      <div className="space-y-16">
+      <div className="grid gap-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <div
             key={index}
-            className={`flex flex-col lg:items-center gap-8 border border-gray-700 p-6 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 ${
-              index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-            }`}
+            className="flex flex-col border p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           >
             {/* Project Image */}
-            <div className="relative w-full lg:w-1/2 h-80 lg:h-[28rem] rounded-lg overflow-hidden border border-gray-600 mb-4 lg:mb-0">
+            <div className="relative w-full h-72 lg:h-[20rem] rounded-lg overflow-hidden mb-6">
               <Image
                 src={project.imageUrl}
                 alt={project.title}
@@ -61,30 +59,28 @@ export default function Projects() {
             </div>
 
             {/* Project Details */}
-            <div className="flex-1 text-center lg:text-left">
-              <h3 className="text-3xl text-neonGreen font-pixel font-semibold mb-4">
-                {project.title}
-              </h3>
-              <p className="text-base text-gray-300 font-vt323 mb-6 sm:text-sm leading-relaxed">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
-                {project.techStack.map((tech, idx) => (
-                  <span
-                    key={idx}
-                    className="text-sm bg-gray-800 border border-neonGreen text-neonGreen py-1 px-3 rounded-full font-pixel hover:bg-neonGreen hover:text-black transition-all duration-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <button
-                className="px-6 py-2 bg-neonGreen text-gray-900 font-pixel rounded-lg hover:bg-yellow-500 transition duration-300"
-                onClick={() => window.open(project.github, '_blank')}
-              >
-                View on GitHub
-              </button>
+            <h3 className="text-2xl text-neonGreen font-pixel font-semibold mb-4">
+              {project.title}
+            </h3>
+            <p className="text-base text-secondaryTextColor font-vt323 mb-6 sm:text-sm leading-relaxed">
+              {project.description}
+            </p>
+            <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
+              {project.techStack.map((tech, idx) => (
+                <span
+                  key={idx}
+                  className="text-xs sm:text-sm bg-shadowColor border border-accentColor text-neonGreen py-1 px-3 rounded-full font-pixel hover:bg-neonGreen hover:text-highlightColor transition-all duration-300"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
+            <button
+              className="px-6 py-2 bg-mainColor text-shadowColor font-pixel rounded-lg hover:bg-highlightColor transition duration-300"
+              onClick={() => window.open(project.github, '_blank')}
+            >
+              View on GitHub
+            </button>
           </div>
         ))}
       </div>
