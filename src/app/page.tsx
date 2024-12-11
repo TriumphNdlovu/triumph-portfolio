@@ -157,8 +157,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-black absolute inset-0 select-none">
-      <div className="bg-[url('/background.webp')] bg-opacity-60 bg-cover bg-center bg-fixed text-white h-screen flex justify-center items-center overflow-y-clip overflow-x-clip">
+    <div className=" absolute inset-0 select-none">
+      <div className="bg-custom-backgroundImage bg-opacity-60 bg-cover bg-center bg-fixed text-white h-screen flex justify-center items-center overflow-y-clip overflow-x-clip">
         <div className="fixed top-0 left-0 h-full font-pixel grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-2 gap-4 p-4 z-50 overflow-y-auto">
           {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog','info' , 'Game','Settings' ].map((section) => (
             <div
@@ -202,7 +202,7 @@ export default function Home() {
               !minimizedWindows.includes(window) && (
                 <div
                   key={index}
-                  className="bg-forG bg-opacity-95 rounded-lg border-2 border-neonGreen absolute transition-all duration-200"
+                  className="bg-windowBackgroud bg-opacity-95 rounded-lg border-2 border-neonGreen absolute transition-all duration-200"
                   style={{
                     top: `${positions[window]?.top}px`,
                     left: `${positions[window]?.left}px`,
@@ -212,7 +212,7 @@ export default function Home() {
                   }}
                 >
                   <div
-                    className="bg-[#121212] text-white p-2 rounded-t-lg flex justify-between items-center shadow-md border-b-2 border-neonGreen cursor-move"
+                    className=" text-white p-2 rounded-t-lg flex justify-between items-center shadow-md border-b-2 border-neonGreen cursor-move"
                     onMouseDown={(e) => handleDrag(e, window)}
                   >
                     <div className="flex gap-2">
@@ -249,9 +249,9 @@ export default function Home() {
           )}
         </div>
 
-        <div className="fixed bottom-0 left-0 right-0 bg-[#1A1A1A] text-white sm:flex items-center h-12 p-2 shadow-lg font-pixel z-[60] hidden">
+        <div className="fixed bottom-0 left-0 right-0  text-white sm:flex items-center h-12 p-2 shadow-lg font-pixel z-[60] hidden">
   <div
-    className="start-button flex items-center space-x-4 px-4 cursor-pointer bg-neonGreen mr-4 hover:text-black hover:bg-yellow-500 rounded-md py-1"
+    className="start-button flex items-center space-x-4 px-4 cursor-pointer bg-neonGreen mr-4  hover:bg-yellow-500 rounded-md py-1"
     onClick={toggleStartMenu}
   >
     <i className="fas fa-tv text-lg"></i>
@@ -259,7 +259,7 @@ export default function Home() {
   </div>
 
   {startMenuOpen && (
-    <div className="absolute bottom-12 left-4 bg-[#121212] border-2 border-yellow-500 rounded-lg p-4 shadow-md z-50 sm:w-auto w-full">
+    <div className="absolute bottom-12 left-4  border-2 border-yellow-500 rounded-lg p-4 shadow-md z-50 sm:w-auto w-full">
       <ul className="font-pixel text-sm">
         {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog', 'info', 'Game', 'Settings'].map((section) => (
           <li

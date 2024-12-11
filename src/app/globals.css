@@ -26,13 +26,6 @@
   }
 }
 
-/* Flying object class */
-.flying-object {
-  @apply absolute w-8 h-8 bg-neonGreen rounded-full;
-  animation: flyAround 2s ease-in-out infinite;
-}
-
-
 
     .blink {
       display: inline-block;
@@ -99,4 +92,18 @@
 
 .animate-slideRight {
   animation: slideRight 30s linear infinite;
+}
+
+
+
+
+:root {
+  --themeBG: url('/backgroundXP.webp');
+  --neonGreen: #00FF00;
+  --windowBackgroud: #000000;
+  --retroPink: #ffffff;
+  --darkCharcoal: #444444;
+  --mediumGray: #555555;
+  --borderGray: #333333;
+  --neonBlue: #00FFFF;
 }

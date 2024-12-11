@@ -8,18 +8,22 @@ export default {
   ],
   theme: {
     extend: {
-      colors: { 
-        retroGreen: '#00FF00',
-        // neonGreen: '#00FF00',
-        // neonGreen: '#b5366b',
-        neonGreen : '#305cb3',
-        // retroPink: '#FF1493',F6733A
-        retroPink: '#ffffff',
-        darkCharcoal: '#444444', // Lighter charcoal
-        mediumGray: '#555555', // Medium gray for some sections
-        borderGray: '#333333',
-        neonBlue: '#00FFFF', // Retro blue
-        forG: '#000000',
+        colors: {
+        mainColor: "var(--mainColor)",
+        windowBackgroud: "var(--windowBackgroud)",
+        // retroPink: "var(--retroPink)",
+        // darkCharcoal: "var(--darkCharcoal)",
+        // mediumGray: "var(--mediumGray)",
+        // borderGray: "var(--borderGray)",
+        // neonBlue: "var(--neonBlue)",
+        // forG: "var(--forG)",
+        },
+      backgroundImage: {
+        'custom-backgroundImage': "var(--themeBG)",
+      },
+      fontFamily: {
+        pixel: ['"Press Start 2P"', 'cursive'],
+        vt323: ['"VT323"', 'monospace'],
       },
       animation: {
         glitch: 'glitch 1s infinite',
@@ -30,12 +34,7 @@ export default {
           '50%': { textShadow: '-2px -2px #ff0000, 2px 2px #00ff00' },
         },
       },
-      fontFamily: {
-        pixel: ['"Press Start 2P"', 'cursive'],
-        vt323: ['"VT323"', 'monospace'], // Option for VT323 font
-      },
     },
   },
-
   plugins: [],
 } satisfies Config;
