@@ -166,7 +166,7 @@ export default function Home() {
               className="flex flex-col items-center cursor-pointer transform transition duration-300"
               onClick={() => handleWindowOpen(section)}
             >
-              <div className="p-4 rounded-lg shadow-md hover:border-neonGreen border border-transparent transition duration-300 ease-in-out">
+              <div className="p-4 rounded-lg shadow-md bg-black bg-opacity-85 hover:border-neonGreen border border-transparent transition duration-300 ease-in-out">
                 <i
                   className={`fas fa-${
                     section === 'Triumph'
@@ -189,7 +189,7 @@ export default function Home() {
                   } text-4xl text-neonGreen`}
                 ></i>
               </div>
-              <p className="text-sm mt-2 text-center transition duration-300">
+              <p className=" mt-2 text-center text-black transition duration-300">
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </p>
             </div>
@@ -250,69 +250,70 @@ export default function Home() {
         </div>
 
         <div className="fixed bottom-0 left-0 right-0 bg-[#1A1A1A] text-white sm:flex items-center h-12 p-2 shadow-lg font-pixel z-[60] hidden">
-          <div
-            className="start-button flex items-center space-x-4 px-4 cursor-pointer bg-neonGreen mr-4 hover:text-black hover:bg-yellow-500 rounded-md py-1"
-            onClick={toggleStartMenu}
+  <div
+    className="start-button flex items-center space-x-4 px-4 cursor-pointer bg-neonGreen mr-4 hover:text-black hover:bg-yellow-500 rounded-md py-1"
+    onClick={toggleStartMenu}
+  >
+    <i className="fas fa-tv text-lg"></i>
+    <span className="text-sm">Start</span>
+  </div>
+
+  {startMenuOpen && (
+    <div className="absolute bottom-12 left-4 bg-[#121212] border-2 border-yellow-500 rounded-lg p-4 shadow-md z-50 sm:w-auto w-full">
+      <ul className="font-pixel text-sm">
+        {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog', 'info', 'Game', 'Settings'].map((section) => (
+          <li
+            key={section}
+            className="cursor-pointer hover:bg-neonGreen rounded-md px-2 py-2"
+            onClick={() => {
+              handleWindowOpen(section);
+              toggleStartMenu();
+            }}
           >
-            <i className="fas fa-tv text-lg"></i>
-            <span className="text-sm">Start</span>
-          </div>
+            {section.charAt(0).toUpperCase() + section.slice(1)}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
 
-          {startMenuOpen && (
-            <div className="absolute bottom-12 left-4 bg-[#121212] border-2 border-yellow-500 rounded-lg p-4 shadow-md z-50">
-              <ul className="font-pixel text-sm">
-                {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog','info', 'Game',  'Settings'].map((section) => (
-                  <li
-                    key={section}
-                    className="cursor-pointer hover:bg-neonGreen rounded-md px-2 py-1"
-                    onClick={() => {
-                      handleWindowOpen(section);
-                      toggleStartMenu();
-                    }}
-                  >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+  {openWindows.map((window) => (
+    <div
+      key={window}
+      className="flex-left items-center px-4 hover:bg-[#3a3a3a] 
+                  cursor-pointer border-l border-neonGreen py-1
+                  "
+      onClick={() => handleTaskbarClick(window)}
+    >
+      <i
+        className={`fas fa-${
+          window === 'Triumph'
+            ? 'user-ninja'
+            : window === 'projects'
+            ? 'briefcase'
+            : window === 'skills'
+            ? 'laptop-code'
+            : window === 'contact'
+            ? 'envelope'
+            : window === 'resume'
+            ? 'file'
+            : window === 'blog'
+            ? 'comments'
+            : window === 'info'
+            ? 'info'
+            : window === 'Settings'
+            ? 'cogs'
+            : 'gamepad'
+        }`}
+      ></i>
+      <span className="ml-2 text-xs">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
+    </div>
+  ))}
 
-          {openWindows.map((window) => (
-            <div
-              key={window}
-              className="flex-left items-center px-4 hover:bg-[#3a3a3a] 
-                          cursor-pointer border-l border-neonGreen py-1
-                          "
-              onClick={() => handleTaskbarClick(window)}
-            >
-              <i
-                className={`fas fa-${
-                  window === 'Triumph'
-                    ? 'user-ninja'
-                    : window === 'projects'
-                    ? 'briefcase'
-                    : window === 'skills'
-                    ? 'laptop-code'
-                    : window === 'contact'
-                    ? 'envelope'
-                    : window === 'resume'
-                    ? 'file'
-                    : window === 'blog'
-                    ? 'comments'
-                    : window === 'info'
-                    ? 'info'
-                    : window === 'Settings'
-                    ? 'cogs'
-                    : 'gamepad'
-                }`}
-              ></i>
-              <span className="ml-2 text-xs">{window.charAt(0).toUpperCase() + window.slice(1)}</span>
-            </div>
-          ))}
+  <div className="flex-grow"></div>
+  <div className="flex-right mr-4">{currentTime}</div>
+</div>
 
-          <div className="flex-grow"></div>
-          <div className="flex-right mr-4">{currentTime}</div>
-        </div>
       </div>
     </div>
   );

@@ -89,6 +89,12 @@ export default function Contact() {
                 <span className="text-white">Mobile: </span> +27 82 779 3863
               </a>
             </li>
+            <li className="flex items-center space-x-4">
+              <i className="fas fa-envelope text-white"></i>
+              <a href="#" className="hover:text-blue-400 transition duration-200">
+                <span className="text-white">WhatsApp:</span> +27 82 779 3863
+              </a>
+            </li>
           </ul>
         </div>
       </div>
