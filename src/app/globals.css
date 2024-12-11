@@ -98,12 +98,23 @@
 
 
 :root {
-  --themeBG: url('/backgroundXP.webp');
-  --neonGreen: #00FF00;
-  --windowBackgroud: #000000;
-  --retroPink: #ffffff;
-  --darkCharcoal: #444444;
-  --mediumGray: #555555;
-  --borderGray: #333333;
-  --neonBlue: #00FFFF;
+  /* Primary Colors */
+  --themeBG: url('/backgroundXP.webp'); /* Background image */
+  --mainColor: #00FF00; /* Neon green for primary elements */
+  --maintextColor: #00FF00; /* Green for primary text */
+
+  /* Accent Colors */
+  --accentColor: #00FFFF; /* Cyan for accents and hover states */
+  --highlightColor: #FFFFFF; /* White for critical text or borders */
+
+  /* Neutral and Supporting Colors */
+  --windowBackground: #000000; /* Black for windows and main background */
+  --secondaryTextColor: #333333; /* Dark grey for secondary text */
+  --shadowColor: #333333; /* For shadows and subtle separations */
+
+  /* Optional Secondary Accents */
+  --specialAccentColor: #8000FF; /* Purple for rare highlights */
+  --alertColor: #ADFF2F; /* Yellow-green for notifications or alerts */
 }
+
+

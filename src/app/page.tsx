@@ -158,7 +158,7 @@ export default function Home() {
 
   return (
     <div className=" absolute inset-0 select-none">
-      <div className="bg-custom-backgroundImage bg-opacity-60 bg-cover bg-center bg-fixed text-white h-screen flex justify-center items-center overflow-y-clip overflow-x-clip">
+      <div className="bg-custom-backgroundImage bg-cover bg-center bg-fixed text-maintextColor h-screen flex justify-center items-center overflow-y-clip overflow-x-clip">
         <div className="fixed top-0 left-0 h-full font-pixel grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-2 gap-4 p-4 z-50 overflow-y-auto">
           {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog','info' , 'Game','Settings' ].map((section) => (
             <div
@@ -166,7 +166,7 @@ export default function Home() {
               className="flex flex-col items-center cursor-pointer transform transition duration-300"
               onClick={() => handleWindowOpen(section)}
             >
-              <div className="p-4 rounded-lg shadow-md bg-black bg-opacity-85 hover:border-neonGreen border border-transparent transition duration-300 ease-in-out">
+              <div className="p-4 rounded-lg shadow-md bg-windowBackground bg-opacity-85 hover:border-mainColor border border-transparent transition duration-300 ease-in-out">
                 <i
                   className={`fas fa-${
                     section === 'Triumph'
@@ -189,7 +189,7 @@ export default function Home() {
                   } text-4xl text-neonGreen`}
                 ></i>
               </div>
-              <p className=" mt-2 text-center text-black transition duration-300">
+              <p className=" mt-2 text-center text-windowBackground transition duration-300">
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </p>
             </div>
@@ -202,7 +202,7 @@ export default function Home() {
               !minimizedWindows.includes(window) && (
                 <div
                   key={index}
-                  className="bg-windowBackgroud bg-opacity-95 rounded-lg border-2 border-neonGreen absolute transition-all duration-200"
+                  className="bg-windowBackground rounded-lg border-2 border-mainColor absolute transition-all duration-200"
                   style={{
                     top: `${positions[window]?.top}px`,
                     left: `${positions[window]?.left}px`,
@@ -212,7 +212,7 @@ export default function Home() {
                   }}
                 >
                   <div
-                    className=" text-white p-2 rounded-t-lg flex justify-between items-center shadow-md border-b-2 border-neonGreen cursor-move"
+                    className="bg-windowBackground text-maintextColor p-2 rounded-t-lg flex justify-between items-center shadow-md border-b-2 border-mainColor cursor-move"
                     onMouseDown={(e) => handleDrag(e, window)}
                   >
                     <div className="flex gap-2">
@@ -249,22 +249,22 @@ export default function Home() {
           )}
         </div>
 
-        <div className="fixed bottom-0 left-0 right-0  text-white sm:flex items-center h-12 p-2 shadow-lg font-pixel z-[60] hidden">
+        <div className="bg-windowBackground fixed bottom-0 left-0 right-0 text-maintextColor sm:flex items-center h-12 p-2 shadow-lg font-pixel z-[60] hidden">
   <div
-    className="start-button flex items-center space-x-4 px-4 cursor-pointer bg-neonGreen mr-4  hover:bg-yellow-500 rounded-md py-1"
+    className="start-button flex items-center space-x-4 px-4 cursor-pointer bg-specialAccentColor mr-4  hover:bg-specialAccentColor rounded-md py-1"
     onClick={toggleStartMenu}
   >
-    <i className="fas fa-tv text-lg"></i>
+    <i className="fas fa-frog text-lg"></i>
     <span className="text-sm">Start</span>
   </div>
 
   {startMenuOpen && (
-    <div className="absolute bottom-12 left-4  border-2 border-yellow-500 rounded-lg p-4 shadow-md z-50 sm:w-auto w-full">
+    <div className="bg-windowBackground absolute bottom-12 left-4  border-2 border-mainColor rounded-lg p-4 shadow-md z-50 sm:w-auto w-full">
       <ul className="font-pixel text-sm">
         {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog', 'info', 'Game', 'Settings'].map((section) => (
           <li
             key={section}
-            className="cursor-pointer hover:bg-neonGreen rounded-md px-2 py-2"
+            className="cursor-pointer hover:border hover:border-mainColor rounded-md px-2 py-2"
             onClick={() => {
               handleWindowOpen(section);
               toggleStartMenu();
@@ -280,7 +280,7 @@ export default function Home() {
   {openWindows.map((window) => (
     <div
       key={window}
-      className="flex-left items-center px-4 hover:bg-[#3a3a3a] 
+      className="flex-left items-center px-4 hover:bg-shadowColor
                   cursor-pointer border-l border-neonGreen py-1
                   "
       onClick={() => handleTaskbarClick(window)}

@@ -9,15 +9,17 @@ export default {
   theme: {
     extend: {
         colors: {
-        mainColor: "var(--mainColor)",
-        windowBackgroud: "var(--windowBackgroud)",
-        // retroPink: "var(--retroPink)",
-        // darkCharcoal: "var(--darkCharcoal)",
-        // mediumGray: "var(--mediumGray)",
-        // borderGray: "var(--borderGray)",
-        // neonBlue: "var(--neonBlue)",
-        // forG: "var(--forG)",
-        },
+        mainColor: "var(--mainColor)", 
+        maintextColor: "var(--maintextColor)", 
+        accentColor: "var(--accentColor)", 
+        highlightColor: "var(--highlightColor)", 
+        windowBackground: "var(--windowBackground)", 
+        secondaryTextColor: "var(--secondaryTextColor)", 
+        shadowColor: "var(--shadowColor)", 
+        specialAccentColor: "var(--specialAccentColor)", 
+        alertColor: "var(--alertColor)", 
+    },
+
       backgroundImage: {
         'custom-backgroundImage': "var(--themeBG)",
       },
