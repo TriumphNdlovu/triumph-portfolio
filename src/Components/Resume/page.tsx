@@ -7,10 +7,10 @@ export default function Resume() {
         {/* Career Goals & Interests Section */}
         <div className="p-6 rounded-lg border border-neonGreen shadow-lg">
           <h3 className="text-2xl text-neonGreen font-semibold mb-4">Career Aspirations & Opportunities</h3>
-          <p className="text-gray-300 font-vt323 text-lg">
+          <p className="text-secondaryTextColor font-vt323 text-lg">
             I’m looking for a full-time software engineering job where I can work with a team, solve problems, and grow my skills.
           </p>
-          <p className="text-gray-300 font-vt323 text-lg mt-4">
+          <p className="text-secondaryTextColor font-vt323 text-lg mt-4">
             I’m also open to freelance work in web development and design, helping bring ideas to life with creative solutions.
           </p>
         </div>
@@ -28,7 +28,7 @@ export default function Resume() {
           <a
             href="/resume.pdf"
             download
-            className="inline-block mt-4 px-6 py-2 bg-neonGreen text-gray-900 rounded-lg font-pixel hover:bg-yellow-500 transition duration-300"
+            className="inline-block mt-4 px-6 py-2 bg-mainColor text-shadowColor rounded-lg font-pixel hover:bg-alertColor transition duration-300"
           >
             Download Resume
           </a>

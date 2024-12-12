@@ -16,8 +16,8 @@ export default function Settings() {
     // Dynamically change background image
     if (newImage === "windowsXp") {
       document.documentElement.style.setProperty('--themeBG', 'url("/backgroundXP.webp")');
-    } else if (newImage === "sunset") {
-      document.documentElement.style.setProperty('--themeBG', 'url("/path/to/sunset-image.jpg")');
+    } else if (newImage === "Tiger") {
+      document.documentElement.style.setProperty('--themeBG', 'url("/Tiger.jpg")');
     } else if (newImage === "space") {
       document.documentElement.style.setProperty('--themeBG', 'url("/path/to/space-image.jpg")');
     }
@@ -65,7 +65,7 @@ export default function Settings() {
           Retro Background
         </button>
         <button
-          onClick={() => changeBackgroundImage("sunset")}
+          onClick={() => changeBackgroundImage("Tiger")}
           className="px-6 py-2 bg-retroGreen text-gray-900 font-pixel rounded-lg transition duration-300 mt-4"
         >
           Sunset Background

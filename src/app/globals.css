@@ -109,12 +109,64 @@
 
   /* Neutral and Supporting Colors */
   --windowBackground: #000000; /* Black for windows and main background */
-  --secondaryTextColor: #333333; /* Dark grey for secondary text */
+  --secondaryTextColor: #FFFFFF; /* Dark grey for secondary text */
   --shadowColor: #333333; /* For shadows and subtle separations */
 
   /* Optional Secondary Accents */
   --specialAccentColor: #8000FF; /* Purple for rare highlights */
   --alertColor: #ADFF2F; /* Yellow-green for notifications or alerts */
 }
+
+/* light theme */
+[data-theme='light'] {
+  --themeBG: url('/backgroundLightXP.webp'); /* Light background image */
+  --mainColor: #0055FF; /* Darker blue for primary elements */
+  --maintextColor: #0055FF; /* Darker blue for primary text */
+
+  /* Accent Colors */
+  --accentColor: #0088FF; /* Darker cyan for accents and hover states */
+  --highlightColor: #333333; /* Darker grey for critical text or borders */
+
+  /* Neutral and Supporting Colors */
+  --windowBackground: #ffdcdc; /* Lighter grey for windows and main background */
+  --secondaryTextColor: #666666; /* Darker grey for secondary text */
+  --shadowColor: #CCCCCC; /* For shadows and subtle separations */
+
+  /* Optional Secondary Accents */
+  --specialAccentColor: #8000FF; /* Purple for rare highlights */
+  --alertColor: #FFD700;
+}
+
+/* dark theme */
+/* [data-theme='dark'] {
+  --themeBG: url('/backgroundXP.webp');
+  --mainColor: #00FF00;
+  --maintextColor: #00FF00;
+  --accentColor: #00FFFF;
+  --highlightColor: #FFFFFF;
+  --windowBackground: #000000;
+  --secondaryTextColor: #FFFFFF;
+  --shadowColor: #333333;
+  --specialAccentColor: #8000FF;
+  --alertColor: #ADFF2F;
+} */
+
+[data-theme='dark'] {
+  --themeBG: url('/backgroundXP.webp');
+  --mainColor: #800080;
+  --maintextColor: #008080;
+  --accentColor: #00FFFF;
+  --highlightColor: #FF0000;
+  /* Neutral and Supporting Colors */
+  --windowBackground: #000;
+  --secondaryTextColor: #FFF;
+  --shadowColor: #333;
+  /* Optional Secondary Accents */
+  --specialAccentColor: #FF00FF;
+  --alertColor: #FFFF00;
+}
+
+
+
 
 
