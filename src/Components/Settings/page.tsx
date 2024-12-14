@@ -1,56 +1,49 @@
 import { useState, useEffect } from "react";
 
 export default function Settings() {
-  const [theme, setTheme] = useState("Default");
-  const [backgroundImage, setBackgroundImage] = useState("Default");
+  const [theme, setTheme] = useState("default");
+  const [backgroundImage, setBackgroundImage] = useState("windowsXp");
 
-  // Load preferences from localStorage on component mount
+  // Retrieve theme and background from localStorage on component mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const savedBackgroundImage = localStorage.getItem("backgroundImage");
-
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.setAttribute("data-theme", savedTheme);
-    }
-
-    if (savedBackgroundImage) {
-      setBackgroundImage(savedBackgroundImage);
-      document.documentElement.style.setProperty('--themeBG', savedBackgroundImage);
-    }
+    const savedTheme = localStorage.getItem("theme") || "default";
+    const savedBackground = localStorage.getItem("backgroundImage") || "windowsXp";
+    
+    setTheme(savedTheme);
+    setBackgroundImage(savedBackground);
+    document.documentElement.style.setProperty('--themeBG', getBackgroundUrl(savedBackground));
   }, []);
+
+  // Helper function to get the background image URL based on the selected background
+  const getBackgroundUrl = (bgName: string) => {
+    switch (bgName) {
+      case "windowsXp":
+        return 'url("/backgroundXP.webp")';
+      case "beach":
+        return 'url("/beach.jpg")';
+      case "space":
+        return 'url("/space.jpg")';
+      default:
+        return ''; // Default background
+    }
+  };
 
   // Function to change the theme
   const changeTheme = (newTheme: string) => {
     document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme); // Save theme to localStorage
     setTheme(newTheme);
-    localStorage.setItem("theme", newTheme); // Store theme in localStorage
   };
 
   // Function to change the background image
   const changeBackgroundImage = (newImage: string) => {
-    let backgroundUrl = "";
-    switch (newImage) {
-      case "windowsXp":
-        backgroundUrl = 'url("/backgroundXP.webp")';
-        break;
-      case "beach":
-        backgroundUrl = 'url("/beach.jpg")';
-        break;
-      case "space":
-        backgroundUrl = 'url("/space.jpg")';
-        break;
-      default:
-        backgroundUrl = ''; // Set a default background if invalid input
-    }
-
+    const backgroundUrl = getBackgroundUrl(newImage);
     document.documentElement.style.setProperty('--themeBG', backgroundUrl);
+    localStorage.setItem("backgroundImage", newImage); // Save background to localStorage
     setBackgroundImage(newImage);
-    localStorage.setItem("backgroundImage", newImage); // Store background image in localStorage
   };
 
-  // Highlight styles
-  const highlightStyle = "border-4 border-yellow-500";
+  const highlightStyle = "border-4 border-accentColor";
 
   return (
     <section className="p-8 text-center">
@@ -92,13 +85,13 @@ export default function Settings() {
             onClick={() => changeBackgroundImage("windowsXp")}
             className={`px-2 py-2 bg-retroGreen text-gray-900 font-pixel rounded-lg transition duration-300 ${backgroundImage === "windowsXp" ? highlightStyle : ""}`}
           >
-            <img src="/backgroundXP.webp" alt="Retro" className="w-16 h-16 object-cover rounded-md" />
+            <img src="/backgroundXP.webp" alt="default" className="w-16 h-16 object-cover rounded-md" />
           </button>
           <button
             onClick={() => changeBackgroundImage("beach")}
-            className={`px-2 py-2 bg-retroGreen text-gray-900 font-pixel rounded-lg transition duration-300 ${backgroundImage === "Tiger" ? highlightStyle : ""}`}
+            className={`px-2 py-2 bg-retroGreen text-gray-900 font-pixel rounded-lg transition duration-300 ${backgroundImage === "beach" ? highlightStyle : ""}`}
           >
-            <img src="/beach.jpg" alt="Sunset" className="w-16 h-16 object-cover rounded-md" />
+            <img src="/beach.jpg" alt="beach" className="w-16 h-16 object-cover rounded-md" />
           </button>
           <button
             onClick={() => changeBackgroundImage("space")}

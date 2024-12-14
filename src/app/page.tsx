@@ -139,7 +139,26 @@ export default function Home() {
     setStartMenuOpen((prev) => !prev);
   };
 
+  const getBackgroundUrl = (bgName: string) => {
+    switch (bgName) {
+      case "windowsXp":
+        return 'url("/backgroundXP.webp")';
+      case "beach":
+        return 'url("/beach.jpg")';
+      case "space":
+        return 'url("/space.jpg")';
+      default:
+        return ''; // Default background
+    }
+  };
+
   useEffect(() => {
+    //Update theme and background image 
+    const savedTheme = localStorage.getItem("theme") || "default";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    const savedBackground = localStorage.getItem("backgroundImage") || "windowsXp";
+    document.documentElement.style.setProperty('--themeBG', getBackgroundUrl(savedBackground));
+
     const updateCurrentTime = () => {
       const now = new Date();
       const hours = now.getHours().toString().padStart(2, '0');

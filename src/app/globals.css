@@ -98,8 +98,7 @@
 
 
 :root {
-  /* Background and Base Colors */
-  --themeBG: url('/backgroundXP.webp'); /* Subtle, textured, or gradient background */
+  /* Background and Base Colors */ /* Subtle, textured, or gradient background */
   --mainColor: #32CD32; /* Lime green for primary elements, vibrant but not overwhelming */
   --maintextColor: #2ECC71; /* Fresh green for primary text with a polished look */
 
@@ -109,7 +108,7 @@
 
   /* Neutral and Supporting Colors */
   --windowBackground: #121212; /* Rich black for windows and main background */
-  --secondaryTextColor: #B0B0B0; /* Light silver-grey for secondary text for readability */
+  --secondaryTextColor: #313131; /* Light silver-grey for secondary text for readability */
   --shadowColor: #222222; /* Slightly lighter black for subtle separations */
 
   /* Optional Secondary Accents */
@@ -123,14 +122,13 @@
 
 
 /* light theme */
-[data-theme='light'] {
-  --themeBG: url('/backgroundXP.webp'); /* Cheerful texture or subtle gradient */
+[data-theme='light'] { /* Cheerful texture or subtle gradient */
   --mainColor: #0749ff; /* Warm amber for primary elements */
   --maintextColor: #131a22; /* Rich, modern dark blue for text */
   --accentColor: #42A5F5; /* Vibrant sky blue for accents */
   --highlightColor: #FFFFFF; /* Crisp white for highlights */
   --windowBackground: #FAFAFA; /* Soft, neutral off-white for windows */
-  --secondaryTextColor: #263238; /* Calm bluish-gray for secondary text */
+  --secondaryTextColor: #12171a; /* Calm bluish-gray for secondary text */
   --shadowColor: #B0BEC5; /* Light blue-gray shadows */
   --specialAccentColor: #d6562f; /* Playful coral for special accents */
   --alertColor: #4CAF50; /* Fresh green for alerts */
@@ -143,14 +141,13 @@
 
 
 /* dark theme */
-[data-theme='Dark'] {
-  --themeBG: url('/backgroundXP.webp'); /* Keep the background image */
+[data-theme='Dark'] { /* Keep the background image */
   --mainColor: #000000; /* White for primary elements */
   --maintextColor: #FFFFFF; /* Black for text */
   --accentColor: #CCCCCC; /* Light gray for accents */
   --highlightColor: #FFFFFF; /* White for highlights */
   --windowBackground: #000000; /* Black for windows or backgrounds */
-  --secondaryTextColor: #AAAAAA; /* Medium gray for secondary text */
+  --secondaryTextColor: #2b2a2a; /* Medium gray for secondary text */
   --shadowColor: #333333; /* Dark gray for shadows */
   --specialAccentColor: #777777; /* Medium-dark gray for special accents */
   --alertColor: #888888; /* Neutral gray for alerts */
@@ -159,3 +156,6 @@
 
 
 
+:root {
+  --themeBG: #f0f0f0; /* Default background color (can be any color) */
+}
