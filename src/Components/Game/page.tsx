@@ -20,6 +20,7 @@ export default function Game() {
     setMolePosition(generateRandomPosition());
   };
 
+  // Constantly decrease timer
   useEffect(() => {
     if (timer > 0 && !isGameOver && gameStarted) {
       const interval = setInterval(() => {
@@ -32,12 +33,30 @@ export default function Game() {
     }
   }, [timer, isGameOver, gameStarted]);
 
+  // Handle hitting the mole and increasing the score
   const hitMole = (index: number) => {
     if (index === molePosition && gameStarted && !isGameOver) {
       setScore(score + 1);
       setMolePosition(generateRandomPosition());
     }
   };
+
+  // Gradually make the mole appear more frequently as score increases
+  useEffect(() => {
+    if (gameStarted && !isGameOver) {
+      const moleInterval = setInterval(() => {
+        setMolePosition(generateRandomPosition());
+      }, Math.max(1500 - Math.floor(score / 5) * 100, 800)); // Mole appears every 1.5s, gradually reducing
+      return () => clearInterval(moleInterval);
+    }
+  }, [gameStarted, isGameOver, score]);
+
+  // Give time bonuses after every 10 points
+  useEffect(() => {
+    if (score > 0 && score % 10 === 0) {
+      setTimer((prev) => prev + 5);
+    }
+  }, [score]);
 
   return (
     <>
@@ -54,14 +73,13 @@ export default function Game() {
           {Array.from({ length: 9 }, (_, index) => (
             <div
               key={index}
-              className={`h-24 w-24 bg-black rounded-lg border-2 border-neonGreen relative ${
-                index === molePosition ? "bg-yellow-500" : ""
+              className={`h-24 w-24 bg-specialAccentColor rounded-lg border-2 border-mainColor relative ${
+                index === molePosition ? "bg-mainColor" : ""
               } ${gameStarted ? "" : "pointer-events-none"}`}
               onClick={() => hitMole(index)}
             >
               {index === molePosition && (
                 <div className="absolute inset-0 flex items-center justify-center">
-                  {/* <div className="w-8 h-8 bg-neonGreen rounded-full" /> */}
                   <i className="fas fa-frog text-3xl text-white absolute" />
                 </div>
               )}
@@ -74,7 +92,7 @@ export default function Game() {
         <div className="text-center mt-6">
           <button
             onClick={startGame}
-            className="px-6 py-3 bg-neonGreen text-white rounded-lg font-pixel hover:bg-yellow-500 transition duration-300"
+            className="px-6 py-3 bg-mainColor text-specialAccentColor rounded-lg font-pixel hover:bg-yellow-500 transition duration-300"
           >
             Start Game
           </button>
