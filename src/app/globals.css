@@ -98,74 +98,63 @@
 
 
 :root {
-  /* Primary Colors */
-  --themeBG: url('/backgroundXP.webp'); /* Background image */
-  --mainColor: #00FF00; /* Neon green for primary elements */
-  --maintextColor: #00FF00; /* Green for primary text */
+  /* Background and Base Colors */
+  --themeBG: url('/backgroundXP.webp'); /* Subtle, textured, or gradient background */
+  --mainColor: #32CD32; /* Lime green for primary elements, vibrant but not overwhelming */
+  --maintextColor: #2ECC71; /* Fresh green for primary text with a polished look */
 
   /* Accent Colors */
-  --accentColor: #00FFFF; /* Cyan for accents and hover states */
-  --highlightColor: #FFFFFF; /* White for critical text or borders */
+  --accentColor: #1E90FF; /* Dodger blue for interactive accents and hover states */
+  --highlightColor: #FFFFFF; /* Crisp white for key highlights and primary borders */
 
   /* Neutral and Supporting Colors */
-  --windowBackground: #000000; /* Black for windows and main background */
-  --secondaryTextColor: #FFFFFF; /* Dark grey for secondary text */
-  --shadowColor: #333333; /* For shadows and subtle separations */
+  --windowBackground: #121212; /* Rich black for windows and main background */
+  --secondaryTextColor: #B0B0B0; /* Light silver-grey for secondary text for readability */
+  --shadowColor: #222222; /* Slightly lighter black for subtle separations */
 
   /* Optional Secondary Accents */
-  --specialAccentColor: #8000FF; /* Purple for rare highlights */
-  --alertColor: #ADFF2F; /* Yellow-green for notifications or alerts */
+  --specialAccentColor: #8A2BE2; /* Deep violet for rare highlights or decorative touches */
+  --alertColor: #FF6347; /* Soft red-orange (tomato) for alerts, warnings, or notifications */
+
+  /* Borders and Separations */
+  --borderColor: #2F4F4F; /* Dark slate grey for dividing lines or borders */
+  --hoverBorderColor: #4682B4; /* Steel blue for hover states to enhance interactivity */
 }
+
 
 /* light theme */
 [data-theme='light'] {
-  --themeBG: url('/backgroundLightXP.webp'); /* Light background image */
-  --mainColor: #0055FF; /* Darker blue for primary elements */
-  --maintextColor: #0055FF; /* Darker blue for primary text */
-
-  /* Accent Colors */
-  --accentColor: #0088FF; /* Darker cyan for accents and hover states */
-  --highlightColor: #333333; /* Darker grey for critical text or borders */
-
-  /* Neutral and Supporting Colors */
-  --windowBackground: #ffdcdc; /* Lighter grey for windows and main background */
-  --secondaryTextColor: #666666; /* Darker grey for secondary text */
-  --shadowColor: #CCCCCC; /* For shadows and subtle separations */
-
-  /* Optional Secondary Accents */
-  --specialAccentColor: #8000FF; /* Purple for rare highlights */
-  --alertColor: #FFD700;
+  --themeBG: url('/backgroundXP.webp'); /* Cheerful texture or subtle gradient */
+  --mainColor: #0749ff; /* Warm amber for primary elements */
+  --maintextColor: #131a22; /* Rich, modern dark blue for text */
+  --accentColor: #42A5F5; /* Vibrant sky blue for accents */
+  --highlightColor: #FFFFFF; /* Crisp white for highlights */
+  --windowBackground: #FAFAFA; /* Soft, neutral off-white for windows */
+  --secondaryTextColor: #263238; /* Calm bluish-gray for secondary text */
+  --shadowColor: #B0BEC5; /* Light blue-gray shadows */
+  --specialAccentColor: #d6562f; /* Playful coral for special accents */
+  --alertColor: #4CAF50; /* Fresh green for alerts */
+  --successColor: #81C784; /* Soft mint green for success messages */
+  --errorColor: #E57373; /* Friendly coral red for errors */
+  --infoColor: #64B5F6; /* Gentle blue for informational elements */
+  --warningColor: #FFA726; /* Bright orange for warnings */
 }
+
+
 
 /* dark theme */
-/* [data-theme='dark'] {
-  --themeBG: url('/backgroundXP.webp');
-  --mainColor: #00FF00;
-  --maintextColor: #00FF00;
-  --accentColor: #00FFFF;
-  --highlightColor: #FFFFFF;
-  --windowBackground: #000000;
-  --secondaryTextColor: #FFFFFF;
-  --shadowColor: #333333;
-  --specialAccentColor: #8000FF;
-  --alertColor: #ADFF2F;
-} */
-
-[data-theme='dark'] {
-  --themeBG: url('/backgroundXP.webp');
-  --mainColor: #800080;
-  --maintextColor: #008080;
-  --accentColor: #00FFFF;
-  --highlightColor: #FF0000;
-  /* Neutral and Supporting Colors */
-  --windowBackground: #000;
-  --secondaryTextColor: #FFF;
-  --shadowColor: #333;
-  /* Optional Secondary Accents */
-  --specialAccentColor: #FF00FF;
-  --alertColor: #FFFF00;
+[data-theme='Dark'] {
+  --themeBG: url('/backgroundXP.webp'); /* Keep the background image */
+  --mainColor: #000000; /* White for primary elements */
+  --maintextColor: #FFFFFF; /* Black for text */
+  --accentColor: #CCCCCC; /* Light gray for accents */
+  --highlightColor: #FFFFFF; /* White for highlights */
+  --windowBackground: #000000; /* Black for windows or backgrounds */
+  --secondaryTextColor: #AAAAAA; /* Medium gray for secondary text */
+  --shadowColor: #333333; /* Dark gray for shadows */
+  --specialAccentColor: #777777; /* Medium-dark gray for special accents */
+  --alertColor: #888888; /* Neutral gray for alerts */
 }
-
 
 
 
