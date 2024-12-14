@@ -20,6 +20,11 @@ export default {
         alertColor: "var(--alertColor)", 
     },
 
+    textShadow: {
+        '2xl': '1px 1px 5px rgb(33 34 43 / 20%)',
+        '3xl': '0 0 3px rgba(255, 255, 255, 1), 0 0 5px rgba(0, 0, 0, .9)',
+        // rgba(197, 99, 0, 0)
+      },
       backgroundImage: {
         'custom-backgroundImage': "var(--themeBG)",
       },
@@ -38,5 +43,6 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+  require('tailwindcss-textshadow')],
 } satisfies Config;

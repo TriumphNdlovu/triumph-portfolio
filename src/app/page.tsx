@@ -185,7 +185,7 @@ export default function Home() {
               className="flex flex-col items-center cursor-pointer transform transition duration-300"
               onClick={() => handleWindowOpen(section)}
             >
-              <div className="p-4 rounded-lg shadow-md bg-windowBackground  hover:border-mainColor border border-transparent transition duration-300 ease-in-out">
+              <div className="p-4 rounded-lg shadow-md bg-windowBackground hover:border-mainColor border border-transparent transition duration-300 ease-in-out">
                 <i
                   className={`fas fa-${
                     section === 'Triumph'
@@ -208,9 +208,10 @@ export default function Home() {
                   } text-4xl text-neonGreen`}
                 ></i>
               </div>
-              <p className=" mt-2 text-center drop-shadow-2xl text-windowBackground transition duration-300">
-                {section.charAt(0).toUpperCase() + section.slice(1)}
+              <p className=" mt-2 text-center text-windowBackground transition duration-300">
+                <span className ="text-shadow-3xl" >{section.charAt(0).toUpperCase() + section.slice(1)}</span>
               </p>
+
             </div>
           ))}
         </div>
