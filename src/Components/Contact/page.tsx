@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaLinkedin, FaGithub, FaEnvelope, FaPhoneAlt,FaWhatsapp } from "react-icons/fa";
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState(false);
@@ -87,30 +88,43 @@ export default function Contact() {
         {/* Social Links */}
         <div className="p-8 rounded-lg border border-maintextColor shadow-lg overflow-x-auto bg-windowBackground">
           <h3 className="text-3xl text-maintextColor font-pixel mb-6">Find Me On</h3>
-          <ul className="space-y-4 text-maintextColor font-vt323 text-lg select-text items-center justify-center">
+          <ul className="space-y-4 text-maintextColor font-vt323 text-lg select-text items-center justify-center ">
             <li className="flex items-center space-x-4 hover:text-alertColor transition duration-200">
-              <i className="fas fa-address-card text-2xl"></i>
+              <div className="text-blue-500">
+              <FaLinkedin size={24} />
+
+              </div>
               <a href="https://www.linkedin.com/in/triumph-ndlovu-425b73274/" className="hover:underline">
                 Triumph LinkedIn
               </a>
             </li>
             <li className="flex items-center space-x-4 hover:text-alertColor transition duration-200">
-              <i className="fas fa-laptop-code text-2xl"></i>
+              <FaGithub size={24} />
               <a href="https://github.com/TriumphNdlovu" className="hover:underline">
                 Triumph GitHub
               </a>
             </li>
             <li className="flex items-center space-x-4 hover:text-alertColor transition duration-200">
-              <i className="fas fa-envelope text-2xl"></i>
+                <FaEnvelope size={24} />
               <a href="mailto:realtriumphndlovu@gmail.com" className="hover:underline">
                 realtriumphndlovu@gmail.com
               </a>
             </li>
             <li className="flex items-center space-x-4 hover:text-alertColor transition duration-200">
-              <i className="fas fa-phone-alt text-2xl"></i>
+              <FaPhoneAlt size={24} />
               <a href="tel:+27827793863" className="hover:underline">
                 +27 82 779 3863
               </a>
+            </li>
+            <li className="flex items-center space-x-4 hover:text-alertColor transition duration-200">
+              <div className="text-green-600">
+              <FaWhatsapp size={24} />
+
+              </div>
+              <a href="https://wa.me/27827793863" className="hover:underline">
+                +27 82 779 3863
+              </a>
+
             </li>
           </ul>
         </div>
