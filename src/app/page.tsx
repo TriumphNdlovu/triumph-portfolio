@@ -208,7 +208,7 @@ export default function Home() {
                   } text-4xl text-neonGreen`}
                 ></i>
               </div>
-              <p className=" mt-2 text-center text-windowBackground transition duration-300">
+              <p className=" mt-2 text-center drop-shadow-2xl text-windowBackground transition duration-300">
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </p>
             </div>

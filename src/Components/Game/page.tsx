@@ -5,7 +5,8 @@ export default function Game() {
   const [molePosition, setMolePosition] = useState<number | null>(null); 
   const [isGameOver, setIsGameOver] = useState(false);
   const [timer, setTimer] = useState(20); 
-  const [gameStarted, setGameStarted] = useState(false); 
+  const [gameStarted, setGameStarted] = useState(false);
+  const [bonusTimeMessage, setBonusTimeMessage] = useState<string>("");
 
   const generateRandomPosition = () => {
     const randomIndex = Math.floor(Math.random() * 9); 
@@ -18,6 +19,7 @@ export default function Game() {
     setIsGameOver(false);
     setGameStarted(true);
     setMolePosition(generateRandomPosition());
+    setBonusTimeMessage(""); // Reset bonus message
   };
 
   // Constantly decrease timer
@@ -55,6 +57,10 @@ export default function Game() {
   useEffect(() => {
     if (score > 0 && score % 10 === 0) {
       setTimer((prev) => prev + 5);
+      setBonusTimeMessage("Bonus Time!"); // Display bonus time message
+      setTimeout(() => {
+        setBonusTimeMessage(""); // Hide bonus time message after a few seconds
+      }, 2000);
     }
   }, [score]);
 
@@ -65,7 +71,14 @@ export default function Game() {
       </h2>
       <div className="text-center text-lg font-vt323 text-gray-300 mb-6">
         <p className="text-3xl text-yellow-500 font-pixel mb-6">Score: {score}</p>
-        <p className="text-2xl text-red-500">{timer}s</p>
+        <p
+          className={`text-2xl ${bonusTimeMessage ? "text-green-500" : "text-red-500"}`}
+        >
+          {timer}s
+        </p>
+        {bonusTimeMessage && (
+          <p className="text-xl text-green-500 font-pixel mt-2">{bonusTimeMessage}</p>
+        )}
       </div>
 
       <div className="flex justify-center items-center mb-6">
