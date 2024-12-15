@@ -108,7 +108,7 @@
 
   /* Neutral and Supporting Colors */
   --windowBackground: #121212; /* Rich black for windows and main background */
-  --secondaryTextColor: #313131; /* Light silver-grey for secondary text for readability */
+  --secondaryTextColor: #ffffff; /* Light silver-grey for secondary text for readability */
   --shadowColor: #222222; /* Slightly lighter black for subtle separations */
 
   /* Optional Secondary Accents */
@@ -132,10 +132,6 @@
   --shadowColor: #B0BEC5; /* Light blue-gray shadows */
   --specialAccentColor: #d6562f; /* Playful coral for special accents */
   --alertColor: #4CAF50; /* Fresh green for alerts */
-  --successColor: #81C784; /* Soft mint green for success messages */
-  --errorColor: #E57373; /* Friendly coral red for errors */
-  --infoColor: #64B5F6; /* Gentle blue for informational elements */
-  --warningColor: #FFA726; /* Bright orange for warnings */
 }
 
 

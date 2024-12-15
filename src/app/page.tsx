@@ -169,11 +169,15 @@ export default function Home() {
     if (!openWindows.includes('info')) {
       handleWindowOpen('info');
     }
+    
 
     updateCurrentTime();
     const timer = setInterval(updateCurrentTime, 60000);
     return () => clearInterval(timer);
   }, []);
+
+
+
 
   return (
     <div className=" absolute inset-0 select-none">
@@ -273,6 +277,7 @@ export default function Home() {
         <div className="bg-windowBackground fixed bottom-0 left-0 right-0 text-maintextColor sm:flex items-center h-12 p-2 shadow-lg font-pixel z-[60] hidden">
   <div
     className="start-button flex items-center space-x-4 px-4 cursor-pointer bg-specialAccentColor mr-4  hover:bg-specialAccentColor rounded-md py-1"
+    id="start-button"
     onClick={toggleStartMenu}
   >
     <i className="fas fa-frog text-lg"></i>
@@ -285,7 +290,7 @@ export default function Home() {
         {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog', 'info', 'Game', 'Settings'].map((section) => (
           <li
             key={section}
-            className="cursor-pointer hover:border hover:border-mainColor rounded-md px-2 py-2"
+            className="cursor-pointer hover:border hover:border-specialAccentColor rounded-md px-2 py-2"
             onClick={() => {
               handleWindowOpen(section);
               toggleStartMenu();
@@ -305,6 +310,11 @@ export default function Home() {
                   cursor-pointer border-l border-neonGreen py-1
                   "
       onClick={() => handleTaskbarClick(window)}
+      //on right click
+      onContextMenu={(e) => {
+        e.preventDefault();
+        handleWindowClose(window);
+      }}
     >
       <i
         className={`fas fa-${

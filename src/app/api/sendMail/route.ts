@@ -60,7 +60,7 @@ export async function POST(request: Request) {
                 </table>
                 
                 <p style="text-align: center; font-size: 14px; color: #777; margin-top: 30px;">
-                Thank you for reaching out! We will get back to you as soon as possible.
+                Thank you for reaching out! I will get back to you as soon as possible.
                 </p>
             </div>
       `,

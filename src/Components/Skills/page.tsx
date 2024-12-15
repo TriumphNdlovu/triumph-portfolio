@@ -1,4 +1,4 @@
-import { FaReact, FaJsSquare, FaNodeJs, FaAngular, FaDatabase, FaGitAlt, FaNpm, FaJava, FaTools } from 'react-icons/fa';
+import { FaReact, FaJsSquare, FaNodeJs, FaAngular, FaDatabase, FaGitAlt, FaNpm, FaJava, FaTools, FaCcStripe, FaCss3, FaCss3Alt } from 'react-icons/fa';
 
 export default function Skills() {
   interface Skill {
@@ -11,7 +11,7 @@ export default function Skills() {
     { name: 'JavaScript', category: 'Frontend', icon: <FaJsSquare size={32} /> },
     { name: 'ReactJS', category: 'Frontend', icon: <FaReact size={32} /> },
     { name: 'TypeScript', category: 'Frontend', icon: <FaJsSquare size={32} /> }, // Example for TypeScript icon, can use any
-    { name: 'Tailwind CSS', category: 'Frontend', icon: <FaTools size={32} /> },  // Placeholder icon
+    { name: 'Tailwind CSS', category: 'Frontend', icon: <FaCss3Alt size={32} /> },  // Placeholder icon
     { name: 'Next.Js', category: 'Frontend', icon: <FaReact size={32} /> },      // Placeholder icon
     { name: 'Angular', category: 'Frontend', icon: <FaAngular size={32} /> },
     { name: 'Node.Js', category: 'Backend', icon: <FaNodeJs size={32} /> },
