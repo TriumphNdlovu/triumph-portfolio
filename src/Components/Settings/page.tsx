@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
 export default function Settings() {
-  const [theme, setTheme] = useState("default");
-  const [backgroundImage, setBackgroundImage] = useState("windowsXp");
+  const [theme, setTheme] = useState("Dark");
+  const [backgroundImage, setBackgroundImage] = useState("space");
 
   // Retrieve theme and background from localStorage on component mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "default";
-    const savedBackground = localStorage.getItem("backgroundImage") || "windowsXp";
+    const savedTheme = localStorage.getItem("theme") || "Dark";
+    const savedBackground = localStorage.getItem("backgroundImage") || "space";
     
     setTheme(savedTheme);
     setBackgroundImage(savedBackground);
@@ -24,7 +24,7 @@ export default function Settings() {
       case "space":
         return 'url("/space.jpg")';
       default:
-        return ''; // Default background
+        return ''; // Default case to ensure a string is always returned
     }
   };
 
@@ -57,10 +57,10 @@ export default function Settings() {
         <h2 className="text-xl text-white font-pixel mb-4">Choose Theme</h2>
         <div className="flex flex-wrap justify-center gap-4">
           <button
-            onClick={() => changeTheme("default")}
-            className={`px-6 py-2 bg-accentColor text-secondaryTextColor font-pixel rounded-lg transition duration-300 ${theme === "default" ? highlightStyle : ""}`}
+            onClick={() => changeTheme("Dark")}
+            className={`px-6 py-2 bg-accentColor text-secondaryTextColor font-pixel rounded-lg transition duration-300 ${theme === "Dark" ? highlightStyle : ""}`}
           >
-            Default
+            Dark
           </button>
           <button
             onClick={() => changeTheme("light")}
@@ -69,10 +69,10 @@ export default function Settings() {
             Light
           </button>
           <button
-            onClick={() => changeTheme("Dark")}
-            className={`px-6 py-2 bg-accentColor text-secondaryTextColor font-pixel rounded-lg transition duration-300 ${theme === "Dark" ? highlightStyle : ""}`}
+            onClick={() => changeTheme("Retro")}
+            className={`px-6 py-2 bg-accentColor text-secondaryTextColor font-pixel rounded-lg transition duration-300 ${theme === "Retro" ? highlightStyle : ""}`}
           >
-            Dark
+            Retro
           </button>
         </div>
       </div>
@@ -85,7 +85,7 @@ export default function Settings() {
             onClick={() => changeBackgroundImage("windowsXp")}
             className={`px-2 py-2 bg-retroGreen text-gray-900 font-pixel rounded-lg transition duration-300 ${backgroundImage === "windowsXp" ? highlightStyle : ""}`}
           >
-            <img src="/backgroundXP.webp" alt="default" className="w-16 h-16 object-cover rounded-md" />
+            <img src="/backgroundXP.webp" alt="Dark" className="w-16 h-16 object-cover rounded-md" />
           </button>
           <button
             onClick={() => changeBackgroundImage("beach")}

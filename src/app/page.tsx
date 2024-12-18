@@ -154,9 +154,9 @@ export default function Home() {
 
   useEffect(() => {
     //Update theme and background image 
-    const savedTheme = localStorage.getItem("theme") || "default";
+    const savedTheme = localStorage.getItem("theme") || "Dark";
     document.documentElement.setAttribute("data-theme", savedTheme);
-    const savedBackground = localStorage.getItem("backgroundImage") || "windowsXp";
+    const savedBackground = localStorage.getItem("backgroundImage") || "space";
     document.documentElement.style.setProperty('--themeBG', getBackgroundUrl(savedBackground));
 
     const updateCurrentTime = () => {

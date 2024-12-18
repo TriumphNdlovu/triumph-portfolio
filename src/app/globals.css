@@ -97,28 +97,29 @@
 
 
 
-:root {
+[data-theme='Retro'] { /* Keep the background image */
   /* Background and Base Colors */ /* Subtle, textured, or gradient background */
   --mainColor: #32CD32; /* Lime green for primary elements, vibrant but not overwhelming */
   --maintextColor: #2ECC71; /* Fresh green for primary text with a polished look */
-
+  
   /* Accent Colors */
   --accentColor: #1E90FF; /* Dodger blue for interactive accents and hover states */
   --highlightColor: #FFFFFF; /* Crisp white for key highlights and primary borders */
-
+  
   /* Neutral and Supporting Colors */
   --windowBackground: #121212; /* Rich black for windows and main background */
   --secondaryTextColor: #ffffff; /* Light silver-grey for secondary text for readability */
   --shadowColor: #222222; /* Slightly lighter black for subtle separations */
-
+  
   /* Optional Secondary Accents */
   --specialAccentColor: #8A2BE2; /* Deep violet for rare highlights or decorative touches */
   --alertColor: #FF6347; /* Soft red-orange (tomato) for alerts, warnings, or notifications */
-
+  
   /* Borders and Separations */
   --borderColor: #2F4F4F; /* Dark slate grey for dividing lines or borders */
   --hoverBorderColor: #4682B4; /* Steel blue for hover states to enhance interactivity */
 }
+
 
 
 /* light theme */
@@ -135,18 +136,17 @@
 }
 
 
-
+[data-theme='Dark'] {
 /* dark theme */
-[data-theme='Dark'] { /* Keep the background image */
-  --mainColor: #000000; /* White for primary elements */
-  --maintextColor: #FFFFFF; /* Black for text */
-  --accentColor: #CCCCCC; /* Light gray for accents */
-  --highlightColor: #FFFFFF; /* White for highlights */
-  --windowBackground: #000000; /* Black for windows or backgrounds */
-  --secondaryTextColor: #ffffff; /* Medium gray for secondary text */
-  --shadowColor: #333333; /* Dark gray for shadows */
-  --specialAccentColor: #777777; /* Medium-dark gray for special accents */
-  --alertColor: #888888; /* Neutral gray for alerts */
+--mainColor: #000000; /* White for primary elements */
+--maintextColor: #FFFFFF; /* Black for text */
+--accentColor: #CCCCCC; /* Light gray for accents */
+--highlightColor: #FFFFFF; /* White for highlights */
+--windowBackground: #000000; /* Black for windows or backgrounds */
+--secondaryTextColor: #ffffff; /* Medium gray for secondary text */
+--shadowColor: #333333; /* Dark gray for shadows */
+--specialAccentColor: #777777; /* Medium-dark gray for special accents */
+--alertColor: #888888; /* Neutral gray for alerts */
 }
 
 
