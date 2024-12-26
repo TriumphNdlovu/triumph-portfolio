@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { marked } from 'marked';
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
+import Image from 'next/image';
 
 function Blog() {
   const [blogPosts] = useState([
@@ -22,7 +23,7 @@ function Blog() {
     <div class="bg-windowBackground p-6 rounded-lg shadow-lg mb-3 text-secondaryTextColor">
       <h2 class="text-2xl font-semibold text-maintextColor mb-4">Introduction</h2>
       <p class="mb-4">Why does a developer need a portfolio? Isn't having a GitHub and LinkedIn profile enough? While both of these are essential (and I strongly recommend having them), a portfolio website offers something they can’t: the freedom to showcase who you are.</p>
-      <p class="mb-4">Let me explain. With a portfolio website, you’re not limited to standard templates or profiles. Instead, you can truly highlight your uniqueness and skills. For example, instead of just claiming to have “attention to detail,” your website can <span class="text-highlightColor font-semibold">show</span> how much thought and care you put into your work.</p>
+      <p class="mb-4">Let me explain. With a portfolio website, you’re not limited to standard templates or profiles. Instead, you can truly highlight your uniqueness and skills. For example, instead of just claiming to have “attention to detail,” your website can <span class="text-accentColor font-semibold">show</span> how much thought and care you put into your work.</p>
       <p class="mb-4">In this post, I’ll explain how I approached building my website, and hopefully, some of the insights I’ve gained will inspire your own journey.</p>
     </div>
 
@@ -60,10 +61,10 @@ function Blog() {
     </div>
 
     <div class="bg-windowBackground p-6 rounded-lg shadow-lg mb-6 text-secondaryTextColor">
-      <h2 class="text-2xl font-semibold text-maintextColor mb-4">Conclusion</h2>
-      <p class="mb-4">Building my portfolio website has been a rewarding journey—one that not only allowed me to showcase my skills but also gave me the opportunity to push my creativity and challenge myself. By blending a retro desktop interface with modern design elements, I created something that feels familiar yet fresh, interactive yet simple. It’s been a fantastic way to stand out, reflect my unique style, and demonstrate my technical abilities in a way that goes beyond just listing skills on a resume.</p>
-      <p class="mb-4">Whether you’re a developer, designer, or anyone looking to build a personal website, I encourage you to think outside the box. Your portfolio is your chance to tell your story, showcase what you do best, and express your individuality. So, take the leap, experiment, and don’t be afraid to make it truly yours.</p>
-      <p class="mb-4">Feel free to explore my website, and if you have any questions or would like to connect, don’t hesitate to reach out! until next time, bye!!</p>
+      <h2 className="text-2xl font-semibold text-maintextColor mb-4">Conclusion</h2>
+      <p className="mb-4">Building my portfolio website has been a rewarding journey—one that not only allowed me to showcase my skills but also gave me the opportunity to push my creativity and challenge myself. By blending a retro desktop interface with modern design elements, I created something that feels familiar yet fresh, interactive yet simple. It’s been a fantastic way to stand out, reflect my unique style, and demonstrate my technical abilities in a way that goes beyond just listing skills on a resume.</p>
+      <p className="mb-4">Whether you’re a developer, designer, or anyone looking to build a personal website, I encourage you to think outside the box. Your portfolio is your chance to tell your story, showcase what you do best, and express your individuality. So, take the leap, experiment, and don’t be afraid to make it truly yours.</p>
+      <p className="mb-4">Feel free to explore my website, and if you have any questions or would like to connect, don’t hesitate to reach out! until next time, bye!!</p>
     </div>
   </div>
 
@@ -71,7 +72,7 @@ function Blog() {
 </html>
 
       `,
-      imageUrl: "https://via.placeholder.com/800x400?text=Portfolio+Website",
+      imageUrl: "/portfolio_blog_post.png",
       dateAndTime: "Triumph Ndlovu, 26 December 2024, 13:47",
     },
   ]);
@@ -106,10 +107,13 @@ function Blog() {
           <div key={index} className="rounded-lg shadow-md overflow-auto mb-6">
             <div className="p-4 text-maintextColor">
               <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
-              <p className="text-accentColor mb-4">{post.dateAndTime}</p>
-              <img
+              <p className="text-secondaryTextColor">{post.dateAndTime}</p>
+              <Image
                 src={post.imageUrl}
                 alt={post.title}
+                width={800}
+                height={400}
+                quality={100}
                 className="w-full h-48 object-cover"
               />
               <div
@@ -117,10 +121,11 @@ function Blog() {
                 dangerouslySetInnerHTML={{ __html: post.readmeContent }}
               />
               <button
-                className="mt-4 text-blue-600"
+                className="mt-4 bg-specialAccentColor text-white py-2 px-4 rounded-lg hover:bg-maintextColor hover:text-black transition duration-300 w-full sm:w-auto text-center"
                 onClick={() => togglePostVisibility(index)}
               >
-                {visiblePostIndex === index ? 'Show Less' : 'Full View'}
+                
+                {visiblePostIndex === index ? <><FaAngleUp className="inline-block mr-2" /> Show Less</> : <><FaAngleDown className="inline-block mr-2" /> Full View</>}
               </button>
             </div>
           </div>
