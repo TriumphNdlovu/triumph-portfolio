@@ -56,12 +56,12 @@ function Blog() {
     </div>
 
     <div class="bg-windowBackground p-1 rounded-lg shadow-lg mb-6 text-secondaryTextColor">
-      <h2 className="text-2xl font-semibold text-maintextColor mb-4">Future Updates</h2>
+      <h2 class="text-2xl font-semibold text-maintextColor mb-4">Future Updates</h2>
       <p class="mb-4">I’m excited to share that I have future updates planned for the website. One feature I’m working on is a settings option that will allow visitors to customize the site by changing themes and swapping background images. This will enhance user engagement and make the site feel even more personal.</p>
     </div>
 
     <div class="bg-windowBackground p-1 rounded-lg shadow-lg mb-6 text-secondaryTextColor">
-      <h2 className="text-2xl font-semibold text-maintextColor mb-4">Conclusion</h2>
+      <h2 class="text-2xl font-semibold text-maintextColor mb-4">Conclusion</h2>
       <p className="mb-4">Building my portfolio website has been a rewarding journey—one that not only allowed me to showcase my skills but also gave me the opportunity to push my creativity and challenge myself. By blending a retro desktop interface with modern design elements, I created something that feels familiar yet fresh, interactive yet simple. It’s been a fantastic way to stand out, reflect my unique style, and demonstrate my technical abilities in a way that goes beyond just listing skills on a resume.</p>
       <p className="mb-4">Whether you’re a developer, designer, or anyone looking to build a personal website, I encourage you to think outside the box. Your portfolio is your chance to tell your story, showcase what you do best, and express your individuality. So, take the leap, experiment, and don’t be afraid to make it truly yours.</p>
       <p className="mb-4">Feel free to explore my website, and if you have any questions or would like to connect, don’t hesitate to reach out! until next time, bye!!</p>
