@@ -182,7 +182,7 @@ export default function Home() {
   return (
     <div className=" absolute inset-0 select-none">
       <div className="bg-custom-backgroundImage bg-cover bg-center bg-fixed text-maintextColor h-screen flex justify-center items-center overflow-y-clip overflow-x-clip">
-        <div className="fixed top-0 left-0 h-full font-pixel grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-2 gap-4 p-4 z-50 overflow-y-auto">
+        <div className="fixed text-sm top-0 left-0 h-full font-pixel grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-2 gap-4 p-4 z-50 overflow-y-auto">
           {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog','info' , 'Game','Settings' ].map((section) => (
             <div
               key={section}
@@ -208,11 +208,11 @@ export default function Home() {
                       ? 'info'
                       : section === 'Settings'
                       ? 'cogs'
-                      : 'gamepad'
-                  } text-4xl text-neonGreen`}
+                      : 'frog'
+                  } text-lg text-neonGreen`}
                 ></i>
               </div>
-              <p className=" mt-2 text-center text-windowBackground transition duration-300">
+              <p className=" mt-2 text-center text-sm text-windowBackground transition duration-300">
                 <span className ="text-shadow-3xl" >{section.charAt(0).toUpperCase() + section.slice(1)}</span>
               </p>
 
