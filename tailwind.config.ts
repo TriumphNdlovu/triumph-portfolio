@@ -44,5 +44,5 @@ export default {
     },
   },
   plugins: [
-  require('tailwindcss-textshadow')],
+  require('tailwindcss-textshadow'),require('@tailwindcss/typography')],
 } satisfies Config;
