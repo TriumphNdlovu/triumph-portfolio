@@ -19,6 +19,13 @@ export default function Projects() {
       github: 'https://github.com/TriumphNdlovu/taquila-gang-events',
     },
     {
+      title: 'TLT Media Website',
+      description: 'A modern website for a media company that specializes in video production and photography.',
+      techStack: ['NextJs', 'Tailwind CSS', 'Typescript', 'Vercel Hosting', 'coudinary'],
+      imageUrl: '/tlt-media.png',
+      github: 'https://github.com/TriumphNdlovu/tlt-media',
+    },
+    {
       title: 'Sweat Session',
       description:
         'The purpose of SweatSession is to develop a social, location-based mobile app that will enable users to schedule workout sessions with their friends, track their progress, view their friends personal bests, and earn rewards for achieving their fitness goals.',
