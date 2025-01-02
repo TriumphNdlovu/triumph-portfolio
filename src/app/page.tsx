@@ -9,6 +9,7 @@ import Blog from '@/Components/Blog/page';
 import Game from '@/Components/Game/page';
 import Info from '@/Components/Info/page';
 import Settings from '@/Components/Settings/page';
+import Terminal from '@/Components/Terminal/page';
 
 export default function Home() {
   const [openWindows, setOpenWindows] = useState<string[]>([]);
@@ -183,7 +184,7 @@ export default function Home() {
     <div className=" absolute inset-0 select-none">
       <div className="bg-custom-backgroundImage bg-cover bg-center bg-fixed text-maintextColor h-screen flex justify-center items-center overflow-y-clip overflow-x-clip">
         <div className="fixed text-sm top-0 left-0 h-full font-pixel grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-2 gap-4 p-4 z-50 overflow-y-auto">
-          {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog','info' , 'Game','Settings' ].map((section) => (
+          {['Triumph', 'projects', 'Terminal','skills', 'contact', 'resume', 'blog','info' , 'Game','Settings' ].map((section) => (
             <div
               key={section}
               className="flex flex-col items-center cursor-pointer transform transition duration-300"
@@ -208,6 +209,8 @@ export default function Home() {
                       ? 'info'
                       : section === 'Settings'
                       ? 'cogs'
+                      :section === 'Terminal'
+                      ? 'terminal'
                       : 'frog'
                   } text-lg text-neonGreen`}
                 ></i>
@@ -268,6 +271,7 @@ export default function Home() {
                     {window === 'info' && <Info />}
                     {window === 'Game' && <Game />}
                     {window === 'Settings' && <Settings />}
+                    {window === 'Terminal' && <Terminal />}
                   </div>
                 </div>
               ),
@@ -287,7 +291,7 @@ export default function Home() {
   {startMenuOpen && (
     <div className="bg-windowBackground absolute bottom-12 left-4  border-2 border-mainColor rounded-lg p-4 shadow-md z-50 sm:w-auto w-full">
       <ul className="font-pixel text-sm">
-        {['Triumph', 'projects', 'skills', 'contact', 'resume', 'blog', 'info', 'Game', 'Settings'].map((section) => (
+        {['Triumph', 'projects', 'skills', 'terminal', 'contact', 'resume', 'blog', 'info', 'Game', 'Settings'].map((section) => (
           <li
             key={section}
             className="cursor-pointer hover:border hover:border-specialAccentColor rounded-md px-2 py-2"
@@ -334,6 +338,8 @@ export default function Home() {
             ? 'info'
             : window === 'Settings'
             ? 'cogs'
+            : window === 'Terminal'
+            ? 'terminal'
             : 'gamepad'
         }`}
       ></i>
