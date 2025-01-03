@@ -339,6 +339,8 @@ export default function Home() {
                 ? 'envelope'
                 : section === 'resume'
                 ? 'file'
+                : section === 'game'
+                ? 'gamepad'
                 : 'comments'
             }`}
           ></i>
