@@ -10,6 +10,8 @@ import Game from '@/Components/Game/page';
 import Info from '@/Components/Info/page';
 import Settings from '@/Components/Settings/page';
 import Terminal from '@/Components/Terminal/page';
+import { set } from 'lodash';
+import { time } from 'console';
 
 export default function Home() {
   const [openWindows, setOpenWindows] = useState<string[]>([]);
@@ -18,6 +20,7 @@ export default function Home() {
   const [minimizedWindows, setMinimizedWindows] = useState<string[]>([]);
   const [currentTime, setCurrentTime] = useState('');
   const [startMenuOpen, setStartMenuOpen] = useState(false);
+  const [loading, setLoading] = useState(true); 
 
   const handleWindowOpen = (section: string) => {
   if (!openWindows.includes(section)) {
@@ -171,6 +174,10 @@ export default function Home() {
       handleWindowOpen('info');
     }
     
+    // sleep for 1 sec
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
 
     updateCurrentTime();
     const timer = setInterval(updateCurrentTime, 60000);
@@ -179,9 +186,23 @@ export default function Home() {
 
 
 
-
-  return (
-    <div className=" absolute inset-0 select-none">
+return (
+   <div className=" absolute inset-0 select-none">
+    {loading ? (
+      <div className='bg-blue-500 justify-center h-screen text-center flex items-center'>
+        <div className='border p-10 rounded-2xl'>
+          <div className=''>
+            <i className='fas fa-user text-5xl text-white'></i>
+            <h1 className='text-white text-2xl'>Guest User</h1>
+          </div>
+          <div className='pt-14'>
+              <i className='fas fa-spinner animate-spin text-5xl text-white'></i>
+              <h1 className='text-white text-2xl'>Logging in...</h1>
+          </div>
+          </div>
+      </div>
+    ):(
+    
       <div className="bg-custom-backgroundImage bg-cover bg-center bg-fixed text-maintextColor h-screen flex justify-center items-center overflow-y-clip overflow-x-clip">
         <div className="fixed text-sm top-0 left-0 h-full font-pixel grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-2 gap-4 p-4 z-50 overflow-y-auto">
           {['Triumph', 'projects', 'Terminal','skills', 'contact', 'resume', 'blog','info' , 'Game','Settings' ].map((section) => (
@@ -422,9 +443,8 @@ export default function Home() {
   {/* Current Time */}
   <div className="flex items-center mr-4 text-xs font-semibold">{currentTime}</div>
 </div>
-
-
       </div>
+    )}
     </div>
   );
 }
