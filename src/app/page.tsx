@@ -316,6 +316,18 @@ return (
     className="bg-windowBackground absolute bottom-16 left-0 border-2 border-mainColor rounded-lg p-4 shadow-lg z-50 sm:w-auto w-full max-w-xs transition-all duration-300 ease-in-out transform"
     style={{ transform: startMenuOpen ? 'translateY(0)' : 'translateY(20px)', opacity: startMenuOpen ? 1 : 0 }}
   >
+    <div>
+      {/* //search bar   */}
+      <div className="flex items-center bg-mainColor rounded-md p-2 mb-4">
+        <i className="fas fa-search text-accentColor"></i>
+        <input
+          type="text"
+          placeholder="Search..."
+          className="bg-transparent focus:outline-none text-accentColor ml-2"
+          />
+      </div>
+    </div>
+  
     <ul className="font-pixel text-sm space-y-2">
       {/* Section 1: General */}
       <li className="font-bold text-xs text-accentColor">General</li>
