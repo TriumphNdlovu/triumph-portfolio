@@ -19,6 +19,7 @@ export default function Home() {
   const [size, setSize] = useState<{ [key: string]: { width: number; height: number } }>({});
   const [minimizedWindows, setMinimizedWindows] = useState<string[]>([]);
   const [currentTime, setCurrentTime] = useState('');
+  const [currentDate, setCurrentDate] = useState('');
   const [startMenuOpen, setStartMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true); 
 
@@ -169,6 +170,8 @@ export default function Home() {
       const minutes = now.getMinutes().toString().padStart(2, '0');
       setCurrentTime(`${hours}:${minutes}`);
     };
+
+    setCurrentDate(new Date().toDateString());
 
     if (!openWindows.includes('info')) {
       handleWindowOpen('info');
@@ -323,7 +326,7 @@ return (
         <input
           type="text"
           placeholder="Search..."
-          className="bg-transparent focus:outline-none text-accentColor ml-2"
+          className="bg-transparent focus:outline-none text-SpecialaccentColor ml-2"
           />
       </div>
     </div>
@@ -453,7 +456,7 @@ return (
   <div className="flex-grow"></div>
 
   {/* Current Time */}
-  <div className="flex items-center mr-4 text-xs font-semibold">{currentTime}</div>
+  <div className="flex items-center mr-4 text-xs font-semibold">{currentTime}, {currentDate} </div>
 </div>
       </div>
     )}

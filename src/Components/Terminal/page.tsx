@@ -143,8 +143,8 @@ export default function Terminal() {
           <div
             key={index}
             className={`${
-              line.startsWith(">") ? "text-green-400" : "text-white"
-            } ${line.startsWith("X") ? "text-red-500" : "text-white"}`}
+              line.startsWith(">") ? "text-green-400" : "text-mainTextcolor"
+            } ${line.startsWith("X") ? "text-red-500" : "text-mainTextcolor"}`}
           >
             {line}
           </div>
@@ -159,7 +159,7 @@ export default function Terminal() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="flex-1 bg-transparent border-none focus:outline-none text-white caret-green-600 caret-2 placeholder-green-500"
+          className="flex-1 bg-transparent border-none focus:outline-none text-mainTextcolor caret-green-600 caret-2 placeholder-green-500"
           autoFocus
         />
       </form>
