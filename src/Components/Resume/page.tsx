@@ -101,13 +101,13 @@ export default function Resume() {
                     duration: "2021 - Second Semester",
                   },
                 ].map((job, index) => (
-                  <div key={index} className="mb-6 hover:scale-105 transition-transform duration-300">
+                  <div key={index} className="mb-6 transition-transform duration-300">
                     <div className="absolute -left-3 w-6 h-6 bg-accentColor rounded-full border border-backgroundColor"></div>
                     <h4 className="text-highlightColor text-lg font-semibold">
                       {job.title} - <span className="text-secondaryTextColor">{job.company}</span>
                     </h4>
                     <p className="text-secondaryTextColor font-vt323 text-sm italic">{job.duration}</p>
-                    <p className="text-secondaryTextColor font-vt323 text-lg mt-2">{job.description}</p>
+                    <p className="text-secondaryTextColor font-vt323 text-m mt-2">{job.description}</p>
                   </div>
                 ))}
               </div>

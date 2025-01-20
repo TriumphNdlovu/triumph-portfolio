@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -8,23 +9,53 @@ export default function About() {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Profile Image */}
-        <div className="relative mx-auto w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-mainColor shadow-lg group">
-          {/* Default Image */}
-          <Image
-            src="/profilePicture.png"
-            alt="Triumph"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-full transition-opacity duration-500 group-hover:opacity-0"
-          />
-          {/* Hover Image */}
-          <Image
-            src="/profilePicture-funk.png"
-            alt="Triumph Hover"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-full absolute top-0 left-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
-          />
+        <div className="flex flex-col items-center">
+          <div className="relative mx-auto w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-mainColor shadow-lg group">
+            {/* Default Image */}
+            <Image
+              src="/profilePicture.png"
+              alt="Triumph"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-full transition-opacity duration-500 group-hover:opacity-0"
+            />
+            {/* Hover Image */}
+            <Image
+              src="/profilePicture-funk.png"
+              alt="Triumph Hover"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-full absolute top-0 left-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+            />
+          </div>
+
+          {/* Social Media Links */}
+          <div className="flex justify-center mt-4 space-x-4">
+            <Link
+              href="https://www.linkedin.com/in/triumph-ndlovu-425b73274/"
+              target="_blank"
+              aria-label="LinkedIn"
+              className="text-3xl text-blue-600 hover:text-accentColor"
+            >
+              <i className="fab fa-linkedin"></i>
+            </Link>
+            <Link
+              href="https://github.com/TriumphNdlovu"
+              target="_blank"
+              aria-label="GitHub"
+              className="text-3xl text-white hover:text-accentColor"
+            >
+              <i className="fab fa-github"></i>
+            </Link>
+            <Link
+              href="https://wa.me/27827793863"
+              target="_blank"
+              aria-label="WhatsApp"
+              className="text-3xl text-green-700 hover:text-accentColor"
+            >
+              <i className="fab fa-whatsapp"></i>
+            </Link>
+          </div>
         </div>
 
         {/* Text Content */}
@@ -40,17 +71,14 @@ export default function About() {
           {/* About Text */}
           <div className="bg-windowBackground p-6 rounded-lg border border-accentColor shadow-md">
             <p className="text-secondaryTextColor font-vt323 text-lg leading-relaxed mb-4">
-              Hi! I'm a Computer Science graduate from the University of Pretoria who loves solving problems with tech.
+              I'm a Computer Science graduate from the University of Pretoria with a passion for crafting efficient and visually stunning web applications.
             </p>
             <p className="text-secondaryTextColor font-vt323 text-lg leading-relaxed mb-4">
-              I work with <span className="text-alertColor">Next.js</span>, <span className="text-alertColor">Node.js</span>,
-              <span className="text-alertColor"> Tailwind CSS</span>, and <span className="text-alertColor">Java</span> to build web applications that look and work great.
+              I specialize in modern technologies like <span className="text-alertColor">Next.js</span>, <span className="text-alertColor">Node.js</span>, 
+              <span className="text-alertColor">Tailwind CSS</span>, and <span className="text-alertColor">Java</span>. Whether it's creating responsive designs or building scalable backends, I enjoy every step of the process.
             </p>
             <p className="text-secondaryTextColor font-vt323 text-lg leading-relaxed mb-4">
-              I enjoy trying out new tech, creating simple and smooth designs, and solving tough challenges. Whether it's building backends, frontends, or full projects, I'm always excited to learn and improve.
-            </p>
-            <p className="text-secondaryTextColor font-vt323 text-lg leading-relaxed mb-4">
-              Let's connect and build something amazing together. Great ideas start with a simple chat!
+              Let's connect and bring your ideas to life!
             </p>
           </div>
         </div>
