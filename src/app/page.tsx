@@ -161,7 +161,7 @@ export default function Home() {
     //Update theme and background image 
     const savedTheme = localStorage.getItem("theme") || "Dark";
     document.documentElement.setAttribute("data-theme", savedTheme);
-    const savedBackground = localStorage.getItem("backgroundImage") || "space";
+    const savedBackground = localStorage.getItem("backgroundImage") || "beach";
     document.documentElement.style.setProperty('--themeBG', getBackgroundUrl(savedBackground));
 
     const updateCurrentTime = () => {
@@ -173,8 +173,8 @@ export default function Home() {
 
     setCurrentDate(new Date().toDateString());
 
-    if (!openWindows.includes('info')) {
-      handleWindowOpen('info');
+    if (!openWindows.includes('Triumph')) {
+      handleWindowOpen('Triumph');
     }
     
     // sleep for 1 sec
@@ -264,27 +264,72 @@ return (
                   }}
                 >
                   <div
-                    className="bg-windowBackground text-maintextColor p-2 rounded-t-lg flex justify-between items-center shadow-md border-b-2 border-mainColor cursor-move"
-                    onMouseDown={(e) => handleDrag(e, window)}
-                  >
-                    <div className="flex gap-2">
-                      <div
-                        className="w-3 h-3 bg-[#4CAF50] rounded-full hover:bg-[#45a049] cursor-pointer"
-                        onClick={() => handleWindowMinimize(window)}
-                      ></div>
-                      <div
-                        className="w-3 h-3 bg-[#FFEB3B] rounded-full hover:bg-[#FFEB3B] cursor-pointer"
-                        onClick={() => handleWindowMaximizeORMinimize(window)}
-                      ></div>
-                      <div
-                        className="w-3 h-3 bg-[#F44336] rounded-full hover:bg-[#e53935] cursor-pointer"
-                        onClick={() => handleWindowClose(window)}
-                      ></div>
-                    </div>
-                    <span className="text-lg font-pixel text-retroPink">
-                      {window.charAt(0).toUpperCase() + window.slice(1)}
+                      className="bg-windowBackground text-maintextColor p-2 rounded-t-lg flex justify-between items-center shadow-md border-b-2 border-mainColor cursor-move"
+                      onMouseDown={(e) => handleDrag(e, window)}
+                    >
+                        
+                      <span className="text-lg font-pixel flex items-center justify-start">
+                      {/* Icon */}
+                      <i
+                        className={`fas fa-${
+                          window === 'Triumph'
+                            ? 'user-ninja'
+                            : window === 'projects'
+                            ? 'briefcase'
+                            : window === 'skills'
+                            ? 'laptop-code'
+                            : window === 'contact'
+                            ? 'envelope'
+                            : window === 'resume'
+                            ? 'file'
+                            : window === 'blog'
+                            ? 'comments'
+                            : window === 'info'
+                            ? 'info'
+                            : window === 'Settings'
+                            ? 'cogs'
+                            : window === 'Game'
+                            ? 'gamepad'
+
+                            : 'terminal'
+                        } p-2`}
+                      ></i>
+                      {/* Text */}
+                      <span className="ml-2 p-2">
+                        {window.charAt(0).toUpperCase() + window.slice(1)}
+                      </span>
                     </span>
-                  </div>
+
+
+
+                      <div className="flex gap-2 p-2">
+                        <div
+                          className="w-4 h-4 bg-[#4CAF50] rounded-full flex items-center justify-center hover:bg-[#45a049] cursor-pointer"
+                          onClick={() => handleWindowMinimize(window)}
+                        >
+                          <i className="fas fa-minus hover:text-gray-800 text-gray-200 text-xs"></i>
+                        </div>
+                        <div
+                          className="w-4 h-4 bg-[#FFEB3B] rounded-full flex items-center justify-center hover:bg-[#FFD700] cursor-pointer"
+                          onClick={() => handleWindowMaximizeORMinimize(window)}
+                        >
+                          {size[window]?.width === 100 ? (
+                            <i className="fa fa-angle-down text-gray-800  text-xs"></i>
+                          ) : (
+                            <i className="fa fa-angle-up text-gray-800  text-xs"></i>
+                          )}
+                        </div>
+                        <div
+                          className="w-4 h-4 bg-[#F44336] rounded-full flex items-center justify-center hover:bg-[#E53935] cursor-pointer"
+                          onClick={() => handleWindowClose(window)}
+                        >
+                          <i className="fas fa-times hover:text-gray-800 text-gray-200 text-xs"></i>
+                        </div>
+                      </div>
+
+                      {/* Window Title */}
+                    </div>
+
                   <div className="overflow-y-auto max-h-[85vh] p-6">
                     {window === 'Triumph' && <About />}
                     {window === 'projects' && <Projects />}

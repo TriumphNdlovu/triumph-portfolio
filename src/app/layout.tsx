@@ -3,9 +3,9 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "Triumph Portfolio",
+  title: "Triumph Ndlovu",
   description: "Take a journey through to the past and see the future",
-  keywords: ["Portfolio", "Triumph", "Vercel"],
+  keywords: ["Portfolio", "Triumph Ndlovu", "Vercel"],
   
 }
 
