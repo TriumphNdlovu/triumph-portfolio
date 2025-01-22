@@ -398,7 +398,7 @@ return (
     <ul className="font-pixel text-sm space-y-2">
       {/* Section 1: General */}
       <li className="font-bold text-xs text-accentColor">General</li>
-      {['Triumph', 'projects', 'skills', 'terminal'].map((section) => (
+      {['Triumph', 'projects', 'skills', 'Terminal'].map((section) => (
         <li
           key={section}
           className="cursor-pointer hover:bg-specialAccentColor hover:text-white rounded-md px-4 py-2 transition-all flex items-center space-x-2"
@@ -424,7 +424,7 @@ return (
 
       {/* Section 2: Media */}
       <li className="font-bold text-xs text-accentColor mt-4">Media</li>
-      {['contact', 'resume','blog', 'game'].map((section) => (
+      {['contact', 'resume','blog', 'Game'].map((section) => (
         <li
           key={section}
           className="cursor-pointer hover:bg-specialAccentColor hover:text-white rounded-md px-4 py-2 transition-all flex items-center space-x-2"
@@ -439,7 +439,7 @@ return (
                 ? 'envelope'
                 : section === 'resume'
                 ? 'file'
-                : section === 'game'
+                : section === 'Game'
                 ? 'gamepad'
                 : 'comments'
             }`}
@@ -450,7 +450,7 @@ return (
 
       {/* Section 3: Settings & Info */}
       <li className="font-bold text-xs text-accentColor mt-4">Settings & Info</li>
-      {['info', 'settings'].map((section) => (
+      {['info', 'Settings'].map((section) => (
         <li
           key={section}
           className="cursor-pointer hover:bg-specialAccentColor hover:text-white rounded-md px-4 py-2 transition-all flex items-center space-x-2"
@@ -463,8 +463,8 @@ return (
             className={`fas fa-${
               section === 'info'
                 ? 'info'
-                : section === 'game'
-                ? 'gamepad'
+              : section === 'Settings'
+                ? 'cogs'
                 : 'cogs'
             }`}
           ></i>
