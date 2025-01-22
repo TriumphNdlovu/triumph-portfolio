@@ -34,13 +34,15 @@ export default function Projects() {
       github: 'https://github.com/COS301-SE-2023/SweatSession',
     },
     {
-      title: 'Point of Sale (POS) System',
+      title: 'Desktop (POS) System',
       description:
         'The POS System(Desktop App) is a user-friendly application designed to streamline sales and inventory management for retail businesses. It features barcode scanning for quick product searches, real-time inventory updates, and secure transaction processing.',
       techStack: ['Java Swing', 'Maven', 'JPA', 'Barcode Scanning', 'PostgreSQL Database'],
-      imageUrl: '/project3-image.jpg',
+      imageUrl: '/pos_system.png',
       github: 'https://github.com/TriumphNdlovu/pos_system',
     },
+    
+
   ];
 
   return (
