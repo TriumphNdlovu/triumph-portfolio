@@ -98,20 +98,39 @@ export default function Home() {
   };
 
   const handleWindowMaximizeORMinimize = (section: string) => {
-    setPositions((prevPositions) => ({
-      ...prevPositions,
-      [section]: { top: 0, left: 0 },
-    }));
+    
     if (size[section]?.width === 100) {
       setSize((prevSize) => ({
         ...prevSize,
         [section]: { width: 80, height: 60 },
       }));
+      
+      // check if we are on mobile or desktop
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      if (screenWidth < 768) {
+        setPositions((prevPositions) => ({
+          ...prevPositions,
+          [section]: { top: 1, left: 1 },
+        }));
+      } else {
+        setPositions((prevPositions) => ({
+          ...prevPositions,
+          [section]: { top: 30, left: 320 },
+        }));
+      }
+    
+
     } else {
       setSize((prevSize) => ({
         ...prevSize,
         [section]: { width: 100, height: 100 },
       }));
+        setPositions((prevPositions) => ({
+        ...prevPositions,
+        [section]: { top: 0, left: 0 },
+    }));
+  
     }
   };
 
