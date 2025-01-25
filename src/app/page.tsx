@@ -10,8 +10,6 @@ import Game from '@/Components/Game/page';
 import Info from '@/Components/Info/page';
 import Settings from '@/Components/Settings/page';
 import Terminal from '@/Components/Terminal/page';
-import { getAllBlogs } from '../lib/getBlogs';  
-
 
 export default function Home() {
   const [openWindows, setOpenWindows] = useState<string[]>([]);
