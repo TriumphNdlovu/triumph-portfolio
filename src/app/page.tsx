@@ -5,7 +5,7 @@ import Projects from '@/Components/Projects/page';
 import Skills from '@/Components/Skills/page';
 import Contact from '@/Components/Contact/page';
 import Resume from '@/Components/Resume/page';
-import Blog from './Blog';
+import Blog from '@/Components/Blog/page';
 import Game from '@/Components/Game/page';
 import Info from '@/Components/Info/page';
 import Settings from '@/Components/Settings/page';

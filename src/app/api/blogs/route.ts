@@ -16,7 +16,7 @@ export async function GET() {
     return {
       title: data.title,
       date: data.date,
-      imageUrl: data.imageUrl || '',
+      author: data.author,
       readmeContent: content,
       slug: filename.replace(/\.md$/, ''),
     };
