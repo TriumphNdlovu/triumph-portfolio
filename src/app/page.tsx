@@ -5,13 +5,13 @@ import Projects from '@/Components/Projects/page';
 import Skills from '@/Components/Skills/page';
 import Contact from '@/Components/Contact/page';
 import Resume from '@/Components/Resume/page';
-import Blog from '@/Components/Blog/page';
+import Blog from './Blog';
 import Game from '@/Components/Game/page';
 import Info from '@/Components/Info/page';
 import Settings from '@/Components/Settings/page';
 import Terminal from '@/Components/Terminal/page';
-import { set } from 'lodash';
-import { time } from 'console';
+import { getAllBlogs } from '../lib/getBlogs';  
+
 
 export default function Home() {
   const [openWindows, setOpenWindows] = useState<string[]>([]);
@@ -21,7 +21,9 @@ export default function Home() {
   const [currentTime, setCurrentTime] = useState('');
   const [currentDate, setCurrentDate] = useState('');
   const [startMenuOpen, setStartMenuOpen] = useState(false);
-  const [loading, setLoading] = useState(true); 
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
 
   const handleWindowOpen = (section: string) => {
   if (!openWindows.includes(section)) {
@@ -190,6 +192,15 @@ export default function Home() {
       setCurrentTime(`${hours}:${minutes}`);
     };
 
+    const fetchPosts = async () => {
+      // properly make the GET request
+      const response = await fetch('/api/blogs');
+      const data = await response.json();
+      setPosts(data);
+    };
+
+
+    fetchPosts();
     setCurrentDate(new Date().toDateString());
 
     if (!openWindows.includes('Triumph')) {
@@ -355,7 +366,7 @@ return (
                     {window === 'skills' && <Skills />}
                     {window === 'contact' && <Contact />}
                     {window === 'resume' && <Resume />}
-                    {window === 'blog' && <Blog />}
+                    {window === 'blog' && <Blog posts={posts} />}
                     {window === 'info' && <Info />}
                     {window === 'Game' && <Game />}
                     {window === 'Settings' && <Settings />}
