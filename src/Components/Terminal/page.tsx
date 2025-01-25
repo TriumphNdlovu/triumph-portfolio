@@ -15,6 +15,7 @@ export default function Terminal() {
     "Welcome to Triumph's Portfolio Terminal!",
     "Type 'help' or '?' to see available commands.",
   ]);
+  const [posts, setPosts] = useState([]);
   const [currentView, setCurrentView] = useState<string | null>(null);
   const [history, setHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState<number>(-1);
@@ -132,7 +133,20 @@ export default function Terminal() {
     }
   }, [output]);
 
+  useEffect(() => {
+
+    const fetchPosts = async () => {
+      // properly make the GET request
+      const response = await fetch('/api/blogs');
+      const data = await response.json();
+      setPosts(data);
+    };
+
+    fetchPosts();
+  }, []); 
+
   return (
+
     <div className=" font-mono p-4 rounded-lg shadow-lg">
       {/* Terminal Output */}
       <div
@@ -174,7 +188,7 @@ export default function Terminal() {
         {currentView === "skills" && <Skills />}
         {currentView === "contact" && <Contact />}
         {currentView === "settings" && <Settings />}
-        {currentView === "blog" && <Blog />}
+        {currentView === "blog" && <Blog posts={posts} />}
       </div>
     </div>
   );
