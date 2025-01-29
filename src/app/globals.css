@@ -113,7 +113,7 @@
   
   /* Optional Secondary Accents */
   --specialAccentColor: #8A2BE2; /* Deep violet for rare highlights or decorative touches */
-  --alertColor: #FF6347; /* Soft red-orange (tomato) for alerts, warnings, or notifications */
+  --alertColor: #1E90FF; /* Soft red-orange (tomato) for alerts, warnings, or notifications */
   
   /* Borders and Separations */
   --borderColor: #2F4F4F; /* Dark slate grey for dividing lines or borders */
@@ -131,7 +131,7 @@
   --windowBackground: #FAFAFA; /* Soft, neutral off-white for windows */
   --secondaryTextColor: #12171a; /* Calm bluish-gray for secondary text */
   --shadowColor: #B0BEC5; /* Light blue-gray shadows */
-  --specialAccentColor: #d6562f; /* Playful coral for special accents */
+  --specialAccentColor: #0749ff; /* Playful coral for special accents */
   --alertColor: #4CAF50; /* Fresh green for alerts */
 }
 
@@ -146,7 +146,7 @@
 --secondaryTextColor: #ffffff; /* Medium gray for secondary text */
 --shadowColor: #333333; /* Dark gray for shadows */
 --specialAccentColor: #777777; /* Medium-dark gray for special accents */
---alertColor: #888888; /* Neutral gray for alerts */
+--alertColor: #6096a0; /* Neutral gray for alerts */
 }
 
 

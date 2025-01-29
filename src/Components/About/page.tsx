@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function About() {
+
   return (
     <section
       id="about"
@@ -15,10 +16,11 @@ export default function About() {
             <Image
               src="/profilePicture.png"
               alt="Triumph"
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               className="rounded-full transition-opacity duration-500 group-hover:opacity-0"
             />
+
             {/* Hover Image */}
             <Image
               src="/profilePicture-funk.png"
@@ -43,7 +45,7 @@ export default function About() {
               href="https://github.com/TriumphNdlovu"
               target="_blank"
               aria-label="GitHub"
-              className="text-3xl text-white hover:text-accentColor"
+              className="text-3xl text-gray-400 hover:text-accentColor"
             >
               <i className="fab fa-github"></i>
             </Link>
@@ -51,22 +53,27 @@ export default function About() {
               href="https://wa.me/27827793863"
               target="_blank"
               aria-label="WhatsApp"
-              className="text-3xl text-green-700 hover:text-accentColor"
+              className="text-3xl text-green-600 hover:text-accentColor"
             >
               <i className="fab fa-whatsapp"></i>
             </Link>
+          </div>
+            <h2 className="text-xl text-maintextColor pt-4 font-pixel">Git Calendar</h2>
+          <div className="flex justify-center mt-4 space-x-4 bg-white p-2 rounded-lg flex-col items-center">
+            <img src={`https://ghchart.rshah.org/2DBA4E/TriumphNdlovu`} alt="Triumph's GitHub contributions" />
           </div>
         </div>
 
         {/* Text Content */}
         <div className="flex flex-col items-center md:items-start space-y-6">
           {/* Name and Title */}
-          <h1 className="text-4xl md:text-5xl font-pixel text-maintextColor text-center md:text-left">
+          <h1 className="text-3xl md:text-5xl font-pixel text-maintextColor text-center md:text-left">
             Hi! <span className="hover:animate-glitch">👋</span>, I'm Triumph
           </h1>
-          <h2 className="text-lg md:text-2xl font-pixel text-alertColor text-center md:text-left">
+          <h2 className="text-base md:text-2xl font-pixel text-alertColor text-center md:text-left">
             BSc Computer Science
           </h2>
+
 
           {/* About Text */}
           <div className="bg-windowBackground p-6 rounded-lg border border-accentColor shadow-md">

@@ -3,7 +3,7 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "Triumph Ndlovu",
+  title: "Triumph-Ndlovu | Portfolio",
   description: "Take a journey through to the past and see the future",
   keywords: ["Portfolio", "Triumph Ndlovu", "Triumph Personal website", "Triumph", "Ndlovu", "Triumph Ndlovu Portfolio", "Triumph Ndlovu Personal website", "Triumph Ndlovu website"]
   

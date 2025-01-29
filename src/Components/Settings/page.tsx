@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 
 export default function Settings() {
   const [theme, setTheme] = useState("Dark");
-  const [backgroundImage, setBackgroundImage] = useState("space");
+  const [backgroundImage, setBackgroundImage] = useState("beach");
 
   // Retrieve theme and background from localStorage on component mount
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "Dark";
-    const savedBackground = localStorage.getItem("backgroundImage") || "space";
+    const savedBackground = localStorage.getItem("backgroundImage") || "beach";
     
     setTheme(savedTheme);
     setBackgroundImage(savedBackground);

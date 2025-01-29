@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.15",
+    "github-calendar": "^2.3.4",
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
     "marked": "^15.0.4",
