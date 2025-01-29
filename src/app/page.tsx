@@ -10,6 +10,7 @@ import Game from '@/Components/Game/page';
 import Info from '@/Components/Info/page';
 import Settings from '@/Components/Settings/page';
 import Terminal from '@/Components/Terminal/page';
+import React from 'react';
 
 export default function Home() {
   const [openWindows, setOpenWindows] = useState<string[]>([]);
@@ -21,6 +22,24 @@ export default function Home() {
   const [startMenuOpen, setStartMenuOpen] = useState(false);
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Menu sections
+  const menuItems = {
+    General: ["Triumph", "projects", "skills", "Terminal"],
+    Media: ["contact", "resume", "blog", "Game"],
+    "Settings & Info": ["info", "Settings"],
+  };
+
+  const filteredItems = Object.entries(menuItems).reduce((acc: { [key: string]: string[] }, [section, items]) => {
+    const filtered = items.filter((item) =>
+      item.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    if (filtered.length) {
+      acc[section] = filtered;
+    }
+    return acc;
+  }, {});
 
 
   const handleWindowOpen = (section: string) => {
@@ -389,99 +408,74 @@ return (
   {/* Start Menu */}
   {startMenuOpen && (
   <div
-    className="bg-windowBackground absolute bottom-16 left-0 border-2 border-mainColor rounded-lg p-4 shadow-lg z-50 sm:w-auto w-full max-w-xs transition-all duration-300 ease-in-out transform"
-    style={{ transform: startMenuOpen ? 'translateY(0)' : 'translateY(20px)', opacity: startMenuOpen ? 1 : 0 }}
-  >
-    <div>
-      {/* //search bar   */}
+      className="bg-windowBackground absolute bottom-16 left-0 border-2 border-mainColor rounded-lg p-4 shadow-lg z-50 sm:w-auto w-full max-w-xs transition-all duration-300 ease-in-out transform"
+      style={{
+        transform: startMenuOpen ? "translateY(0)" : "translateY(20px)",
+        opacity: startMenuOpen ? 1 : 0,
+      }}
+    >
+      {/* Search Bar */}
       <div className="flex items-center bg-mainColor rounded-md p-2 mb-4">
         <i className="fas fa-search text-accentColor"></i>
         <input
           type="text"
           placeholder="Search..."
-          className="bg-transparent focus:outline-none text-SpecialaccentColor ml-2"
-          />
+          className="bg-transparent focus:outline-none text-SpecialaccentColor ml-2 w-full"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)} // Update the search query
+        />
       </div>
+
+      {/* Filtered Menu */}
+      <ul className="font-pixel text-sm space-y-2">
+        {Object.entries(filteredItems).map(([section, items]) => (
+          <React.Fragment key={section}>
+            <li className="font-bold text-xs text-accentColor mt-4">{section}</li>
+            {items.map((item) => (
+              <li
+                key={item}
+                className="cursor-pointer hover:bg-specialAccentColor hover:text-white rounded-md px-4 py-2 transition-all flex items-center space-x-2"
+                onClick={() => {
+                  handleWindowOpen(item);
+                  toggleStartMenu();
+                }}
+              >
+                <i
+                  className={`fas fa-${
+                    item === "Triumph"
+                      ? "user-ninja"
+                      : item === "projects"
+                      ? "briefcase"
+                      : item === "skills"
+                      ? "laptop-code"
+                      : item === "Terminal"
+                      ? "terminal"
+                      : item === "contact"
+                      ? "envelope"
+                      : item === "resume"
+                      ? "file"
+                      : item === "Game"
+                      ? "gamepad"
+                      : item === "info"
+                      ? "info"
+                      : item === "Settings"
+                      ? "cogs"
+                      : "comments"
+                  }`}
+                ></i>
+                <span>{item.charAt(0).toUpperCase() + item.slice(1)}</span>
+              </li>
+            ))}
+          </React.Fragment>
+        ))}
+        {/* Show a "No results" message if no items match */}
+        {Object.keys(filteredItems).length === 0 && (
+          <li className="text-xs text-center text-accentColor mt-4">
+            No results found.
+          </li>
+        )}
+      </ul>
     </div>
-  
-    <ul className="font-pixel text-sm space-y-2">
-      {/* Section 1: General */}
-      <li className="font-bold text-xs text-accentColor">General</li>
-      {['Triumph', 'projects', 'skills', 'Terminal'].map((section) => (
-        <li
-          key={section}
-          className="cursor-pointer hover:bg-specialAccentColor hover:text-white rounded-md px-4 py-2 transition-all flex items-center space-x-2"
-          onClick={() => {
-            handleWindowOpen(section);
-            toggleStartMenu();
-          }}
-        >
-          <i
-            className={`fas fa-${
-              section === 'Triumph'
-                ? 'user-ninja'
-                : section === 'projects'
-                ? 'briefcase'
-                : section === 'skills'
-                ? 'laptop-code'
-                : 'terminal'
-            }`}
-          ></i>
-          <span>{section.charAt(0).toUpperCase() + section.slice(1)}</span>
-        </li>
-      ))}
-
-      {/* Section 2: Media */}
-      <li className="font-bold text-xs text-accentColor mt-4">Media</li>
-      {['contact', 'resume','blog', 'Game'].map((section) => (
-        <li
-          key={section}
-          className="cursor-pointer hover:bg-specialAccentColor hover:text-white rounded-md px-4 py-2 transition-all flex items-center space-x-2"
-          onClick={() => {
-            handleWindowOpen(section);
-            toggleStartMenu();
-          }}
-        >
-          <i
-            className={`fas fa-${
-              section === 'contact'
-                ? 'envelope'
-                : section === 'resume'
-                ? 'file'
-                : section === 'Game'
-                ? 'gamepad'
-                : 'comments'
-            }`}
-          ></i>
-          <span>{section.charAt(0).toUpperCase() + section.slice(1)}</span>
-        </li>
-      ))}
-
-      {/* Section 3: Settings & Info */}
-      <li className="font-bold text-xs text-accentColor mt-4">Settings & Info</li>
-      {['info', 'Settings'].map((section) => (
-        <li
-          key={section}
-          className="cursor-pointer hover:bg-specialAccentColor hover:text-white rounded-md px-4 py-2 transition-all flex items-center space-x-2"
-          onClick={() => {
-            handleWindowOpen(section);
-            toggleStartMenu();
-          }}
-        >
-          <i
-            className={`fas fa-${
-              section === 'info'
-                ? 'info'
-              : section === 'Settings'
-                ? 'cogs'
-                : 'cogs'
-            }`}
-          ></i>
-          <span>{section.charAt(0).toUpperCase() + section.slice(1)}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
 )}
 
 
