@@ -77,16 +77,16 @@ export default function Resume() {
               <div className="relative border-l-2 border-neonGreen pl-6 space-y-8">
                 {[
                   {
+                    title: "IT Intern",
+                    comapny: "Blue Turtle Technologies",
+                    description: "Rotating through various departments and learning about the company's IT systems and operations.",
+                    duration: "Feb 2025 - Present",
+                  },
+                  {
                     title: "Freelance Web Developer",
                     company: "Self-Employed",
                     description: "Developed modern websites and web apps for clients.",
                     duration: "2021 - Present",
-                  },
-                  {
-                    title: "Software Engineering Intern",
-                    company: "Tech Solutions Inc.",
-                    description: "Collaborated on backend systems and APIs for various projects.",
-                    duration: "Jan 2023 - Jun 2023",
                   },
                   {
                     title: "Tutor",
