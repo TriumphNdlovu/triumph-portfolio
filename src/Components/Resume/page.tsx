@@ -16,16 +16,15 @@ export default function Resume() {
   return (
     <div className="space-y-12 text-center">
       {/* Page Title */}
-      <h2 className="text-4xl text-neonGreen font-pixel mb-12">Resume</h2>
+      <h2 className="text-4xl text-neonGreen font-pixel mb-12 border-b border-maintextColor">Resume</h2>
 
       {/* Personal Introduction */}
       <p className="text-lg text-secondaryTextColor font-vt323 mb-12 mx-auto w-4/5 sm:w-3/5">
-        Passionate software engineer with a strong foundation in web and backend development.
-        I strive to write clean, scalable code and always seek innovative solutions to complex challenges.
+        I’m a software engineer with a solid background in web and backend development.
+        I focus on writing clean, scalable code and love finding creative solutions to complex problems.
       </p>
-
       <div className="p-8 rounded-lg border border-neonGreen shadow-xl text-left space-y-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="">
           {/* Left Column: Education and Work Experience */}
           <div className="space-y-12">
             {/* Education */}
@@ -73,19 +72,19 @@ export default function Resume() {
 
             {/* Work Experience */}
             <div>
-              <h3 className="text-xl text-neonGreen font-semibold mb-4">Work Experience</h3>
+              <h3 className="text-xl text-neonGreen font-semibold mb-4 border-b border-maintextColor">Work Experience</h3>
               <div className="relative border-l-2 border-neonGreen pl-6 space-y-8">
                 {[
                   {
                     title: "IT Intern",
-                    comapny: "Blue Turtle Technologies",
+                    company: "Blue Turtle Technologies",
                     description: "Rotating through various departments and learning about the company's IT systems and operations.",
                     duration: "Feb 2025 - Present",
                   },
                   {
                     title: "Freelance Web Developer",
                     company: "Self-Employed",
-                    description: "Developed modern websites and web apps for clients.",
+                    description: "Developing modern and beautiful websites and web apps for clients. As well as help them solve technical issues.",
                     duration: "2021 - Present",
                   },
                   {
@@ -118,7 +117,7 @@ export default function Resume() {
           <div className="space-y-12">
             {/* Technical Skills */}
             <div>
-              <h3 className="text-xl text-neonGreen font-semibold mb-8">Technical Skills</h3>
+              <h3 className="text-xl text-neonGreen font-semibold mb-8 pt-4 border-b border-maintextColor">Technical Skills</h3>
               {/* Skill Categories */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {/* Programming Languages */}
@@ -136,7 +135,7 @@ export default function Resume() {
 
                 {/* Frameworks and Libraries */}
                 <div className="border border-neonGreen rounded-lg p-6 space-y-4 bg-backgroundColor shadow-xl">
-                  <h4 className="text-lg text-highlightColor font-semibold">Frameworks and Libraries</h4>
+                  <h4 className="text-lg text-highlightColor font-semibold ">Frameworks and Libraries</h4>
                   <ul className="list-disc list-inside text-secondaryTextColor font-vt323 text-lg space-y-2">
                     <li>Angular</li>
                     <li>React</li>
@@ -176,40 +175,71 @@ export default function Resume() {
             </div>
 
             {/* Soft Skills */}
-            <div>
-              <h3 className="text-xl text-neonGreen font-semibold mb-6">Soft Skills</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-secondaryTextColor font-vt323 text-lg mb-8">
-                <ul className="space-y-3">
-                  <li className="text-highlightColor flex items-center">
-                    <span className="mr-3">⏰</span>Time Management
-                  </li>
-                  <li className="text-highlightColor flex items-center">
-                    <span className="mr-3">🔄</span>Adaptability
-                  </li>
-                  <li className="text-highlightColor flex items-center">
-                    <span className="mr-3">🎯</span>Leadership
-                  </li>
-                  <li className="text-highlightColor flex items-center">
-                    <span className="mr-3">👂</span>Active Listening
-                  </li>
-                  <li className="text-highlightColor flex items-center">
-                    <span className="mr-3">🎨</span>Creativity
-                  </li>
-                </ul>
-                <ul className="space-y-3">
-                  <li className="text-highlightColor flex items-center">
-                    <span className="mr-3">💬</span>Excellent Communication
-                  </li>
-                  <li className="text-highlightColor flex items-center">
-                    <span className="mr-3">🤝</span>Teamwork
-                  </li>
-                  <li className="text-highlightColor flex items-center">
-                    <span className="mr-3">🧩</span>Problem Solving
-                  </li>
-                </ul>
-              </div>
-            </div>
-
+           <div>
+  <h3 className="text-xl text-neonGreen font-semibold mb-6 border-b border-maintextColor">Soft Skills</h3>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-secondaryTextColor font-vt323 text-lg mb-8">
+    <ul className="space-y-3">
+      <li className="text-highlightColor flex items-center">
+        <span className="mr-3">⏰</span>Time Management
+      </li>
+      <li className="text-highlightColor flex items-center">
+        <span className="mr-3">🔄</span>Adaptability
+      </li>
+      <li className="text-highlightColor flex items-center">
+        <span className="mr-3">🎯</span>Leadership
+      </li>
+      <li className="text-highlightColor flex items-center">
+        <span className="mr-3">👂</span>Active Listening
+      </li>
+      <li className="text-highlightColor flex items-center">
+        <span className="mr-3">🎨</span>Creativity
+      </li>
+    </ul>
+    <ul className="space-y-3">
+      <li className="text-highlightColor flex items-center">
+        <span className="mr-3">💬</span>Excellent Communication
+      </li>
+      <li className="text-highlightColor flex items-center">
+        <span className="mr-3">🤝</span>Teamwork
+      </li>
+      <li className="text-highlightColor flex items-center">
+        <span className="mr-3">🧩</span>Problem Solving
+      </li>
+    </ul>
+  </div>
+</div>
+<div>
+  <h3 className="text-xl text-neonGreen font-semibold mb-6 border-b border-maintextColor">Certificates</h3>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-secondaryTextColor font-vt323 text-lg mb-8">
+    <ul className="space-y-3">
+      <div className="text-bold text-highlightColor font-semibold">Udemy Courses</div>
+      <li className="text-highlightColor flex items-center">
+        <span className="mr-3">📜</span>
+        <a href="https://www.udemy.com/certificate/react" target="_blank" rel="noopener noreferrer">React Developer Certificate</a>
+      </li>
+      <li className="text-highlightColor flex items-center">
+        <span className="mr-3">📜</span>
+        <a href="https://www.udemy.com/certificate/nodejs" target="_blank" rel="noopener noreferrer">NodeJS Developer Certificate</a>
+      </li>
+      <li className="text-highlightColor flex items-center">
+        <span className="mr-3">📜</span>
+        <a href="https://www.udemy.com/certificate/java" target="_blank" rel="noopener noreferrer">Java Developer Certificate</a>
+      </li>
+    </ul>
+    <ul className="space-y-3">
+      <div className="text-bold text-highlightColor font-semibold">LinkedIn Learning</div>
+      <li className="text-highlightColor flex items-center">
+        <span className="mr-3">📜</span>
+        <a href="https://www.linkedin.com/learning/certificates/software-engineering" target="_blank" rel="noopener noreferrer">Software Engineering Certificate</a>
+      </li>
+      <li className="text-highlightColor flex items-center">
+        <span className="mr-3">📜</span>
+        <a href="https://www.linkedin.com/learning/certificates/web-development" target="_blank" rel="noopener noreferrer">Web Development Certificate</a>
+      </li>
+    </ul>
+  </div>
+</div>
+ 
           </div>
         </div>
       </div>
