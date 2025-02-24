@@ -1,5 +1,5 @@
-import { FaJs, FaReact, FaJava, FaNodeJs, FaLinux } from "react-icons/fa";
-import { SiTypescript, SiSpringboot, SiNextdotjs } from "react-icons/si";
+import { FaJs, FaReact, FaJava, FaNodeJs, FaLinux, FaLinkedin } from "react-icons/fa";
+import { SiTypescript, SiSpringboot, SiNextdotjs, SiUdemy } from "react-icons/si";
 
 export default function Resume() {
   const skillIcons: Record<string, JSX.Element> = {
@@ -29,7 +29,7 @@ export default function Resume() {
           <div className="space-y-12">
             {/* Education */}
             <div>
-              <h3 className="text-xl text-neonGreen font-semibold mb-4">Education</h3>
+              <h3 className="text-xl text-neonGreen font-semibold mb-4 border-b">Education</h3>
               <div className="relative border-l-2 border-neonGreen pl-6 space-y-6">
                 {[
                   {
@@ -57,7 +57,7 @@ export default function Resume() {
                 ].map((edu, index) => (
                   <div key={index} className="mb-6">
                     <div className="absolute -left-3 w-6 h-6 bg-accentColor rounded-full border border-backgroundColor"></div>
-                    <h4 className="text-highlightColor text-lg font-semibold">{edu.degree}</h4>
+                    <h4 className="text-secondaryTextColor text-lg font-semibold">{edu.degree}</h4>
                     <p className="text-secondaryTextColor font-vt323 text-sm italic">{edu.school}</p>
                     <p className="text-secondaryTextColor font-vt323 text-sm">{edu.duration}</p>
                     <ul className="list-disc list-inside text-secondaryTextColor font-vt323 text-sm mt-2">
@@ -102,7 +102,7 @@ export default function Resume() {
                 ].map((job, index) => (
                   <div key={index} className="mb-6 transition-transform duration-300">
                     <div className="absolute -left-3 w-6 h-6 bg-accentColor rounded-full border border-backgroundColor"></div>
-                    <h4 className="text-highlightColor text-lg font-semibold">
+                    <h4 className="text-secondaryTextColor text-lg font-semibold">
                       {job.title} - <span className="text-secondaryTextColor">{job.company}</span>
                     </h4>
                     <p className="text-secondaryTextColor font-vt323 text-sm italic">{job.duration}</p>
@@ -112,138 +112,70 @@ export default function Resume() {
               </div>
             </div>
           </div>
-
-          {/* Right Column: Technical Skills and Soft Skills */}
-          <div className="space-y-12">
-            {/* Technical Skills */}
-            <div>
-              <h3 className="text-xl text-neonGreen font-semibold mb-8 pt-4 border-b border-maintextColor">Technical Skills</h3>
-              {/* Skill Categories */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Programming Languages */}
-                <div className="border border-neonGreen rounded-lg p-6 space-y-4 bg-backgroundColor shadow-xl">
-                  <h4 className="text-lg text-highlightColor font-semibold">Programming Languages</h4>
-                  <ul className="list-disc list-inside text-secondaryTextColor font-vt323 text-lg space-y-2">
-                    <li>C++</li>
-                    <li>Java</li>
-                    <li>C#</li>
-                    <li>JavaScript</li>
-                    <li>TypeScript</li>
-                    <li>PHP</li>
-                  </ul>
-                </div>
-
-                {/* Frameworks and Libraries */}
-                <div className="border border-neonGreen rounded-lg p-6 space-y-4 bg-backgroundColor shadow-xl">
-                  <h4 className="text-lg text-highlightColor font-semibold ">Frameworks and Libraries</h4>
-                  <ul className="list-disc list-inside text-secondaryTextColor font-vt323 text-lg space-y-2">
-                    <li>Angular</li>
-                    <li>React</li>
-                    <li>Next.js</li>
-                    <li>Tailwind CSS</li>
-                    <li>NextUI</li>
-                    <li>.NET Core</li>
-                    <li>Spring Boot</li>
-                    <li>Maven</li>
-                    <li>Gradle</li>
-                  </ul>
-                </div>
-
-                {/* Databases */}
-                <div className="border border-neonGreen rounded-lg p-6 space-y-4 bg-backgroundColor shadow-xl">
-                  <h4 className="text-lg text-highlightColor font-semibold">Databases</h4>
-                  <ul className="list-disc list-inside text-secondaryTextColor font-vt323 text-lg space-y-2">
-                    <li>Supabase</li>
-                    <li>Firebase</li>
-                    <li>MySQL</li>
-                    <li>MongoDB</li>
-                    <li>PostgreSQL</li>
-                    <li>Firebase Cloud Functions</li>
-                  </ul>
-                </div>
-
-                {/* Testing and Debugging Expertise */}
-                <div className="border border-neonGreen rounded-lg p-6 space-y-4 bg-backgroundColor shadow-xl">
-                  <h4 className="text-lg text-highlightColor font-semibold">Testing and Debugging Expertise</h4>
-                  <ul className="list-disc list-inside text-secondaryTextColor font-vt323 text-lg space-y-2">
-                    <li>Unit testing (Jest)</li>
-                    <li>Integration testing (Jest)</li>
-                    <li>End-to-end testing (Cypress)</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Soft Skills */}
-           <div>
-  <h3 className="text-xl text-neonGreen font-semibold mb-6 border-b border-maintextColor">Soft Skills</h3>
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-secondaryTextColor font-vt323 text-lg mb-8">
-    <ul className="space-y-3">
-      <li className="text-highlightColor flex items-center">
-        <span className="mr-3">⏰</span>Time Management
-      </li>
-      <li className="text-highlightColor flex items-center">
-        <span className="mr-3">🔄</span>Adaptability
-      </li>
-      <li className="text-highlightColor flex items-center">
-        <span className="mr-3">🎯</span>Leadership
-      </li>
-      <li className="text-highlightColor flex items-center">
-        <span className="mr-3">👂</span>Active Listening
-      </li>
-      <li className="text-highlightColor flex items-center">
-        <span className="mr-3">🎨</span>Creativity
-      </li>
-    </ul>
-    <ul className="space-y-3">
-      <li className="text-highlightColor flex items-center">
-        <span className="mr-3">💬</span>Excellent Communication
-      </li>
-      <li className="text-highlightColor flex items-center">
-        <span className="mr-3">🤝</span>Teamwork
-      </li>
-      <li className="text-highlightColor flex items-center">
-        <span className="mr-3">🧩</span>Problem Solving
-      </li>
-    </ul>
-  </div>
-</div>
-<div>
-  <h3 className="text-xl text-neonGreen font-semibold mb-6 border-b border-maintextColor">Certificates</h3>
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-secondaryTextColor font-vt323 text-lg mb-8">
-    <ul className="space-y-3">
-      <div className="text-bold text-highlightColor font-semibold">Udemy Courses</div>
-      <li className="text-highlightColor flex items-center">
-        <span className="mr-3">📜</span>
-        <a href="https://www.udemy.com/certificate/react" target="_blank" rel="noopener noreferrer">React Developer Certificate</a>
-      </li>
-      <li className="text-highlightColor flex items-center">
-        <span className="mr-3">📜</span>
-        <a href="https://www.udemy.com/certificate/nodejs" target="_blank" rel="noopener noreferrer">NodeJS Developer Certificate</a>
-      </li>
-      <li className="text-highlightColor flex items-center">
-        <span className="mr-3">📜</span>
-        <a href="https://www.udemy.com/certificate/java" target="_blank" rel="noopener noreferrer">Java Developer Certificate</a>
-      </li>
-    </ul>
-    <ul className="space-y-3">
-      <div className="text-bold text-highlightColor font-semibold">LinkedIn Learning</div>
-      <li className="text-highlightColor flex items-center">
-        <span className="mr-3">📜</span>
-        <a href="https://www.linkedin.com/learning/certificates/software-engineering" target="_blank" rel="noopener noreferrer">Software Engineering Certificate</a>
-      </li>
-      <li className="text-highlightColor flex items-center">
-        <span className="mr-3">📜</span>
-        <a href="https://www.linkedin.com/learning/certificates/web-development" target="_blank" rel="noopener noreferrer">Web Development Certificate</a>
-      </li>
-    </ul>
-  </div>
-</div>
- 
           </div>
-        </div>
-      </div>
+          
 
+<div>
+  <h3 className="text-xl text-neonGreen font-semibold mb-4 border-b border-maintextColor">Licenses & Certificates</h3>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-secondaryTextColor font-vt323 text-lg mb-8">
+    <ul className="space-y-3">
+      <div className="text-bold text-secondaryTextColor font-semibold">Udemy Courses</div>
+      <li className="text-secondaryTextColor flex items-center">
+        <span className="mr-3">
+          <SiUdemy className="text-2xl bg-purple-600 rounded-sm"/>
+        </span>
+        <a href="https://www.udemy.com/certificate/UC-5a748d9e-17e0-4c63-b030-5adc63923d38/" target="_blank" rel="noopener noreferrer"
+          className="hover:underline">
+          IT Asset Management (ITAM)— Software Asset Management
+        </a>
+      </li>
+      <li className="text-secondaryTextColor flex items-center">
+        <span className="mr-3">
+          <SiUdemy className="text-2xl bg-purple-600 rounded-sm"/>
+        </span>
+        <a href="https://www.udemy.com/certificate/UC-b960acb8-0484-4d7f-8600-0c24fa22322a/" target="_blank" rel="noopener noreferrer"
+          className="hover:underline">
+          Better Business Writing Skills
+        </a>
+      </li>
+      <li className="text-secondaryTextColor flex items-center">
+        <span className="mr-3">
+          <SiUdemy className="text-2xl bg-purple-600 rounded-sm"/>
+        </span>
+        <a href="https://www.udemy.com/certificate/UC-d20e7d0e-e24a-478e-9d98-bc4d2fea61d9/" target="_blank" rel="noopener noreferrer"
+          className="hover:underline">
+          Smart Tips: Soft Skills for Technical Professionals
+        </a>
+      </li>
+    </ul>
+
+    <ul className="space-y-3">
+      <div className="text-bold text-highlightColor font-semibold">
+        Linkedin Certifications
+      </div>
+      <li className="text-secondaryTextColor flex items-center">
+        <span className="mr-3 text-3xl">
+          <FaLinkedin className="text-blue-600 bg-white rounded-md"/>
+        </span>
+        <a href="https://www.linkedin.com/learning/certificates/e755e49bde416535651d926066f4e854cd6e88375b02eaaabec1b19a486316eb?trk=share_certificate&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BvYEqGtHBSoubabkdkSj1uA%3D%3D" target="_blank" rel="noopener noreferrer"
+        className="hover:underline">
+            Learning Spring with Spring Boot
+        </a>
+      </li>
+      <li className="text-secondaryTextColor flex items-center">
+        <span className="mr-3 text-3xl rounded-sm">
+          <FaLinkedin className="text-blue-600 bg-white rounded-md"/>
+        </span>
+        <a href="https://www.linkedin.com/learning/certificates/e9bbc63656200374d5036c6176c1d9d5df2f08e73fe727445412bdc13f69d8f5?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BvYEqGtHBSoubabkdkSj1uA%3D%3D" target="_blank" rel="noopener noreferrer" 
+        className="hover:underline">
+            Introduction to Data Science
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+          </div>
+     
       {/* Download Button */}
       <a
         href="/resume.pdf"
