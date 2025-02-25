@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Triumph Ndlovu's Portfolio Website
+![Untitled](https://github.com/user-attachments/assets/66880e22-c757-4339-866a-499ca10e703c)
 
-## Getting Started
+This is the codebase for my personal portfolio website — a retro-themed, single-page site built with Next.js and Tailwind CSS. It showcases my projects, technical skills, and blog posts while offering an easy way for potential clients and employers to contact me.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Framework:** Next.js 15
+- **Styling:** Tailwind CSS
+- **Language:** TypeScript
+- **Image Hosting:** Cloudinary
+- **Content:** Markdown for blog posts
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **About Section:** Styled like a terminal prompt with my image.
+- **Projects Section:** Displays my work with images and descriptions.
+- **Skills Section:** Categorized and animated horizontal scrolling.
+- **Resume Section:** Embedded PDF with download option.
+- **Blog Section:** Markdown-based with dynamic routing and gray-matter parsing.
+- **Retro Theme:** Inspired by old-school operating systems, complete with a taskbar and start button.
+- **Game:** There is a fun litle game you can go and play
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How to Run Locally
 
-## Learn More
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/TriumphNdlovu/triumph-portfolio.git
+   ```
+2. Navigate to the project folder:
+   ```bash
+   cd triumph-portfolio
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is optimized for deployment on Vercel.
 
-## Deploy on Vercel
+## Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+For any website inquiries or collaboration opportunities, reach out to me at [realtriumphndlovu@gmail.com](mailto\:realtriumphndlovu@gmail.com).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
