@@ -1,4 +1,4 @@
-import { FaJs, FaReact, FaJava, FaNodeJs, FaLinux, FaLinkedin } from "react-icons/fa";
+import { FaJs, FaReact, FaJava, FaNodeJs, FaLinux, FaLinkedin, FaBeer } from "react-icons/fa";
 import { SiTypescript, SiSpringboot, SiNextdotjs, SiUdemy } from "react-icons/si";
 
 export default function Resume() {
@@ -169,6 +169,23 @@ export default function Resume() {
         <a href="https://www.linkedin.com/learning/certificates/e9bbc63656200374d5036c6176c1d9d5df2f08e73fe727445412bdc13f69d8f5?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BvYEqGtHBSoubabkdkSj1uA%3D%3D" target="_blank" rel="noopener noreferrer" 
         className="hover:underline">
             Introduction to Data Science
+        </a>
+      </li>
+      
+    </ul>
+
+    <ul className="space-y-3">
+      <div className="text-bold text-highlightColor font-semibold">
+        Other Certifications
+      </div>
+      <li className="text-secondaryTextColor flex items-center">
+        <span className="mr-3 text-3xl rounded-sm">
+          IBM
+        </span>
+        <a href="https://www.linkedin.com/learning/certificates/1b3b3b3b7b3b4
+        1b3b3b3b7b3b4" target="_blank" rel="noopener noreferrer"
+        className="hover:underline">
+            Introduction to IBM z/OS
         </a>
       </li>
     </ul>
