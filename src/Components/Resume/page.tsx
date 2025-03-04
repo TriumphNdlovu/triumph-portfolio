@@ -191,8 +191,7 @@ export default function Resume() {
         <span className="mr-3 text-3xl rounded-sm">
           IBM
         </span>
-        <a href="https://www.linkedin.com/learning/certificates/1b3b3b3b7b3b4
-        1b3b3b3b7b3b4" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.credly.com/badges/9125a6a5-fa03-4139-b2f1-729f313355e3/linked_in_profile" target="_blank" rel="noopener noreferrer"
         className="hover:underline">
             Introduction to IBM z/OS
         </a>
