@@ -147,6 +147,15 @@ export default function Resume() {
           Smart Tips: Soft Skills for Technical Professionals
         </a>
       </li>
+      <li className="text-secondaryTextColor flex items-center">
+        <span className="mr-3">
+          <SiUdemy className="text-2xl bg-purple-600 rounded-sm"/>
+        </span>
+      <a href="https://www.udemy.com/certificate/UC-221f1536-b555-4b89-9dfb-0cb247b3665d/" target="_blank" rel="noopener noreferrer"
+          className="hover:underline">
+          NIST Cybersecurity Framework (NIST CSF) for Beginners
+        </a>
+      </li>
     </ul>
 
     <ul className="space-y-3">
