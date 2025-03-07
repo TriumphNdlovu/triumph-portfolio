@@ -1,3 +1,4 @@
+import { title } from "process";
 import { FaJs, FaReact, FaJava, FaNodeJs, FaLinux, FaLinkedin, FaBeer } from "react-icons/fa";
 import { SiTypescript, SiSpringboot, SiNextdotjs, SiUdemy } from "react-icons/si";
 
@@ -82,22 +83,28 @@ export default function Resume() {
                     duration: "Feb 2025 - Present",
                   },
                   {
+                    title: "Tutor",
+                    company: "University of Pretoria",
+                    description: "Assisting students with their programming assignments and projects. Also, providing consultation sessions.",
+                    duration: "Jan 2023 - Jun 2023",
+                  },
+                  {
                     title: "Freelance Web Developer",
                     company: "Self-Employed",
                     description: "Developing modern and beautiful websites and web apps for clients. As well as help them solve technical issues.",
                     duration: "2021 - Present",
                   },
                   {
-                    title: "Tutor",
-                    company: "University of Pretoria Afterschool Program",
-                    description: "Helping students with the module Computer Organization and Architecture. Evaluated their Assembly coding practical and graded them. Provided consultation sessions.",
-                    duration: "2019 - Second Semester",
-                  },
-                  {
                     title: "Volunteer",
                     company: "SPCA",
                     description: "Collaborated with a team of 5 to renovate the SPCA laundry room. Enhanced the facility to improve cleanliness and hygiene for the animals.",
                     duration: "2021 - Second Semester",
+                  },
+                  {
+                    title: "Tutor",
+                    company: "University of Pretoria Afterschool Program",
+                    description: "Helping students with the module Computer Organization and Architecture. Evaluated their Assembly coding practical and graded them. Provided consultation sessions.",
+                    duration: "2019 - Second Semester",
                   },
                 ].map((job, index) => (
                   <div key={index} className="mb-6 transition-transform duration-300">
