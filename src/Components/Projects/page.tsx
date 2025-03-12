@@ -26,6 +26,13 @@ export default function Projects() {
       github: 'https://github.com/TriumphNdlovu/tlt-media',
     },
     {
+      title: 'Jobman',
+      description:'Jobman is an AI-powered career recommendation tool that helps users explore potential career paths based on their skills, education, and interests.It provides tailored career suggestions and detailed explanations on why each career might be a good fit',
+      techStack: ['Angular', 'Tailwind CSS', 'Typescript', ' GoogleGenerativeAI', 'Vercel Hosting', 'Render Hosting'],
+      imageUrl: '/jobman.png',
+      github: 'https://github.com/TriumphNdlovu/jobman',
+    },
+    {
       title: 'Sweat Session',
       description:
         'The purpose of SweatSession is to develop a social, location-based mobile app that will enable users to schedule workout sessions with their friends, track their progress, view their friends personal bests, and earn rewards for achieving their fitness goals.',

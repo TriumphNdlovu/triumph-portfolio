@@ -42,6 +42,22 @@ export default function Skills() {
   return (
     <>
       <div className="space-y-12 px-6 sm:px-12">
+      {/* Soft Skills Section */}
+      <div>
+<h2 className="text-3xl text-maintextColor font-pixel font-semibold mb-6">Soft Skills</h2>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    {softSkills.map((skill, index) => (
+                      <span
+                        key={index}
+                        className={`px-4 py-2 rounded-full ${skill.color} text-sm font-pixel whitespace-nowrap hover:scale-110 transition-transform duration-300`}
+                      >
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                
         {Object.entries(groupedSkills).map(([category, skills]) => (
           <div key={category}>
             <h2 className="text-3xl text-maintextColor font-pixel font-semibold mb-6">{category}</h2>
@@ -59,20 +75,6 @@ export default function Skills() {
           </div>
         ))}
 
-        {/* Soft Skills Section */}
-        <div>
-          <h2 className="text-3xl text-maintextColor font-pixel font-semibold mb-6">Soft Skills</h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            {softSkills.map((skill, index) => (
-              <span
-                key={index}
-                className={`px-4 py-2 rounded-full ${skill.color} text-sm font-pixel whitespace-nowrap hover:scale-110 transition-transform duration-300`}
-              >
-                {skill.name}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </>
   );
