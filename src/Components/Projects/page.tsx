@@ -47,8 +47,7 @@ export default function Projects() {
       techStack: ['Java Swing', 'Maven', 'JPA', 'Barcode Scanning', 'PostgreSQL Database'],
       imageUrl: '/pos_system.png',
       github: 'https://github.com/TriumphNdlovu/pos_system',
-    },
-    
+    }, 
 
   ];
 

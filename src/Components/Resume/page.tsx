@@ -103,7 +103,7 @@ export default function Resume() {
                   {
                     title: "Tutor",
                     company: "University of Pretoria Afterschool Program",
-                    description: "Helping students with the module Computer Organization and Architecture. Evaluated their Assembly coding practical and graded them. Provided consultation sessions.",
+                    description: "Tutoring high school students in Mathematics and Physical Science. Helping them improve their understanding of the subjects.",
                     duration: "2019 - Second Semester",
                   },
                 ].map((job, index) => (
