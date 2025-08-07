@@ -78,14 +78,14 @@ export default function About() {
           {/* About Text */}
           <div className="bg-windowBackground p-6 rounded-lg border border-accentColor shadow-md">
             <p className="text-secondaryTextColor font-vt323 text-lg leading-relaxed mb-4">
-              I'm a Computer Science graduate from the University of Pretoria with a passion for crafting efficient and visually stunning web applications.
+              I'm a Computer Science graduate from the University of Pretoria, currently working as a Junior Software Engineer at MIP Holdings.
             </p>
             <p className="text-secondaryTextColor font-vt323 text-lg leading-relaxed mb-4">
-              I specialize in modern technologies like <span className="text-alertColor">Next.js</span>, <span className="text-alertColor">Node.js</span>, 
-              <span className="text-alertColor">Tailwind CSS</span>, and <span className="text-alertColor">Java</span>. Whether it's creating responsive designs or building scalable backends, I enjoy every step of the process.
+              I contribute to the development and maintenance of Sanlam’s life insurance systems under the Individual Life and Risk division. My role involves enhancing core business logic, resolving production issues, and supporting system upgrades to ensure performance and reliability.
             </p>
             <p className="text-secondaryTextColor font-vt323 text-lg leading-relaxed mb-4">
-              Let's connect and bring your ideas to life!
+              Outside of work, I enjoy exploring modern web technologies like <span className="text-alertColor">Next.js</span>, <span className="text-alertColor">Node.js</span>, 
+              <span className="text-alertColor">Tailwind CSS</span>, and <span className="text-alertColor">Java</span> to build clean and scalable applications.
             </p>
           </div>
         </div>

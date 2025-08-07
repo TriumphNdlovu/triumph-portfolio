@@ -77,10 +77,15 @@ export default function Resume() {
               <div className="relative border-l-2 border-neonGreen pl-6 space-y-8">
                 {[
                   {
-                    title: "IT Intern",
+                    title: "Junior Software Engineer",
+                    company: "MIP Holdings (Pty) Ltd",
+                    description: "Contributing to the development and maintenance of life insurance systems for Sanlam under the Individual Life and Risk division. Focused on enhancing business logic, resolving production issues, and supporting ongoing system improvements.",
+                    duration: "May 2025 - Present",
+                  },
+                  { title: "IT Intern",
                     company: "Blue Turtle Technologies",
                     description: "Rotating through various departments and learning about the company's IT systems and operations.",
-                    duration: "Feb 2025 - Present",
+                    duration: "Feb 2025 - April 2025",
                   },
                   {
                     title: "Tutor",
