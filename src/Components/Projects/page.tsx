@@ -3,6 +3,14 @@ import Image from 'next/image';
 export default function Projects() {
   const projects = [
     {
+      title: 'Logitech Mouse Configurator',
+      description:
+        'A lightweight Python-based tool to customize Logitech mouse behavior, including: Hold-based macros,Keyboard shortcuts,Mouse sensitivity control,System tray background control',
+      techStack: ['Python', 'pystray', 'hidapi'],
+      imageUrl: '/Logitech_project.png',
+      github: 'https://github.com/TriumphNdlovu/Logitech_Mouse_Configurator',
+    },
+    {
       title: 'TQG Tickets',
       description:
         'This project is a comprehensive solution for creating, distributing, and managing event tickets with a focus on secure transactions and preventing ticket duplication.',
@@ -31,6 +39,22 @@ export default function Projects() {
       techStack: ['Angular', 'Tailwind CSS', 'Typescript', ' GoogleGenerativeAI', 'Vercel Hosting', 'Render Hosting'],
       imageUrl: '/jobman.png',
       github: 'https://github.com/TriumphNdlovu/jobman',
+    },
+    {
+      title: 'Commit log',
+      description:
+        'This is a space where I’ll be sharing my thoughts, experiences, and insights on 𝘁𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝘆, 𝘀𝗼𝗳𝘁𝘄𝗮𝗿𝗲 𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗺𝗲𝗻𝘁, 𝗮𝗻𝗱 𝗷𝘂𝘀𝘁 𝗿𝗮𝗻𝗱𝗼𝗺 𝘁𝗵𝗶𝗻𝗴𝘀 𝗜 𝗮𝗺 𝗰𝘂𝗿𝗶𝗼𝘂𝘀 𝗮𝗯𝗼𝘂𝘁 𝗮𝘀 𝗮 𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿. Writing is not just about documenting, it’s about connecting with others, learning together, and sparking conversations.',
+        techStack: ['CSS', 'HTML', 'Tailwind CSS', 'Typescript'],
+      imageUrl: '/Commit_log.png',
+      github: 'https://github.com/TriumphNdlovu/com-log',
+    },
+    {
+      title: 'SmartServeAi',
+      description:
+        'The purpose of SweatSession is to develop a social, location-based mobile app that will enable users to schedule workout sessions with their friends, track their progress, view their friends personal bests, and earn rewards for achieving their fitness goals.It’s a tool that provides a self-service AI portal that gives clear and accurate policy answers on demand 24/7.',
+      techStack: ['Html', 'Css', 'javascript', 'GrokApi'],
+      imageUrl: '/SmartServe_AI.png',
+      github: 'https://github.com/TriumphNdlovu/SmartServe_code',
     },
     {
       title: 'Sweat Session',
